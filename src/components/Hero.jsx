@@ -29,7 +29,7 @@ export const Hero = () => {
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
             <h1 className="inline md:hidden">Analytics</h1>
-            <h1 className="hidden md:inline">Effortless Tab Management for Modern Businesses </h1>
+            <h1 className="hidden md:inline">El punto de venta que corre en cualquier dispositivo</h1>
           </div>
           {/* <h1 className="mt-2 sm:mt-2 text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-20 md:px-24 lg:px-24">        
           </h1> */}

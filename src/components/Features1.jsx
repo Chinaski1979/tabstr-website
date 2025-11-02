@@ -21,27 +21,28 @@ export const Features1 = () => {
         <div className="flex flex-wrap items-center 2xl:w-[1450px] xl:w-[1300px] w-11/12 mx-auto md:pl-4 xl:pr-16 xl:pl-16">
           <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
             <div className="mx-auto lg:mx-auto w-11/12 sm:w-4/5 md:w-3/4 lg:w-unset">
-              <span className="block-subtitle">Embrace Innovation</span>
+              <span className="block-subtitle">¿Licencias por dispositivo?</span>
               <h2 className="mt-6 mb-8 text-4xl lg:text-5xl block-big-title">
-                Unlike any tool you used before
+                Eso quedó en los 90s
               </h2>
               <p className="mb-10 text-secondaryText leading-loose">
-                Discover a new level of data analysis with our innovative and
-                user-friendly platform. Transform your business needs with
-                actionable insights.
+                Accede desde cualquier dispositivo; corre en el navegador.
+                Es compatible con cualquier dispositivo y sistema operativo.
+                Los sistemas de la competencia son unos para android y otros para iOS,
+                otros para Windows... Eso en el {new Date().getFullYear()}?
               </p>
               <ul className="mb-6 text-primaryText">
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Real-time data visualization</span>
+                  <span>Visualiza tus ventas en tiempo real</span>
                 </li>
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Advanced predictive analytics</span>
+                  <span>Administra tu negocio desde cualquier lugar</span>
                 </li>
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Seamless integration with APIs</span>
+                  <span>Sin licencias, sin instalaciones, sin complicaciones</span>
                 </li>
               </ul>
             </div>
