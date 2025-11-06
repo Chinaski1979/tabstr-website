@@ -31,10 +31,63 @@
 /* Buttons */
 
 .contained-button {
-  @apply rounded-lg font-bold bg-primaryColor text-primaryText flex justify-center items-center hover:bg-[#7274f3] cursor-pointer transition;
+  @apply rounded-lg font-bold bg-primaryColor text-primaryText flex justify-center items-center hover:bg-[#c2410c] cursor-pointer transition;
 }
 .outlined-button {
   @apply text-primaryText main-border-gray rounded-xl bg-bgDark2 hover:bg-bgDark3  border-gray-700 text-sm;
+}
+
+.contact-gradient-element {
+  position: relative;
+  left: 50%;
+  aspect-ratio: 1155/678;
+  width: 36.125rem;
+  max-width: none;
+  transform: translateX(-50%) rotate(30deg);
+  background: linear-gradient(to top right, rgb(234, 88, 12), rgb(251, 146, 60));
+  opacity: 0.15;
+  clip-path: polygon(
+    74.1% 44.1%,
+    100% 61.6%,
+    97.5% 26.9%,
+    85.5% 0.1%,
+    80.7% 2%,
+    72.5% 32.5%,
+    60.2% 62.4%,
+    52.4% 68.1%,
+    47.5% 58.3%,
+    45.2% 34.5%,
+    27.5% 76.7%,
+    0.1% 64.9%,
+    17.9% 100%,
+    27.6% 76.8%,
+    76.1% 97.7%,
+    74.1% 44.1%
+  );
+}
+
+@media (min-width: 640px) {
+  .contact-gradient-element {
+    left: calc(50% - 40rem);
+    width: 72.1875rem;
+  }
+}
+
+.contact-label {
+  @apply flex pl-1 text-sm font-semibold leading-6 text-primaryText mb-2;
+}
+
+.contact-input {
+  @apply w-full cursor-text rounded-lg border border-solid border-bgDark3Hover bg-bgDark3 px-4 py-3 text-base font-normal outline-none text-primaryText transition-all duration-200;
+}
+
+.contact-input:focus {
+  @apply border-primaryColor;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+}
+
+.contact-input::placeholder {
+  @apply text-secondaryText;
 }
 
 /* Preventing FOUC */

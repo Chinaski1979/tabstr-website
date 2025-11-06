@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 import { CloseIcon } from "../assets/icons/CloseIcon";
-import { TailcastLogo } from "../assets/logos/TailcastLogo";
+import { TabstrLogo } from "../assets/logos/TabstrLogo";
 
 export const InvitationModal = ({ setIsOpen }) => (
   <AnimatePresence>
@@ -46,11 +46,8 @@ export const InvitationModal = ({ setIsOpen }) => (
             </div>
             <div className="w-full lg:w-1/2 flex items-center flex-col justify-center pt-24 sm:pt-0">
               <div className="flex inline lg:hidden justify-start items-center grow basis-0 mb-8 pr-6">
-                <div className="text-white mr-2 text-8xl">
-                  <TailcastLogo />
-                </div>
-                <div className="text-white font-['Inter'] font-bold text-3xl">
-                  Tailcast
+                <div className="text-white mr-2">
+                  <TabstrLogo />
                 </div>
               </div>
 
@@ -60,7 +57,7 @@ export const InvitationModal = ({ setIsOpen }) => (
               <div className="flex flex-wrap -m-2">
                 <div className="w-full sm:w-4/5 p-2 mx-auto">
                   <input
-                    className="px-4 py-4 w-full text-gray-500 font-medium text-center placeholder-gray-500 outline-none border bg-gray-300 border-gray-300 rounded-lg focus:ring focus:ring-indigo-300"
+                    className="px-4 py-4 w-full text-gray-500 font-medium text-center placeholder-gray-500 outline-none border bg-gray-300 border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
                     id="newsletterInput3-1"
                     type="text"
                     placeholder="Your email address"
@@ -68,7 +65,7 @@ export const InvitationModal = ({ setIsOpen }) => (
                 </div>
                 <div className="w-full sm:w-4/5 p-2 mt-4 mx-auto">
                   <button
-                    className="py-4 px-6 w-full text-primaryText font-semibold rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-primaryColor hover:bg-[#7274f3] transition ease-in-out duration-200"
+                    className="py-4 px-6 w-full text-primaryText font-semibold rounded-xl shadow-4xl focus:ring focus:ring-orange-300 bg-primaryColor hover:bg-[#c2410c] transition ease-in-out duration-200"
                     type="button"
                     aria-label="Join now"
                   >

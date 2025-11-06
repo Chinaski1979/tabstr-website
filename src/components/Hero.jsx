@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { InvitationModal } from "./InvitationModal";
-import dashboard from "../assets/images/dashboard.jpg";
+import dashboard from "../assets/images/tabs-management.png";
 
 export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +19,7 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Discover new data flow
+            Un POS moderno y rápido para tu negocio
           </h3>
         </motion.div>
         <motion.div
@@ -28,12 +28,9 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
-            <h1 className="inline md:hidden">Analytics</h1>
-            <h1 className="hidden md:inline">Analytic tools suite</h1>
+            <h1 className="inline md:hidden">Funciona en cualquier dispositivos</h1>
+            <h1 className="hidden md:inline">El punto de venta que funciona en cualquier dispositivo</h1>
           </div>
-          <h1 className="mt-2 sm:mt-2 text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-20 md:px-24 lg:px-24">
-            for developers
-          </h1>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -41,8 +38,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h2 className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Experience seamless business integrations and powerful insights with
-            our cutting-edge analytic tools.
+            Olvídate de los sistemas de punto de venta caros y anticuados. Usa tu celular, tablet o computadora y empieza tener el control.
           </h2>
         </motion.div>
         <motion.div
@@ -56,14 +52,14 @@ export const Hero = () => {
               onClick={() => setIsModalOpen(true)}
               aria-label="Get started"
             >
-              Get Started
+              Contactar
             </button>
             <button
               className="w-64 sm:w-52 h-12 rounded-xl font-bold text-primaryText border border-solid  flex justify-center items-center cursor-pointer bg-bgDark2 hover:bg-bgDark3 border-primaryColor transition"
               onClick={() => setIsModalOpen(true)}
               aria-label="Live demo"
             >
-              Live demo
+              Agendar Demo
             </button>
           </div>
         </motion.div>
