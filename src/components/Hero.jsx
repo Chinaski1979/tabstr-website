@@ -19,7 +19,7 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Un POS moderno y simple en la nube
+            Un POS moderno y rápido para tu negocio
           </h3>
         </motion.div>
         <motion.div
@@ -28,11 +28,9 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
-            <h1 className="inline md:hidden">Analytics</h1>
-            <h1 className="hidden md:inline">El punto de venta que corre en cualquier dispositivo</h1>
+            <h1 className="inline md:hidden">Funciona en cualquier dispositivos</h1>
+            <h1 className="hidden md:inline">El punto de venta que funciona en cualquier dispositivo</h1>
           </div>
-          {/* <h1 className="mt-2 sm:mt-2 text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-20 md:px-24 lg:px-24">        
-          </h1> */}
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -40,7 +38,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h2 className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Olvídate de los POS caros y anticuados. Usa tu celular, tablet o computadora y empieza a vender en minutos.
+            Olvídate de los sistemas de punto de venta caros y anticuados. Usa tu celular, tablet o computadora y empieza tener el control.
           </h2>
         </motion.div>
         <motion.div

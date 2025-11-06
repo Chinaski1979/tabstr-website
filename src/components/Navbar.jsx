@@ -2,14 +2,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { TabstrLogo } from "../assets/logos/TabstrLogo";
-import { GithubIcon } from "../assets/icons/GithubIcon";
 
 const navbarLinks = [
   { label: "Home", href: "/#home", ariaLabel: "Home" },
   { label: "Features", href: "/#features", ariaLabel: "Features" },
   { label: "Pricing", href: "/#pricing", ariaLabel: "Pricing" },
   { label: "Contact", href: "/#contact", ariaLabel: "Contact" },
-  // { label: "Feedback", href: "/#feedback", ariaLabel: "Feedback" },
   // { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
 ];
 
@@ -33,7 +31,7 @@ export const Navbar = () => {
             <div className="flex justify-start items-center">
               <div className="text-white mr-2">
                 <TabstrLogo />
-                <span className="text-white text-xs w-full block text-center">Lightning Fast</span>
+                <span className="text-white text-xs w-full block text-center">Lightning Fast POS</span>
               </div>
             </div>
           </a>

@@ -4,6 +4,7 @@ import feature1 from "../assets/images/feature1.jpg";
 import feature2 from "../assets/images/feature2.jpg";
 import feature3 from "../assets/images/feature3.jpg";
 import feature4 from "../assets/images/feature4.jpg";
+import forAllDevices from "../assets/images/for-all-devices.png";
 import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 export const Features1 = () => {
@@ -26,10 +27,10 @@ export const Features1 = () => {
                 Eso quedó en los 90s
               </h2>
               <p className="mb-10 text-secondaryText leading-loose">
-                Accede desde cualquier dispositivo; corre en el navegador.
-                Es compatible con cualquier dispositivo y sistema operativo.
-                Los sistemas de la competencia son unos para android y otros para iOS,
-                otros para Windows... Eso en el {new Date().getFullYear()}?
+                No importa si es Android, iOS, Windows, Linux, Mac. 
+                Tabstr es compatible con cualquier dispositivo y sistema operativo.
+                Un POS que corre en cualquier pantalla. Fácil, rápido y sin cobros ridículos.<br/>
+                Diseñado para ser fácil, estético y accesible. Todo lo que los demás nunca fueron.
               </p>
               <ul className="mb-6 text-primaryText">
                 <li className="mb-4 flex">
@@ -48,42 +49,7 @@ export const Features1 = () => {
             </div>
           </div>
           <div className="w-3/4 mx-auto lg:w-1/2 flex flex-wrap lg:-mx-4 sm:pr-8 lg:pt-10 justify-center lg:pl-4 xl:px-8">
-            <div className="mb-8 lg:mb-0 w-full sm:w-1/2 px-2 lg:px-0">
-              <div className="mb-4 py-3 pl-3 pr-2 rounded">
-                <img
-                  src={feature1.src}
-                  alt="Feature image 1"
-                  className="rounded-xl  main-border-gray mx-auto sm:mx-unset"
-                  aria-label="Feature image 1"
-                />
-              </div>
-              <div className="py-3 pl-3 pr-2 rounded ">
-                <img
-                  src={feature2.src}
-                  alt="Feature image 2"
-                  className="rounded-xl  main-border-gray mx-auto sm:mx-unset"
-                  aria-label="Feature image 2"
-                />
-              </div>
-            </div>
-            <div className="w-1/2 lg:mt-20  pt-12 lg:pt-0 px-2 hidden sm:inline-block">
-              <div className="mb-4 py-3 pl-3 pr-2 rounded-lg ">
-                <img
-                  src={feature3.src}
-                  alt="Feature image 3"
-                  className="rounded-xl  main-border-gray"
-                  aria-label="Feature image 3"
-                />
-              </div>
-              <div className="py-3 pl-3 pr-2 rounded-lg ">
-                <img
-                  src={feature4.src}
-                  alt="Feature image 4"
-                  className="rounded-xl  main-border-gray"
-                  aria-label="Feature image 4"
-                />
-              </div>
-            </div>
+            <img src={forAllDevices.src} alt="Tabs Management for all devices" className="rounded-xl  main-border-gray mx-auto sm:mx-unset" />
           </div>
         </div>
       </motion.div>
