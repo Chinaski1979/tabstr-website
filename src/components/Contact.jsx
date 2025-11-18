@@ -44,109 +44,109 @@ export const Contact = () => {
   }, []);
 
   return (
-  <section id="contact" className="isolate px-6 py-16 pb-24 sm:py-20 sm:pb-32 lg:px-8 bg-bgDark2 relative">
-    <div className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10" aria-hidden="true">
-      <div className="contact-gradient-element"></div>
-    </div>
-    
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="mx-auto"
-    >
-      <div className="text-center pb-10 pt-8">
-        <span className="block-subtitle">Get In Touch</span>
-        <h2 className="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-primaryText">
-          Contact Us
-        </h2>
-        <p className="text-secondaryText max-w-2xl mx-auto">
-          Ready to streamline your tab management? Get in touch with our team to learn how Tabstr can modernize your operations and enhance the guest experience.
-        </p>
+    <section id="contact" className="isolate px-6 py-16 pb-10 sm:py-20 sm:pb-20 lg:px-8 bg-bgDark2 relative">
+      <div className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10" aria-hidden="true">
+        <div className="contact-gradient-element"></div>
       </div>
-
-      <form 
-        id="contact-form" 
-        className="mx-auto max-w-2xl pt-12 lg:pt-20"
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mx-auto"
       >
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          <div className="block sm:col-span-2">
-            <label htmlFor="name" className="contact-label">
-              Name *
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              autoComplete="given-name"
-              required
-              className="contact-input"
-            />
-          </div>
-
-          <div className="block sm:col-span-2">
-            <label htmlFor="email" className="contact-label">
-              Email *
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="email"
-              required
-              className="contact-input"
-            />
-          </div>
-
-          <div className="block sm:col-span-2">
-            <label htmlFor="company" className="contact-label">
-              Company
-            </label>
-            <input
-              type="text"
-              name="company"
-              id="company"
-              autoComplete="organization"
-              className="contact-input"
-            />
-          </div>
-
-          <div className="block sm:col-span-2">
-            <label htmlFor="message" className="contact-label">
-              Message *
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              rows="4"
-              required
-              className="contact-input"
-              placeholder="Tell us about your analytics needs..."
-            ></textarea>
-          </div>
-
-          <div className="flex gap-x-4 sm:col-span-2">
-            <label className="text-sm leading-6 text-secondaryText">
-              By submitting this form, you agree to our{" "}
-              <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
-                privacy policy
-              </a>
-              .
-            </label>
-          </div>
+        <div className="text-center pb-10 pt-8">
+          <span className="block-subtitle">Ponte en contacto</span>
+          <h2 className="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-primaryText">
+            Escríbenos
+          </h2>
+          <p className="text-secondaryText max-w-2xl mx-auto">
+            Listo para modernizar la gestión de tu negocio? Escríbenos y aprende cómo Tabstr puede mejorar tu operación y mejorar la experiencia de tus clientes.
+          </p>
         </div>
 
-        <div className="flex pt-10">
-          <button
-            type="submit"
-            className="contained-button w-full max-w-52 h-12 text-lg font-bold"
-          >
-            Send Message
-          </button>
-        </div>
-      </form>
-    </motion.div>
-  </section>
+        <form 
+          id="contact-form" 
+          className="mx-auto max-w-2xl pt-12 lg:pt-20"
+        >
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="block sm:col-span-2">
+              <label htmlFor="name" className="contact-label">
+                Nombre *
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                autoComplete="given-name"
+                required
+                className="contact-input"
+              />
+            </div>
+
+            <div className="block sm:col-span-2">
+              <label htmlFor="email" className="contact-label">
+                Email *
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="email"
+                required
+                className="contact-input"
+              />
+            </div>
+
+            <div className="block sm:col-span-2">
+              <label htmlFor="company" className="contact-label">
+                Compañía
+              </label>
+              <input
+                type="text"
+                name="company"
+                id="company"
+                autoComplete="organization"
+                className="contact-input"
+              />
+            </div>
+
+            <div className="block sm:col-span-2">
+              <label htmlFor="message" className="contact-label">
+                Mensaje *
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                required
+                className="contact-input"
+                placeholder="Cómo podemos ayudarte?"
+              ></textarea>
+            </div>
+
+            <div className="flex gap-x-4 sm:col-span-2">
+              <label className="text-sm leading-6 text-secondaryText">
+                Al enviar este formulario, aceptas nuestras{" "}
+                <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
+                  políticas de privacidad
+                </a>
+                .
+              </label>
+            </div>
+          </div>
+
+          <div className="flex pt-10">
+            <button
+              type="submit"
+              className="contained-button w-full max-w-52 h-12 text-lg font-bold"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </motion.div>
+    </section>
   );
 };

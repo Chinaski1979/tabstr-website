@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TabstrLogo } from "../assets/logos/TabstrLogo";
 
 const navbarLinks = [
-  { label: "Home", href: "/#home", ariaLabel: "Home" },
-  { label: "Features", href: "/#features", ariaLabel: "Features" },
-  { label: "Pricing", href: "/#pricing", ariaLabel: "Pricing" },
-  { label: "Contact", href: "/#contact", ariaLabel: "Contact" },
+  { label: "Inicio", href: "/#home", ariaLabel: "Inicio" },
+  { label: "Características", href: "/#features", ariaLabel: "Características" },
+  // { label: "Precio", href: "/#pricing", ariaLabel: "Precio" },
+  { label: "Contacto", href: "/#contact", ariaLabel: "Contacto" },
   // { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
 ];
 
