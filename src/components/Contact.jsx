@@ -8,29 +8,25 @@ export const Contact = () => {
     if (form) {
       const handleSubmit = async (event) => {
         event.preventDefault();
+        const formData = new FormData(form);
         
-        // Email sending functionality commented out for now
-        
-        // const formData = new FormData(form);
-        
-        // try {
-        //   const response = await fetch('https://form-email-sender-omega.vercel.app/herso', {
-        //     method: 'POST',
-        //     body: JSON.stringify(Object.fromEntries(formData)),
-        //     headers: { 'Content-Type': 'application/json' }
-        //   });
+        try {
+          const response = await fetch('https://form-email-sender-omega.vercel.app/tabstr', {
+            method: 'POST',
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: { 'Content-Type': 'application/json' }
+          });
           
-        //   if (response.ok) {
-        //     form.reset();
-        //     alert('Message sent successfully! ✅');
-        //   } else {
-        //     alert('Error sending message ❌');
-        //   }
-        // } catch (error) {
-        //   alert('Error sending message ❌');
-        // }
+          if (response.ok) {
+            form.reset();
+            alert('Message sent successfully! ✅');
+          } else {
+            alert('Error sending message ❌');
+          }
+        } catch (error) {
+          alert('Error sending message ❌');
+        }
         
-        // Temporary success message for testing
         alert('Form submitted! (Email sending disabled temporarily) ℹ️');
         form.reset();
       };
