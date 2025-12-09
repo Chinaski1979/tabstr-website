@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "../components/Navbar.jsx";
+import { Footer } from "../components/Footer.jsx";
+import "../styles/Theme.css";
+---
+
+<Layout title="Políticas de Privacidad | Tabstr">
+    <Navbar client:load />
+    <div
+        class="container mx-auto px-4 w-4/5 md:w-11/12 lg:w-10/12 xl:w-4/5 2xl:w-2/3 py-40 text-white"
+    >
+        <h1 class="text-4xl font-bold mb-8 text-center text-white">
+            Políticas de Privacidad
+        </h1>
+        <div class="prose prose-invert max-w-none text-gray-300">
+            <p class="mb-6">
+                <strong>Política de Privacidad</strong><br />
+                <strong>Tabstr — Sistema de Punto de Venta (POS)</strong><br />
+                <strong>Propietario:</strong> Herso Software Company S.A.<br />
+                <strong>Cédula Jurídica:</strong> 3-101-836054<br />
+                <strong>Última actualización:</strong> 9/12/2025
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">1. Introducción</h2>
+            <p class="mb-4">
+                La presente Política de Privacidad describe cómo Herso Software Company S.A. (en adelante, “nosotros”, “nuestro” o “la Empresa”) recopila, utiliza, almacena y protege la información personal de los usuarios del sistema Tabstr (“la Aplicación”). Al utilizar Tabstr, usted acepta las prácticas descritas en esta Política.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">2. Información que Recopilamos</h2>
+            <p class="mb-4">Podemos recopilar los siguientes tipos de información:</p>
+
+            <h3 class="text-xl font-semibold text-white mt-6 mb-2">2.1 Información de Registro</h3>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Nombre completo del usuario</li>
+                <li>Correo electrónico</li>
+                <li>Número de teléfono</li>
+                <li>Credenciales de acceso (en forma cifrada)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-white mt-6 mb-2">2.2 Información de Facturación</h3>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Datos de tarjeta de crédito o débito (procesados por un proveedor externo certificado)</li>
+                <li>Historial de pagos y facturación</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-white mt-6 mb-2">2.3 Datos Operativos del Negocio</h3>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Productos registrados por el usuario</li>
+                <li>Inventarios</li>
+                <li>Transacciones realizadas a través del POS</li>
+                <li>Información de clientes del usuario (nombre, teléfono, email si aplica)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-white mt-6 mb-2">2.4 Datos Técnicos</h3>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Dirección IP</li>
+                <li>Tipo de dispositivo</li>
+                <li>Sistema operativo y navegador</li>
+                <li>Registros de uso y actividad dentro de la Aplicación</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">3. Cómo Utilizamos su Información</h2>
+            <p class="mb-2">Utilizamos la información recopilada para:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Proveer y operar Tabstr correctamente</li>
+                <li>Procesar pagos y administrar suscripciones</li>
+                <li>Mejorar el rendimiento, seguridad y funcionalidad del sistema</li>
+                <li>Brindar soporte técnico</li>
+                <li>Enviar notificaciones sobre actualizaciones, cambios o avisos relevantes</li>
+                <li>Cumplir obligaciones legales aplicables</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">4. Información de Terceros</h2>
+            <p class="mb-2">Podemos utilizar proveedores externos para funcionalidades específicas, tales como:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Procesadores de pago</li>
+                <li>Servicios de almacenamiento en la nube</li>
+                <li>Plataformas de análisis de uso</li>
+            </ul>
+            <p class="mb-4">
+                Estos proveedores solo tendrán acceso a la información estrictamente necesaria y están obligados a cumplir con estándares de seguridad.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">5. Protección y Seguridad de los Datos</h2>
+            <p class="mb-2">Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger la información, incluyendo:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Cifrado de datos sensibles</li>
+                <li>Accesos controlados</li>
+                <li>Monitoreo de actividad sospechosa</li>
+            </ul>
+            <p class="mb-4">
+                Si bien aplicamos altos estándares de seguridad, ningún sistema es completamente infalible y el usuario reconoce este riesgo.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">6. Conservación de la Información</h2>
+            <p class="mb-4">
+                Conservamos la información mientras la cuenta del usuario permanezca activa. En caso de cancelación, ciertos datos podrán conservarse por motivos legales, contables o de prevención de fraude.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">7. Derechos del Usuario</h2>
+            <p class="mb-2">El usuario puede:</p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Solicitar acceso a su información</li>
+                <li>Solicitar corrección o actualización</li>
+                <li>Solicitar eliminación de sus datos (salvo información necesaria para obligaciones legales)</li>
+                <li>Retirar su consentimiento cuando aplique</li>
+            </ul>
+            <p class="mb-4">
+                Las solicitudes pueden realizarse escribiendo a contact@hermosasoftware.io.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">8. Menores de Edad</h2>
+            <p class="mb-4">
+                Tabstr no está diseñado para personas menores de 18 años. No recopilamos deliberadamente información de menores.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">9. Transferencia Internacional de Datos</h2>
+            <p class="mb-4">
+                Al utilizar Tabstr, el usuario acepta que su información pueda ser almacenada o procesada en servidores ubicados fuera de Costa Rica, siempre bajo estándares adecuados de seguridad.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">10. Cambios a esta Política de Privacidad</h2>
+            <p class="mb-4">
+                Podemos actualizar esta Política en cualquier momento. Los cambios serán comunicados y publicados. El uso continuo de la Aplicación implica la aceptación de las modificaciones.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-8 mb-4">11. Contacto</h2>
+            <p class="mb-4">
+                Para dudas sobre esta Política o el manejo de sus datos, puede contactarnos:<br />
+                <strong>Correo:</strong> <a href="mailto:contact@hermosasoftware.io" class="text-primaryColor hover:text-orange-400 transition-colors">contact@hermosasoftware.io</a><br />
+                <strong>Empresa:</strong> Herso Software Company S.A.
+            </p>
+        </div>
+    </div>
+    <Footer />
+</Layout>

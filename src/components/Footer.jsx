@@ -10,13 +10,9 @@ const footerData = [
   {
     title: "Important Links",
     items: [
-      "Terminos y Condiciones",
-      "Politicas de Privacidad",
+      { label: "Términos y Condiciones", href: "/terminos-y-condiciones" },
+      { label: "Políticas de Privacidad", href: "/politicas-de-privacidad" },
     ],
-  },
-  {
-    title: "Company",
-    items: ["About Us", "Jobs", "Press", "Contact Us"],
   },
 ];
 
@@ -33,7 +29,7 @@ export const Footer = () => {
                 </div>
               </div>
               <p className="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
-                Un producto de <a href="https://hermosasoftware.io" target="_blank" className="text-gray-400 hover:text-gray-300">Hermosa Software</a><br/>
+                Un producto de <a href="https://hermosasoftware.io" target="_blank" className="text-gray-400 hover:text-gray-300">Hermosa Software</a><br />
                 Hecho con orgullo y estilo en en el hub tecnológico de CR: Bahía Ballena, Osa.
               </p>
               {/* <div className="w-36 mx-auto lg:mx-0">
@@ -67,14 +63,14 @@ export const Footer = () => {
                 </h3>
                 <ul>
                   {footerData[1].items.map((item, index) => (
-                    <li key={`${item}-${index}`} className="mb-4">
+                    <li key={`${item.label}-${index}`} className="mb-4">
                       <a
                         className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label={item}
+                        href={item.href}
+                        aria-label={item.label}
                       >
-                        {item}
-                    </a>
+                        {item.label}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -88,9 +84,9 @@ export const Footer = () => {
               </span>
             </div>
             <div className="w-full flex items-center flex-col">
-              
+
               <p className="text-gray-500 text-xs">
-                Powered by 
+                Powered by
               </p>
               <a href="https://hermosasoftware.io" target="_blank" className="text-gray-400 hover:text-gray-300 block"><img src={hermosaSoftwareLogo.src} alt="Hermosa Software" className="w-20" /></a>
             </div>
