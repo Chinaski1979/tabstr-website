@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "../components/Navbar.jsx";
+import { Footer } from "../components/Footer.jsx";
+import "../styles/Theme.css";
+---
+
+<Layout title="Soporte | Tabstr">
+  <Navbar client:load />
+
+  <div class="w-full bg-bgDark2 pt-36 pb-24 min-h-screen">
+    <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3">
+
+      <!-- Page header -->
+      <div class="mb-16 text-center">
+        <span class="text-primaryColor font-semibold uppercase tracking-widest text-sm">Centro de Soporte</span>
+        <h1 class="mt-3 text-4xl sm:text-5xl font-bold text-white">
+          Soporte Tabstr
+        </h1>
+        <p class="mt-5 text-secondaryText text-lg max-w-2xl mx-auto leading-relaxed">
+          Aquí encontrarás todo lo que necesitas para instalar y configurar Tabstr en tu negocio.
+        </p>
+      </div>
+
+      <!-- ── SECTION 1: Tabstr Installers ── -->
+      <section class="mb-20" id="instaladores">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-1 h-8 bg-primaryColor rounded-full"></div>
+          <h2 class="text-3xl font-bold text-white">Tabstr Installers</h2>
+        </div>
+        <p class="text-secondaryText mb-8 ml-4 leading-relaxed">
+          Descargá el instalador de Tabstr para tu sistema operativo. Asegurate de tener permisos de administrador antes de ejecutarlo.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ml-4">
+
+          <!-- Windows -->
+          <a
+            href="https://downloads.tabstr.net/windows/latest.exe"
+            class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl bg-bgDark1 flex items-center justify-center flex-shrink-0 border border-mainBorderDarker group-hover:border-primaryColor transition-colors duration-300">
+                <!-- Windows icon -->
+                <svg class="w-7 h-7 text-secondaryColor" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.549H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-lg">Windows</p>
+                <p class="text-secondaryText text-sm">Windows 10 / 11 · 64-bit</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-primaryColor group-hover:text-orange-400 font-medium text-sm transition-colors duration-200">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Descargar instalador (.exe)
+            </div>
+          </a>
+
+          <!-- Mac -->
+          <a
+            href="https://downloads.tabstr.net/mac/latest.dmg"
+            class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl bg-bgDark1 flex items-center justify-center flex-shrink-0 border border-mainBorderDarker group-hover:border-primaryColor transition-colors duration-300">
+                <!-- Apple icon -->
+                <svg class="w-7 h-7 text-secondaryColor" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-lg">macOS</p>
+                <p class="text-secondaryText text-sm">macOS 12 Monterey o superior</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-primaryColor group-hover:text-orange-400 font-medium text-sm transition-colors duration-200">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Descargar instalador (.dmg)
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Divider -->
+      <div class="border-t border-mainBorderDarker mb-20"></div>
+
+      <!-- ── SECTION 2: Drivers ── -->
+      <section id="drivers">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-1 h-8 bg-secondaryColor rounded-full"></div>
+          <h2 class="text-3xl font-bold text-white">Drivers</h2>
+        </div>
+        <p class="text-secondaryText mb-10 ml-4 leading-relaxed">
+          Para que Tabstr se comunique correctamente con tu hardware, asegurate de instalar los drivers del fabricante correspondiente.
+        </p>
+
+        <!-- ── Subsection: Impresoras ── -->
+        <div class="ml-4">
+          <h3 class="text-xl font-semibold text-white mb-1">Impresoras</h3>
+          <p class="text-secondaryText text-sm mb-8">
+            Hacé clic en tu modelo de impresora para ir al sitio oficial del fabricante y descargar el driver más reciente.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- Epson -->
+            <a
+              href="https://epson.com/Support/sl/s"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-secondaryColor rounded-2xl p-6 transition-all duration-300 flex flex-col gap-3"
+            >
+              <div class="flex items-center justify-between">
+                <p class="text-white font-semibold text-base">Epson</p>
+                <svg class="w-4 h-4 text-secondaryText group-hover:text-secondaryColor transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </div>
+              <p class="text-secondaryText text-sm leading-snug">TM-T20III · TM-T88VII · TM-U220</p>
+              <span class="text-xs text-secondaryColor font-medium">epson.com →</span>
+            </a>
+
+            <!-- Volcora -->
+            <a
+              href="https://volcora.com/pages/support-center"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-secondaryColor rounded-2xl p-6 transition-all duration-300 flex flex-col gap-3"
+            >
+              <div class="flex items-center justify-between">
+                <p class="text-white font-semibold text-base">Volcora</p>
+                <svg class="w-4 h-4 text-secondaryText group-hover:text-secondaryColor transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </div>
+              <p class="text-secondaryText text-sm leading-snug">Volcora support center</p>
+              <span class="text-xs text-secondaryColor font-medium">volcora.com →</span>
+            </a>
+
+            <!-- HP -->
+            <a
+              href="https://support.hp.com/us-en/drivers/printers"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-secondaryColor rounded-2xl p-6 transition-all duration-300 flex flex-col gap-3"
+            >
+              <div class="flex items-center justify-between">
+                <p class="text-white font-semibold text-base">HP</p>
+                <svg class="w-4 h-4 text-secondaryText group-hover:text-secondaryColor transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </div>
+              <p class="text-secondaryText text-sm leading-snug">LaserJet Pro · OfficeJet Pro · Smart Tank</p>
+              <span class="text-xs text-secondaryColor font-medium">support.hp.com →</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Help callout -->
+      <div class="mt-20 bg-bgDark3 border border-mainBorder rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <div class="w-12 h-12 rounded-xl bg-primaryColor bg-opacity-10 border border-primaryColor border-opacity-30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-primaryColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-white font-semibold text-base mb-1">¿No encontrás lo que buscás?</p>
+          <p class="text-secondaryText text-sm leading-relaxed">
+            Escribinos a <a href="mailto:contact@hermosasoftware.io" class="text-primaryColor hover:text-orange-400 transition-colors">contact@hermosasoftware.io</a> y te ayudamos a configurar tu hardware con Tabstr.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
