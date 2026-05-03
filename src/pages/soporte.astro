@@ -32,7 +32,7 @@ import "../styles/Theme.css";
           Descargá el instalador de Tabstr para tu sistema operativo. Asegurate de tener permisos de administrador antes de ejecutarlo.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ml-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ml-4">
 
           <!-- Windows -->
           <!-- href="https://downloads.tabstr.net/windows/latest.exe" (once subdomain is setup)-->
@@ -82,6 +82,31 @@ import "../styles/Theme.css";
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
               Descargar instalador (.dmg)
+            </div>
+          </a>
+
+          <!-- Android -->
+          <a
+            href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/android/latest.apk"
+            class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl bg-bgDark1 flex items-center justify-center flex-shrink-0 border border-mainBorderDarker group-hover:border-primaryColor transition-colors duration-300">
+                <!-- Android icon -->
+                <svg class="w-7 h-7 text-secondaryColor" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.6 9.48l1.84-3.18a.5.5 0 00-.86-.5l-1.88 3.24a9.92 9.92 0 00-9.4 0L5.42 5.8a.5.5 0 00-.86.5l1.84 3.18A4.97 4.97 0 003 14v6c0 .55.45 1 1 1h1v2a1 1 0 102 0v-2h10v2a1 1 0 102 0v-2h1c.55 0 1-.45 1-1v-6a4.97 4.97 0 00-3.4-4.52zM8.5 7.5a.75.75 0 110 1.5.75.75 0 010-1.5zm7 0a.75.75 0 110 1.5.75.75 0 010-1.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-lg">Android</p>
+                <p class="text-secondaryText text-sm">Android 10 o superior</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-primaryColor group-hover:text-orange-400 font-medium text-sm transition-colors duration-200">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Descargar instalador (.apk)
             </div>
           </a>
         </div>
