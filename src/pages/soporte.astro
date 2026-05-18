@@ -4,7 +4,6 @@ import { Navbar } from "../components/Navbar.jsx";
 import { Footer } from "../components/Footer.jsx";
 import "../styles/Theme.css";
 
-const CLOUDFLARE_R2_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev";
 ---
 
 <Layout title="Soporte | Tabstr">
@@ -39,9 +38,9 @@ const CLOUDFLARE_R2_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev";
           <!-- Windows -->
           <!-- href="https://downloads.tabstr.net/windows/latest.exe" (once subdomain is setup)-->
           <a
-            href="${CLOUDFLARE_R2_URL}/windows/latest.exe"
+            href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/windows/latest.exe"
             data-installer-card="windows"
-            data-fallback-url="${CLOUDFLARE_R2_URL}/windows/latest.exe"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/windows/latest.exe"
             class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
           >
             <div class="flex items-center gap-4">
@@ -66,9 +65,9 @@ const CLOUDFLARE_R2_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev";
 
           <!-- Mac -->
           <a
-            href="${CLOUDFLARE_R2_URL}/macos/latest.zip"
+            href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/macos/latest.zip"
             data-installer-card="macos"
-            data-fallback-url="${CLOUDFLARE_R2_URL}/macos/latest.zip"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/macos/latest.zip"
             class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
           >
             <div class="flex items-center gap-4">
@@ -93,9 +92,9 @@ const CLOUDFLARE_R2_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev";
 
           <!-- Android -->
           <a
-            href="${CLOUDFLARE_R2_URL}/android/latest.apk"
+            href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/android/latest.apk"
             data-installer-card="android"
-            data-fallback-url="${CLOUDFLARE_R2_URL}/android/latest.apk"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/android/latest.apk"
             class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
           >
             <div class="flex items-center gap-4">
@@ -218,7 +217,7 @@ const CLOUDFLARE_R2_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev";
   <Footer />
   <script is:inline>
     (() => {
-      const VERSIONS_URL = "${CLOUDFLARE_R2_URL}/versions.json";
+      const VERSIONS_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/versions.json";
       const PLATFORMS = ["windows", "macos", "android"];
 
       const applyInstallerMetadata = async () => {
