@@ -38,6 +38,8 @@ import "../styles/Theme.css";
           <!-- href="https://downloads.tabstr.net/windows/latest.exe" (once subdomain is setup)-->
           <a
             href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/windows/latest.exe"
+            data-installer-card="windows"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/windows/latest.exe"
             class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
           >
             <div class="flex items-center gap-4">
@@ -48,7 +50,7 @@ import "../styles/Theme.css";
                 </svg>
               </div>
               <div>
-                <p class="text-white font-semibold text-lg">Windows</p>
+                <p class="text-white font-semibold text-lg" data-installer-label="windows" data-base-label="Windows">Windows</p>
                 <p class="text-secondaryText text-sm">Windows 10 / 11 · 64-bit</p>
               </div>
             </div>
@@ -63,6 +65,8 @@ import "../styles/Theme.css";
           <!-- Mac -->
           <a
             href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/macos/latest.zip"
+            data-installer-card="macos"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/macos/latest.zip"
             class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
           >
             <div class="flex items-center gap-4">
@@ -73,7 +77,7 @@ import "../styles/Theme.css";
                 </svg>
               </div>
               <div>
-                <p class="text-white font-semibold text-lg">macOS</p>
+                <p class="text-white font-semibold text-lg" data-installer-label="macos" data-base-label="macOS">macOS</p>
                 <p class="text-secondaryText text-sm">macOS 12 Monterey o superior</p>
               </div>
             </div>
@@ -81,7 +85,34 @@ import "../styles/Theme.css";
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
-              Descargar instalador (.dmg)
+              Descargar instalador (.zip)
+            </div>
+          </a>
+
+          <!-- Android -->
+          <a
+            href="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/android/latest.apk"
+            data-installer-card="android"
+            data-fallback-url="https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/android/latest.apk"
+            class="group flex flex-col gap-4 bg-bgDark3 hover:bg-bgDark3Hover border border-mainBorder hover:border-primaryColor rounded-2xl p-8 transition-all duration-300"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl bg-bgDark1 flex items-center justify-center flex-shrink-0 border border-mainBorderDarker group-hover:border-primaryColor transition-colors duration-300">
+                <!-- Android icon -->
+                <svg class="w-7 h-7 text-secondaryColor" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.6 9.48l1.84-3.18a.5.5 0 00-.86-.5l-1.88 3.24a9.92 9.92 0 00-9.4 0L5.42 5.8a.5.5 0 00-.86.5l1.84 3.18A4.97 4.97 0 003 14v6c0 .55.45 1 1 1h1v2a1 1 0 102 0v-2h10v2a1 1 0 102 0v-2h1c.55 0 1-.45 1-1v-6a4.97 4.97 0 00-3.4-4.52zM8.5 7.5a.75.75 0 110 1.5.75.75 0 010-1.5zm7 0a.75.75 0 110 1.5.75.75 0 010-1.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-lg" data-installer-label="android" data-base-label="Android">Android</p>
+                <p class="text-secondaryText text-sm">Android 10 o superior</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-primaryColor group-hover:text-orange-400 font-medium text-sm transition-colors duration-200">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Descargar instalador (.apk)
             </div>
           </a>
 
@@ -208,4 +239,55 @@ import "../styles/Theme.css";
   </div>
 
   <Footer />
+  <script is:inline>
+    (() => {
+      const VERSIONS_URL = "https://downloads.tabstr.net/versions.json";
+      const PLATFORMS = ["windows", "macos", "android"];
+
+      const applyInstallerMetadata = async () => {
+        try {
+          const response = await fetch(VERSIONS_URL, {
+            headers: { accept: "application/json" },
+            cache: "no-store",
+          });
+
+          if (!response.ok) return;
+
+          const versions = await response.json();
+
+          for (const platform of PLATFORMS) {
+            const card = document.querySelector(`[data-installer-card="${platform}"]`);
+            const label = document.querySelector(`[data-installer-label="${platform}"]`);
+            const data = versions?.[platform];
+
+            if (!(card instanceof HTMLAnchorElement) || !(label instanceof HTMLElement)) continue;
+
+            const fallbackUrl = card.getAttribute("data-fallback-url");
+            if (fallbackUrl) {
+              card.href = fallbackUrl;
+            }
+
+            if (!data || typeof data !== "object") continue;
+
+            if (typeof data.url === "string" && data.url.trim().length > 0) {
+              card.href = data.url.trim();
+            }
+
+            if (typeof data.version === "string" && data.version.trim().length > 0) {
+              const baseLabel = label.getAttribute("data-base-label") || label.textContent || "";
+              label.textContent = `${baseLabel} (v${data.version.trim()})`;
+            }
+          }
+        } catch {
+          // Keep fallback labels and URLs when metadata cannot be loaded.
+        }
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyInstallerMetadata, { once: true });
+      } else {
+        applyInstallerMetadata();
+      }
+    })();
+  </script>
 </Layout>
