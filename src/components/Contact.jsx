@@ -26,9 +26,6 @@ export const Contact = () => {
         } catch (error) {
           alert('Error sending message ❌');
         }
-        
-        alert('Form submitted! (Email sending disabled temporarily) ℹ️');
-        form.reset();
       };
       
       form.addEventListener('submit', handleSubmit);
@@ -40,7 +37,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" className="isolate px-6 py-16 pb-10 sm:py-20 sm:pb-20 lg:px-8 bg-bgDark2 relative">
+    <section id="contact" className="isolate px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative">
       <div className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10" aria-hidden="true">
         <div className="contact-gradient-element"></div>
       </div>
@@ -50,24 +47,24 @@ export const Contact = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mx-auto"
+        className="mx-auto max-w-3xl"
       >
-        <div className="text-center pb-10 pt-8">
+        <div className="text-center pb-6 pt-4 sm:pb-8">
           <span className="block-subtitle">Ponte en contacto</span>
-          <h2 className="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-primaryText">
+          <h2 className="mt-4 mb-3 text-4xl lg:text-5xl font-bold font-heading text-primaryText">
             Escríbenos
           </h2>
-          <p className="text-secondaryText max-w-2xl mx-auto">
-            Listo para modernizar la gestión de tu negocio? Escríbenos y aprende cómo Tabstr puede mejorar tu operación y mejorar la experiencia de tus clientes.
+          <p className="text-secondaryText max-w-xl mx-auto text-sm sm:text-base">
+            Cuéntanos sobre tu negocio y te mostramos cómo Tabstr puede ayudarte.
           </p>
         </div>
 
         <form 
           id="contact-form" 
-          className="mx-auto max-w-2xl pt-12 lg:pt-20"
+          className="mx-auto rounded-2xl border border-bgDark3Hover bg-bgDark3/40 p-5 sm:p-6 lg:p-7"
         >
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-            <div className="block sm:col-span-2">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
+            <div className="block">
               <label htmlFor="name" className="contact-label">
                 Nombre *
               </label>
@@ -81,7 +78,7 @@ export const Contact = () => {
               />
             </div>
 
-            <div className="block sm:col-span-2">
+            <div className="block">
               <label htmlFor="email" className="contact-label">
                 Email *
               </label>
@@ -95,7 +92,21 @@ export const Contact = () => {
               />
             </div>
 
-            <div className="block sm:col-span-2">
+            <div className="block">
+              <label htmlFor="phone" className="contact-label">
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                autoComplete="tel"
+                className="contact-input"
+                placeholder="+506 0000 0000"
+              />
+            </div>
+
+            <div className="block">
               <label htmlFor="company" className="contact-label">
                 Compañía
               </label>
@@ -109,36 +120,53 @@ export const Contact = () => {
             </div>
 
             <div className="block sm:col-span-2">
+              <label htmlFor="operation" className="contact-label" title="¿Cómo planea usar Tabstr?">
+                Uso previsto de Tabstr
+              </label>
+              <select
+                name="operation"
+                id="operation"
+                className="contact-input"
+                defaultValue=""
+              >
+                <option value="">Selecciona (opcional)</option>
+                <option value="restaurant-1">Restaurante o bar — 1 dispositivo</option>
+                <option value="restaurant-multi">Restaurante o bar — 2 o más dispositivos</option>
+                <option value="retail-1">Tienda o retail — 1 dispositivo</option>
+                <option value="retail-multi">Tienda o retail — 2 o más dispositivos</option>
+                <option value="multi-location">Varios locales o sucursales</option>
+                <option value="exploring">Aún evaluando opciones</option>
+              </select>
+            </div>
+
+            <div className="block sm:col-span-2">
               <label htmlFor="message" className="contact-label">
                 Mensaje *
               </label>
               <textarea
                 name="message"
                 id="message"
-                rows="4"
+                rows="3"
                 required
                 className="contact-input"
-                placeholder="Cómo podemos ayudarte?"
+                defaultValue="Estoy interesado en utilizar Tabstr."
               ></textarea>
-            </div>
-
-            <div className="flex gap-x-4 sm:col-span-2">
-              <label className="text-sm leading-6 text-secondaryText">
-                Al enviar este formulario, aceptas nuestras{" "}
-                <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
-                  políticas de privacidad
-                </a>
-                .
-              </label>
             </div>
           </div>
 
-          <div className="flex pt-10">
+          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs leading-5 text-secondaryText sm:max-w-md">
+              Al enviar este formulario, aceptas nuestras{" "}
+              <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
+                políticas de privacidad
+              </a>
+              .
+            </p>
             <button
               type="submit"
-              className="contained-button w-full max-w-52 h-12 text-lg font-bold"
+              className="contained-button h-11 w-full shrink-0 px-6 text-base font-bold sm:w-auto sm:min-w-[10.5rem]"
             >
-              Send Message
+              Enviar mensaje
             </button>
           </div>
         </form>
