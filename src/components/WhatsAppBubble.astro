@@ -1,5 +1,5 @@
 ---
-const phone = "50684948333";
+const phone = import.meta.env.PUBLIC_WHATSAPP_PHONE;
 const message =
   "Hola, vi Tabstr en la web y me gustaría recibir más información sobre el plan para mi negocio.";
 const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
