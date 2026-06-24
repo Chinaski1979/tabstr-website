@@ -1,0 +1,246 @@
+---
+const phone = import.meta.env.PUBLIC_WHATSAPP_PHONE;
+const message =
+  "Hola, vi Tabstr en la web y me gustaría recibir más información sobre el plan para mi negocio.";
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<div class="whatsapp-widget" id="whatsapp-widget">
+  <div
+    class="whatsapp-chat is-hidden"
+    id="whatsapp-chat"
+    role="dialog"
+    aria-label="Chat de WhatsApp"
+    aria-hidden="true"
+  >
+    <div class="whatsapp-chat-header">
+      <span class="whatsapp-chat-title">Tabstr</span>
+      <button
+        type="button"
+        class="whatsapp-chat-close"
+        id="whatsapp-chat-close"
+        aria-label="Cerrar chat"
+      >
+        ×
+      </button>
+    </div>
+    <div class="whatsapp-chat-body">
+      <div class="whatsapp-chat-bubble">
+        <p>{message}</p>
+      </div>
+    </div>
+    <div class="whatsapp-chat-footer">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-chat-send"
+        id="whatsapp-chat-send"
+      >
+        Enviar
+      </a>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="whatsapp-bubble"
+    id="whatsapp-bubble-toggle"
+    aria-label="Abrir chat de WhatsApp"
+    aria-expanded="false"
+    aria-controls="whatsapp-chat"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  const chat = document.getElementById("whatsapp-chat");
+  const toggle = document.getElementById("whatsapp-bubble-toggle");
+  const closeBtn = document.getElementById("whatsapp-chat-close");
+
+  function openChat() {
+    chat?.classList.remove("is-hidden");
+    chat?.setAttribute("aria-hidden", "false");
+    toggle?.setAttribute("aria-expanded", "true");
+    toggle?.setAttribute("aria-label", "Cerrar chat de WhatsApp");
+  }
+
+  function closeChat() {
+    chat?.classList.add("is-hidden");
+    chat?.setAttribute("aria-hidden", "true");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "Abrir chat de WhatsApp");
+  }
+
+  toggle?.addEventListener("click", () => {
+    if (chat?.classList.contains("is-hidden")) {
+      openChat();
+    } else {
+      closeChat();
+    }
+  });
+
+  closeBtn?.addEventListener("click", closeChat);
+
+  document.addEventListener("click", (event) => {
+    const widget = document.getElementById("whatsapp-widget");
+    if (
+      widget &&
+      !widget.contains(event.target) &&
+      !chat?.classList.contains("is-hidden")
+    ) {
+      closeChat();
+    }
+  });
+</script>
+
+<style>
+  .whatsapp-widget {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  .whatsapp-chat {
+    width: 17rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #e5ddd5;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: whatsapp-chat-in 0.25s ease;
+  }
+
+  .whatsapp-chat.is-hidden {
+    display: none;
+  }
+
+  .whatsapp-chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 0.875rem;
+    background-color: #075e54;
+    color: #fff;
+  }
+
+  .whatsapp-chat-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .whatsapp-chat-close {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.375rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    opacity: 0.85;
+  }
+
+  .whatsapp-chat-close:hover {
+    opacity: 1;
+  }
+
+  .whatsapp-chat-body {
+    padding: 0.875rem;
+    min-height: 5rem;
+  }
+
+  .whatsapp-chat-bubble {
+    max-width: 90%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .whatsapp-chat-bubble p {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: #1f2937;
+  }
+
+  .whatsapp-chat-footer {
+    padding: 0.625rem 0.875rem 0.875rem;
+    background-color: #f0f0f0;
+  }
+
+  .whatsapp-chat-send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #25d366;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .whatsapp-chat-send:hover {
+    background-color: #20bd5a;
+  }
+
+  .whatsapp-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    border-radius: 9999px;
+    background-color: #25d366;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .whatsapp-bubble:hover {
+    background-color: #20bd5a;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-bubble svg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  @keyframes whatsapp-chat-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsapp-chat {
+      width: calc(100vw - 5rem);
+    }
+  }
+</style>

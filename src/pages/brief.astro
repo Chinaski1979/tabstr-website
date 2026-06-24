@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Navbar } from '../components/Navbar.jsx'
+import { Brief } from '../components/Brief.jsx'
+import { Footer } from '../components/Footer.jsx'
+import { ScrollUpButton } from '../components/ScrollUpButton'
+import '../styles/Theme.css'
+---
+
+<Layout title="Brief | Tabstr">
+  <Navbar client:load />
+  <Brief client:load />
+  <Footer />
+  <ScrollUpButton client:load />
+</Layout>
