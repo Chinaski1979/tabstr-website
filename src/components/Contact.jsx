@@ -1,50 +1,130 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { getSupabaseClient } from "../lib/supabaseClient.js";
+
+const CONSENT_VERSION = "2026-07-31";
+
+const CONSENT_TEXT_EMAIL =
+  "Acepto recibir comunicaciones comerciales por correo electrónico de Tabstr / Hermosa Software.";
+
+const CONSENT_TEXT_WHATSAPP =
+  "Acepto recibir mensajes de WhatsApp de Tabstr / Hermosa Software al número indicado.";
 
 export const Contact = () => {
   useEffect(() => {
-    const form = document.getElementById('contact-form');
-    
-    if (form) {
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(form);
-        
-        try {
-          const response = await fetch('https://form-email-sender-omega.vercel.app/tabstr', {
-            method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData)),
-            headers: { 'Content-Type': 'application/json' }
-          });
-          
-          if (response.ok) {
-            form.reset();
-            alert('Message sent successfully! ✅');
-          } else {
-            alert('Error sending message ❌');
-          }
-        } catch (error) {
-          alert('Error sending message ❌');
-        }
-        
-        alert('Form submitted! (Email sending disabled temporarily) ℹ️');
-        form.reset();
-      };
-      
-      form.addEventListener('submit', handleSubmit);
-      
-      return () => {
-        form.removeEventListener('submit', handleSubmit);
-      };
+    const form = document.getElementById("contact-form");
+
+    if (!form) {
+      return;
     }
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const company = String(formData.get("company") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+      const optInEmail = formData.get("opt_in_email") === "on";
+      const optInWhatsapp = formData.get("opt_in_whatsapp") === "on";
+
+      if (optInWhatsapp && !phone) {
+        alert(
+          "Por favor indica tu número de teléfono para recibir mensajes de WhatsApp."
+        );
+        document.getElementById("phone")?.focus();
+        return;
+      }
+
+      const emailPayload = {
+        name,
+        email,
+        company,
+        phone,
+        message,
+        opt_in_email: optInEmail,
+        opt_in_whatsapp: optInWhatsapp,
+      };
+
+      try {
+        const emailResponse = await fetch(
+          "https://form-email-sender-omega.vercel.app/tabstr",
+          {
+            method: "POST",
+            body: JSON.stringify(emailPayload),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        if (!emailResponse.ok) {
+          throw new Error("Email endpoint failed");
+        }
+
+        const supabase = getSupabaseClient();
+        const hasOptIn = optInEmail || optInWhatsapp;
+
+        if (supabase) {
+          const { error } = await supabase.from("communication_opt_ins").insert({
+            contact_name: name,
+            company_name: company || null,
+            email,
+            phone: phone || null,
+            opt_in_email: optInEmail,
+            opt_in_whatsapp: optInWhatsapp,
+            consent_text_email: optInEmail ? CONSENT_TEXT_EMAIL : null,
+            consent_text_whatsapp: optInWhatsapp ? CONSENT_TEXT_WHATSAPP : null,
+            consent_version: CONSENT_VERSION,
+            source: "website-contact",
+            page_url: window.location.href,
+            user_agent: navigator.userAgent,
+            message: message || null,
+          });
+
+          if (error) {
+            console.error("Supabase consent insert failed:", error);
+            if (hasOptIn) {
+              alert(
+                "Tu mensaje se envió, pero no pudimos registrar el consentimiento. Por favor inténtalo de nuevo o escríbenos a contact@hermosasoftware.io."
+              );
+              return;
+            }
+          }
+        } else if (hasOptIn) {
+          alert(
+            "Tu mensaje se envió, pero el registro de consentimiento no está configurado. Contacta a support."
+          );
+          return;
+        }
+
+        form.reset();
+        alert("Mensaje enviado correctamente.");
+      } catch (error) {
+        console.error("Contact form submit failed:", error);
+        alert("Error al enviar el mensaje. Por favor inténtalo de nuevo.");
+      }
+    };
+
+    form.addEventListener("submit", handleSubmit);
+
+    return () => {
+      form.removeEventListener("submit", handleSubmit);
+    };
   }, []);
 
   return (
-    <section id="contact" className="isolate px-6 py-16 pb-10 sm:py-20 sm:pb-20 lg:px-8 bg-bgDark2 relative">
-      <div className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10" aria-hidden="true">
+    <section
+      id="contact"
+      className="isolate px-6 py-16 pb-10 sm:py-20 sm:pb-20 lg:px-8 bg-bgDark2 relative"
+    >
+      <div
+        className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10"
+        aria-hidden="true"
+      >
         <div className="contact-gradient-element"></div>
       </div>
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -58,14 +138,13 @@ export const Contact = () => {
             Escríbenos
           </h2>
           <p className="text-secondaryText max-w-2xl mx-auto">
-            Listo para modernizar la gestión de tu negocio? Escríbenos y aprende cómo Tabstr puede mejorar tu operación y mejorar la experiencia de tus clientes.
+            Listo para modernizar la gestión de tu negocio? Escríbenos y aprende
+            cómo Tabstr puede mejorar tu operación y mejorar la experiencia de
+            tus clientes.
           </p>
         </div>
 
-        <form 
-          id="contact-form" 
-          className="mx-auto max-w-2xl pt-12 lg:pt-20"
-        >
+        <form id="contact-form" className="mx-auto max-w-2xl pt-12 lg:pt-20">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div className="block sm:col-span-2">
               <label htmlFor="name" className="contact-label">
@@ -75,7 +154,7 @@ export const Contact = () => {
                 type="text"
                 name="name"
                 id="name"
-                autoComplete="given-name"
+                autoComplete="name"
                 required
                 className="contact-input"
               />
@@ -109,6 +188,20 @@ export const Contact = () => {
             </div>
 
             <div className="block sm:col-span-2">
+              <label htmlFor="phone" className="contact-label">
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                autoComplete="tel"
+                className="contact-input"
+                placeholder="Requerido si aceptas WhatsApp"
+              />
+            </div>
+
+            <div className="block sm:col-span-2">
               <label htmlFor="message" className="contact-label">
                 Mensaje *
               </label>
@@ -122,10 +215,35 @@ export const Contact = () => {
               ></textarea>
             </div>
 
+            <div className="flex flex-col gap-4 sm:col-span-2">
+              <label className="flex items-start gap-3 text-sm leading-6 text-secondaryText cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="opt_in_email"
+                  id="opt_in_email"
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-gray-500 bg-bgDark3 text-primaryColor focus:ring-primaryColor"
+                />
+                <span>{CONSENT_TEXT_EMAIL}</span>
+              </label>
+
+              <label className="flex items-start gap-3 text-sm leading-6 text-secondaryText cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="opt_in_whatsapp"
+                  id="opt_in_whatsapp"
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-gray-500 bg-bgDark3 text-primaryColor focus:ring-primaryColor"
+                />
+                <span>{CONSENT_TEXT_WHATSAPP}</span>
+              </label>
+            </div>
+
             <div className="flex gap-x-4 sm:col-span-2">
               <label className="text-sm leading-6 text-secondaryText">
                 Al enviar este formulario, aceptas nuestras{" "}
-                <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
+                <a
+                  href="/politicas-de-privacidad"
+                  className="font-semibold text-primaryColor hover:text-secondaryColor transition"
+                >
                   políticas de privacidad
                 </a>
                 .
@@ -138,7 +256,7 @@ export const Contact = () => {
               type="submit"
               className="contained-button w-full max-w-52 h-12 text-lg font-bold"
             >
-              Send Message
+              Enviar mensaje
             </button>
           </div>
         </form>
