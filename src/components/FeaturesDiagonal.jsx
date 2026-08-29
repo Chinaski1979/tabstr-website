@@ -41,7 +41,7 @@ export const FeaturesDiagonal = () => {
           <div className="w-4/5 lg:w-1/2 lg:pl-16 flex justify-center mx-auto pt-16 lg:pt-0">
             <img
               src={aiAssistance.src}
-              alt="Feature image"
+              alt="Asistente de inteligencia artificial de Tabstr sugiriendo stock"
               className="rounded-xl  main-border-gray"
             />
           </div>
