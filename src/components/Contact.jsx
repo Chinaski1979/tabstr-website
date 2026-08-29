@@ -27,7 +27,6 @@ export const Contact = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
 
-      // Reset status and set loading
       setSubmitStatus({ type: null, message: "" });
       setIsSubmitting(true);
 
@@ -37,6 +36,7 @@ export const Contact = () => {
       const company = String(formData.get("company") || "").trim();
       const phone = String(formData.get("phone") || "").trim();
       const message = String(formData.get("message") || "").trim();
+      const operation = String(formData.get("operation") || "").trim();
       const optInEmail = formData.get("opt_in_email") === "on";
       const optInWhatsapp = formData.get("opt_in_whatsapp") === "on";
 
@@ -57,6 +57,7 @@ export const Contact = () => {
         company,
         phone,
         message,
+        operation,
         opt_in_email: optInEmail,
         opt_in_whatsapp: optInWhatsapp,
       };
@@ -143,7 +144,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="isolate px-6 py-16 pb-10 sm:py-20 sm:pb-20 lg:px-8 bg-bgDark2 relative"
+      className="isolate px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative"
     >
       <div
         className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10"
@@ -164,16 +165,17 @@ export const Contact = () => {
           <h2 className="mt-4 mb-3 text-4xl lg:text-5xl font-bold font-heading text-primaryText">
             Escríbenos
           </h2>
-          <p className="text-secondaryText max-w-2xl mx-auto">
-            Listo para modernizar la gestión de tu negocio? Escríbenos y aprende
-            cómo Tabstr puede mejorar tu operación y mejorar la experiencia de
-            tus clientes.
+          <p className="text-secondaryText max-w-xl mx-auto text-sm sm:text-base">
+            Cuéntanos sobre tu negocio y te mostramos cómo Tabstr puede ayudarte.
           </p>
         </div>
 
-        <form id="contact-form" className="mx-auto max-w-2xl pt-12 lg:pt-20">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-            <div className="block sm:col-span-2">
+        <form
+          id="contact-form"
+          className="mx-auto rounded-2xl border border-bgDark3Hover bg-bgDark3/40 p-5 sm:p-6 lg:p-7"
+        >
+          <div className="grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
+            <div className="block">
               <label htmlFor="name" className="contact-label">
                 Nombre *
               </label>
@@ -229,20 +231,11 @@ export const Contact = () => {
             </div>
 
             <div className="block sm:col-span-2">
-<<<<<<< HEAD
-              <label htmlFor="phone" className="contact-label">
-                Teléfono
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                autoComplete="tel"
-                className="contact-input"
-                placeholder="Requerido si aceptas WhatsApp"
-              />
-=======
-              <label htmlFor="operation" className="contact-label" title="¿Cómo planea usar Tabstr?">
+              <label
+                htmlFor="operation"
+                className="contact-label"
+                title="¿Cómo planea usar Tabstr?"
+              >
                 Uso previsto de Tabstr
               </label>
               <select
@@ -252,14 +245,19 @@ export const Contact = () => {
                 defaultValue=""
               >
                 <option value="">Selecciona (opcional)</option>
-                <option value="restaurant-1">Restaurante o bar — 1 dispositivo</option>
-                <option value="restaurant-multi">Restaurante o bar — 2 o más dispositivos</option>
+                <option value="restaurant-1">
+                  Restaurante o bar — 1 dispositivo
+                </option>
+                <option value="restaurant-multi">
+                  Restaurante o bar — 2 o más dispositivos
+                </option>
                 <option value="retail-1">Tienda o retail — 1 dispositivo</option>
-                <option value="retail-multi">Tienda o retail — 2 o más dispositivos</option>
+                <option value="retail-multi">
+                  Tienda o retail — 2 o más dispositivos
+                </option>
                 <option value="multi-location">Varios locales o sucursales</option>
                 <option value="exploring">Aún evaluando opciones</option>
               </select>
->>>>>>> origin/main
             </div>
 
             <div className="block sm:col-span-2">
@@ -275,7 +273,6 @@ export const Contact = () => {
                 defaultValue="Estoy interesado en utilizar Tabstr."
               ></textarea>
             </div>
-<<<<<<< HEAD
 
             <div className="flex flex-col gap-4 sm:col-span-2">
               <label className="flex items-start gap-3 text-sm leading-6 text-secondaryText cursor-pointer">
@@ -298,24 +295,11 @@ export const Contact = () => {
                 <span>{CONSENT_TEXT_WHATSAPP}</span>
               </label>
             </div>
-
-            <div className="flex gap-x-4 sm:col-span-2">
-              <label className="text-sm leading-6 text-secondaryText">
-                Al enviar este formulario, aceptas nuestras{" "}
-                <a
-                  href="/politicas-de-privacidad"
-                  className="font-semibold text-primaryColor hover:text-secondaryColor transition"
-                >
-                  políticas de privacidad
-                </a>
-                .
-              </label>
-            </div>
           </div>
 
           {submitStatus.type && (
             <div
-              className={`mt-6 p-4 rounded-lg ${
+              className={`mt-5 p-4 rounded-lg ${
                 submitStatus.type === "success"
                   ? "bg-green-900/20 border border-green-500/30 text-green-400"
                   : "bg-red-900/20 border border-red-500/30 text-red-400"
@@ -356,11 +340,21 @@ export const Contact = () => {
             </div>
           )}
 
-          <div className="flex pt-10">
+          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs leading-5 text-secondaryText sm:max-w-md">
+              Al enviar este formulario, aceptas nuestras{" "}
+              <a
+                href="/politicas-de-privacidad"
+                className="font-semibold text-primaryColor hover:text-secondaryColor transition"
+              >
+                políticas de privacidad
+              </a>
+              .
+            </p>
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`contained-button w-full max-w-52 h-12 text-lg font-bold flex items-center justify-center gap-2 ${
+              className={`contained-button h-11 w-full shrink-0 px-6 text-base font-bold sm:w-auto sm:min-w-[10.5rem] flex items-center justify-center gap-2 ${
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
@@ -391,23 +385,6 @@ export const Contact = () => {
               ) : (
                 "Enviar mensaje"
               )}
-=======
-          </div>
-
-          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs leading-5 text-secondaryText sm:max-w-md">
-              Al enviar este formulario, aceptas nuestras{" "}
-              <a href="/privacy" className="font-semibold text-primaryColor hover:text-secondaryColor transition">
-                políticas de privacidad
-              </a>
-              .
-            </p>
-            <button
-              type="submit"
-              className="contained-button h-11 w-full shrink-0 px-6 text-base font-bold sm:w-auto sm:min-w-[10.5rem]"
-            >
-              Enviar mensaje
->>>>>>> origin/main
             </button>
           </div>
         </form>
