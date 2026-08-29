@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import blogHero from "../assets/images/tabs-management.png";
+import blogHero from "../assets/images/article1.png";
 
 const blogData = [
   {
