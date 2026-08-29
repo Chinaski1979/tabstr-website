@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { Navbar } from "../components/Navbar.jsx";
 import { Footer } from "../components/Footer.jsx";
 import "../styles/Theme.css";
+
 ---
 
 <Layout title="Soporte | Tabstr">
@@ -216,7 +217,7 @@ import "../styles/Theme.css";
   <Footer />
   <script is:inline>
     (() => {
-      const VERSIONS_URL = "https://downloads.tabstr.net/versions.json";
+      const VERSIONS_URL = "https://pub-75d3c968662d40b4ba6a2a53936a7ff2.r2.dev/versions.json";
       const PLATFORMS = ["windows", "macos", "android"];
 
       const applyInstallerMetadata = async () => {
