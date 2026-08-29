@@ -1,0 +1,115 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { Navbar } from '../../../components/Navbar.jsx'
+import { Article } from '../../../components/Article.jsx'
+import { Footer } from '../../../components/Footer.jsx'
+import blogHero from '../../../assets/images/article2.png'
+import '../../../styles/Theme.css'
+import { ScrollUpButton } from '../../../components/ScrollUpButton'
+
+const articleData = {
+  title: 'Tabstr nació el día que me cobraron $250 por una capacitación para aprender a usar el POS desde mi computadora personal.',
+  subtitle:
+    'Un POS famoso. Licencia por dispositivo. Otra licencia para ver mis reportes. Capacitación obligatoria. Y un software que, encima, solo quería vivir en el sistema operativo que ellos decidieron.',
+  date: '29 de agosto, 2026',
+  image: blogHero.src,
+  content: `
+    <p>Empecé Tabstr porque tenía un bar y un POS de los de siempre. Uno de los conocidos. De los que "todo el mundo usa".</p>
+    <p>Ese sistema tenía un montón de funciones que yo no pedí y no tenía las que sí necesitaba… que, para colmo, eran simples.</p>
+    <p>Ya de entrada cobraban licencia por cada dispositivo. Una computadora, otra licencia. Una tablet, otra licencia. Querías una pantalla más en el local y el precio subía como si cada pantalla fuera un producto distinto.</p>
+    <p>Yo quería algo todavía más básico: entrar al sistema cuando no estaba en el bar. Ver el reporte de ventas. Cambiar el precio de un producto. Revisar si el personal estaba abusando del descuento. Control de dueño. No un ERP de ciencia ficción.</p>
+    <p>Me dijeron que para eso había que pagar otra licencia y usarlo en la computadora. Más de $70 extra al mes. Encima de lo que ya pagaba por cada dispositivo del local.</p>
+    <p>Pensé: es un gasto extra, pero quiero más control. Lo pago.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">Ahí vino la segunda parte</div>
+    <p>Antes de habilitarme el acceso, tenía que pagar $250 de capacitación.</p>
+    <p>Yo soy ingeniero en sistemas. Programo. No estoy pidiendo que me expliquen qué es un mouse. Quería entrar a ver números de mi propio local. Me dijeron que no era opcional. Que si quería usar el sistema desde mi computadora personal, la capacitación se pagaba. Punto.</p>
+    <p>Ese día no solo me enojé. Me cuestioné el diseño entero.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">¿Por qué crean todas estas limitaciones?</div>
+    <p>¿Por qué un punto de venta no corre en cualquier dispositivo?</p>
+    <p>¿Por qué hacen software que solo vive en Windows o solo en Android, como si el dueño tuviera que adaptar el negocio al sistema operativo del proveedor y no al revés?</p>
+    <p>No es una limitación técnica de 2026. Es una decisión. Si el sistema solo corre donde ellos quieren, controlan el hardware, controlan la licencia y controlan cuándo podés entrar.</p>
+    <p>Yo quería lo contrario: un sistema que corra en cualquier dispositivo y en cualquier sistema operativo. En la tablet de la barra, en la tablet de la cocina, en la Mac de la casa, en el teléfono cuando estás fuera. Sin pedirle permiso a nadie.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">Ese día entendí el modelo</div>
+    <p class="text-primaryText text-xl font-semibold">No te venden software. Te venden dependencia.</p>
+    <p>Te cobran por cada dispositivo, te cobran otra vez por mirar el negocio desde afuera, te amarran a Windows o a Android, te amarran a su hardware y después te cobran la capacitación como peaje para poder usar lo que ya pagaste.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">Prometí hacer uno mejor</div>
+    <p>Moderno.</p>
+    <p>Que corra donde vos ya estás, no donde el proveedor necesita que estés.</p>
+    <p>Con una interfaz que no parezca castigo.</p>
+    <p>Intuitiva de verdad, no "intuitiva" después de un curso de $250.</p>
+    <p>Porque la mayoría de los POS son feos. Los arman ingenieros que nunca han cerrado una caja a las 2 a.m., nunca han tenido un mesero aplicando descuentos a lo loco y nunca han querido cambiar un precio desde el celular mientras están en la casa. Entonces convierten lo simple en un laberinto. Y el laberinto justifica la capacitación. Y la capacitación justifica el precio. Y el cliente se queda, no porque el sistema sea bueno, sino porque ya está cansado.</p>
+    <p>Hay funciones que sí servirían… si no fueran tan difíciles de usar que terminás ignorándolas.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">De mi bar a Tabstr</div>
+    <p>Cuando tuve la primera versión de Tabstr empecé a sentarme con otros dueños de bares y restaurantes. No a venderles. A preguntarles qué les hervía la sangre.</p>
+    <p>Las quejas se repetían.</p>
+    <ul class="list-disc pl-6 space-y-2 my-4">
+      <li>Licencia por cada pantalla.</li>
+      <li>Software que solo corre en el sistema operativo "aprobado".</li>
+      <li>Equipos que solo te dan soporte si se los rentás al mismo proveedor.</li>
+      <li>Reportes que no podés ver si no estás parado en la caja… o si pagás una licencia más.</li>
+      <li>Facturación electrónica a través de un app aparte.</li>
+      <li>Capacitaciones obligatorias para poder hacer lo básico.</li>
+      <li>Pantallas que parecen diseñadas para que el personal le tenga miedo al sistema, no para que lo use.</li>
+    </ul>
+    <p>Ahí Tabstr dejó de ser "mi solución para mi bar" y se volvió un sistema diseñado con la gente que lo va a sufrir o a disfrutar todos los días.</p>
+    <p>No inventamos complejidad para cobrarte un curso.</p>
+    <p>No multiplicamos el precio cada vez que agregás un dispositivo.</p>
+    <p>No te obligamos a comprar una computadora con el sistema operativo correcto para poder ser dueño de tu negocio.</p>
+    <p>Quitamos fricción para que tengas control sin pedir permiso.</p>
+    <br/>
+    <p>Si tu POS actual te cobra por cada pantalla, solo corre donde ellos quieren, te cobra por mirar tus ventas desde afuera, te cobra por capacitar a tu gente o te encadena a su hardware, no tenés un socio. Tenés un peaje.</p>
+    <p class="text-primaryText text-xl font-semibold">Tabstr existe porque ese peaje me lo pusieron a mí. Y porque después descubrí que no era el único.</p>
+    <p>Si te suena familiar, no es coincidencia. Es el mismo sistema de siempre, con distinta etiqueta.</p>
+    <br/>
+    <p><a href="/#contact" class="text-secondaryColor hover:underline font-semibold">Hablá con nosotros</a>. El cambio no tiene que empezar con otra licencia ni con otra máquina.</p>
+  `,
+  footer: '~ Tabstr',
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleData.title,
+  description: articleData.subtitle,
+  image: 'https://tabstr.net/Tabstr.png',
+  datePublished: '2026-08-29',
+  dateModified: '2026-08-29',
+  inLanguage: 'es-CR',
+  author: {
+    '@type': 'Organization',
+    name: 'Tabstr',
+    url: 'https://tabstr.net',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Hermosa Software',
+    url: 'https://hermosasoftware.io',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://tabstr.net/tabstr-logo-transparent.png',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://tabstr.net/blog/tabstr-nacio-cobro-250/',
+  },
+}
+---
+
+<Layout
+  title={`${articleData.title} | Tabstr`}
+  description={articleData.subtitle}
+  canonicalPath="/blog/tabstr-nacio-cobro-250/"
+  ogImage={blogHero.src}
+  jsonLd={articleSchema}
+>
+  <Navbar client:load />
+  <Article articleData={articleData} />
+  <Footer />
+  <ScrollUpButton client:load />
+</Layout>

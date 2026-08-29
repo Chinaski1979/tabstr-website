@@ -3,33 +3,96 @@ import Layout from '../../../layouts/Layout.astro'
 import { Navbar } from '../../../components/Navbar.jsx'
 import { Article } from '../../../components/Article.jsx'
 import { Footer } from '../../../components/Footer.jsx'
-import blog1 from '../../../assets/images/blog1.jpg'
+import blogHero from '../../../assets/images/article1.png'
 import '../../../styles/Theme.css'
 import { ScrollUpButton } from '../../../components/ScrollUpButton'
 
 const articleData = {
-  title: "AI and Machine Learning",
-  subtitle: "Discover insights and trends in the world of data analytics",
-  date: "June 5, 2024",
-  image: blog1.src,
+  title: 'Tu POS no es lealtad. Es pereza disfrazada de "así siempre lo hemos hecho".',
+  subtitle:
+    'Los sistemas de siempre se diseñaron en otra época. Seguir con ellos no te hace prudente. Te hace lento. Y migrar no tiene por qué doler.',
+  date: '29 de agosto, 2026',
+  image: blogHero.src,
   content: `
-    <p>AI and Machine Learning are now vital components of contemporary technology. These innovations are revolutionizing industries by offering new insights and automating tasks that were once considered unachievable. In the realms of finance and startups, AI and ML are transforming how businesses analyze data and make strategic decisions.</p>
-    <p>In financing, AI is being leveraged to assess credit risk and enhance investment strategies. For startups, machine learning algorithms are instrumental in understanding customer behavior and optimizing operations. The scope of these technologies is extensive and continues to expand as we create more sophisticated algorithms and advanced computational power.</p>
-    <p>Stay engaged as we delve deeper into the impact of AI and ML on business analytics and financing in our forthcoming articles.</p><br/>
-    <div class="text-white text-2xl mb-4">Machine Learning in Startups</div>
-    <p>Startups are increasingly adopting AI and Machine Learning to gain a competitive edge. These technologies help in automating routine tasks, thereby saving time and resources. For instance, AI-powered chatbots enhance customer service by providing instant responses to queries, while ML algorithms analyze large datasets to extract actionable insights.</p>
-    <p>By integrating AI and ML, startups can better understand market trends, customer preferences, and operational inefficiencies. This integration not only fosters innovation but also drives growth by enabling data-driven decision-making.</p>
-    <p>Join us in our next articles as we uncover more ways AI and ML are revolutionizing the startup ecosystem.</p><br/>
-    <div class="text-white text-2xl mb-4">Future Trends in AI</div>
-    <p>The future of business analytics is poised to be heavily influenced by advancements in AI and Machine Learning. Predictive analytics, powered by these technologies, will enable businesses to foresee market changes and adapt proactively. This predictive capability is crucial for startups and financial institutions aiming to stay ahead of the curve.</p>
-    <p>Moreover, the rise of AI-driven automation will lead to more efficient and accurate data processing, reducing the margin of error and improving overall productivity. As algorithms become more advanced, the potential for AI and ML to uncover hidden patterns and trends will only grow.</p>
-    <p>Stay tuned as we continue to explore the evolving landscape of AI and its transformative impact on business analytics and financing.</p>
+    <p>Hay un tipo de empresario que ya sabe que su punto de venta es viejo, lento, feo y caro… y aun así no se mueve.</p>
+    <p>No porque el sistema sea bueno si no porque el cambio da pereza.</p>
+    <p>Ese es el negocio real de muchos POS tradicionales: no la innovación. El miedo a migrar.</p>
+    <p>Esos sistemas se construyeron hace años. Cuando el local tenía una sola caja, una impresora que "solo funciona con este modelo" y un técnico que tardaba tres días en aparecer. No nacieron para iterar cada mes. Nacieron para cobrarte por dispositivo, amarrarte al hardware y facturarte la capacitación como si enseñarte a usar tu propia herramienta fuera un favor.</p>
+    <p>El resultado es predecible: interfaces que parecen de otro siglo, actualizaciones que llegan cuando Hacienda ya cambió las reglas, y un "módulo de facturación" que en realidad es mandarte a GTI o a otro parche de terceros.</p>
+    <p class="text-primaryText text-xl font-semibold">Quedarte con el mismo POS no es estrategia. Es inercia.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">El mito caro: "migrar es un infierno"</div>
+    <p>La historia que te venden es esta: si te cambiás, perdés los productos, el personal no entiende nada, tenés que comprar equipo nuevo y el local se para una semana.</p>
+    <p>Eso era cierto cuando el proveedor necesitaba que fuera cierto.</p>
+    <p>En Tabstr la migración está diseñada al revés: primero dejamos el sistema listo, después vos empezás a vender.</p>
+    <p>Te pasamos un Excel. Ponés ahí la información de tus productos. Nosotros la cargamos en la base de datos. El día que abrís Tabstr por primera vez, el catálogo ya está. El sistema ya está configurado. No empezás de cero. Empezás operando.</p>
+    <p>Eso no es "onboarding lindo". Es quitarle la excusa al cambio.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">No tenés que tirar lo que ya tenés</div>
+    <p>Tabstr corre en cualquier dispositivo. Se integra con el equipo que ya está en el local.</p>
+    <p>Si tu hardware actual sirve, se usa.</p>
+    <p>Si está alquilado porque el POS de siempre te rentó las impresoras y computadora para no soltarte, cotizamos lo que necesitás para que el equipo sea tuyo… o te lo rentamos nosotros también, sin el cuento de que "solo funciona con nuestra marca".</p>
+    <p>La trampa del hardware propio del proveedor no es tecnología. Es control.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">Capacitar no debería ser un extra</div>
+    <p>Hay empresas que te cobran por enseñarte a usar el sistema que ya les estás pagando.</p>
+    <p>Tabstr no cobra la capacitación del personal. Si el cambio es en serio, el equipo tiene que poder usarlo el primer día sin que eso se convierta en otra línea de la factura.</p>
+    <p>Un POS que necesita un curso pago para ser usable no es profesional. Es hostil.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">Hacienda no es un plugin. Es parte del sistema</div>
+    <p>La facturación electrónica 4.4 no debería vivir en una app aparte.</p>
+    <p>Tabstr tiene integración nativa con el Ministerio de Hacienda. Facturás desde el mismo flujo de venta. Sin GTI. Sin "exportar y después subir". Sin un segundo programa que se cae cuando más lo necesitás.</p>
+    <p>Si tu POS actual te obliga a unir dos herramientas para hacer lo que un sistema moderno debería hacer solo, no tenés un ecosistema. Tenés un parche.</p>
+    <br/>
+    <div class="text-white text-2xl mb-4">El cambio fácil no es un eslogan. Es un proceso</div>
+    <p>Si estás interesado pero tenés dudas —cuánto tarda, qué pasa con el inventario, qué equipo sirve, cómo se capacita el turno de la tarde— escribinos.</p>
+    <p>Tenemos una estrategia concreta para que el cambio no se sienta como un proyecto de tres meses. Productos cargados de antemano. Equipo que ya tenés o una cotización clara. Capacitación incluida. Facturación electrónica adentro, no al lado.</p>
+    <p>El POS tradicional apostó a que no te ibas a mover.</p>
+    <p>Nosotros apostamos a que sí, si alguien por fin te quita la fricción.</p>
+    <p class="text-primaryText text-xl font-semibold">Atreverse no es pagar por software nuevo. Es dejar de pagarle a un sistema que ya no está del lado de tu negocio.</p>
+    <br/>
+    <p>¿Listo para ver cómo se ve tu local con todo cargado desde el día uno? <a href="/#contact" class="text-secondaryColor hover:underline font-semibold">Contactanos</a>. Hacemos la migración fácil. Vos dejás de justificar el POS que ya no da más.</p>
   `,
-  footer: "~ Duncan Idaho"
+  footer: '~ Tabstr',
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleData.title,
+  description: articleData.subtitle,
+  image: 'https://tabstr.net/Tabstr.png',
+  datePublished: '2026-08-29',
+  dateModified: '2026-08-29',
+  inLanguage: 'es-CR',
+  author: {
+    '@type': 'Organization',
+    name: 'Tabstr',
+    url: 'https://tabstr.net',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Hermosa Software',
+    url: 'https://hermosasoftware.io',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://tabstr.net/tabstr-logo-transparent.png',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://tabstr.net/blog/article/',
+  },
 }
 ---
 
-<Layout title={articleData.title}>
+<Layout
+  title={`${articleData.title} | Tabstr`}
+  description={articleData.subtitle}
+  canonicalPath="/blog/article/"
+  ogImage={blogHero.src}
+  jsonLd={articleSchema}
+>
   <Navbar client:load />
   <Article articleData={articleData} />
   <Footer />

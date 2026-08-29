@@ -38,13 +38,13 @@ export const Features1 = () => {
                 </li>
                 <li className="mb-4 flex">
                   <CheckArrowIcon />
-                  <span>Sin licencias, sin instalaciones, sin complicaciones</span>
+                  <span>Sin licencias, sin cargos ocultos, sin complicaciones</span>
                 </li>
               </ul>
             </div>
           </div>
           <div className="w-3/4 mx-auto lg:w-1/2 flex flex-wrap lg:-mx-4 sm:pr-8 lg:pt-10 justify-center lg:pl-4 xl:px-8">
-            <img src={forAllDevices.src} alt="Tabs Management for all devices" className="rounded-xl  main-border-gray mx-auto sm:mx-unset" />
+            <img src={forAllDevices.src} alt="Tabstr POS corriendo en celular, tablet y computadora" className="rounded-xl  main-border-gray mx-auto sm:mx-unset" />
           </div>
         </div>
       </motion.div>

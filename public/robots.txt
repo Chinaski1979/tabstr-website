@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Internal sales brief — not for search engines
+Disallow: /brief
+
+Sitemap: https://tabstr.net/sitemap-index.xml

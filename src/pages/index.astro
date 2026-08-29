@@ -5,31 +5,102 @@ import { Navbar } from '../components/Navbar.jsx'
 import { Clients } from '../components/Clients.jsx'
 import { Features1 } from '../components/Features1.jsx'
 import { Features2 } from '../components/Features2.jsx'
-// import { Testimonials } from '../components/Testimonials.jsx'
 import { FeaturesDiagonal } from '../components/FeaturesDiagonal.jsx'
-import { Pricing } from '../components/Pricing.jsx'
-// import { FAQ } from '../components/FAQ.jsx'
-// import { Brands } from '../components/Brands.jsx'
 import { Blog } from '../components/Blog'
+import { FAQ, FAQData } from '../components/FAQ.jsx'
 import { Contact } from '../components/Contact.jsx'
 import { Footer } from '../components/Footer.jsx'
 import { ScrollUpButton } from '../components/ScrollUpButton'
 import '../styles/Theme.css'
 import '../styles/Diagonals.css'
+
+const site = 'https://tabstr.net'
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tabstr',
+  legalName: 'Herso Software Company S.A.',
+  url: site,
+  logo: `${site}/tabstr-logo-transparent.png`,
+  email: 'contact@hermosasoftware.io',
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Hermosa Software',
+    url: 'https://hermosasoftware.io',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bahía Ballena',
+    addressRegion: 'Puntarenas',
+    addressCountry: 'CR',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Costa Rica',
+  },
+}
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Tabstr',
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'Point of Sale',
+  operatingSystem: 'Android, iOS, Windows, macOS, Linux',
+  url: site,
+  description:
+    'POS moderno para restaurantes y comercios en Costa Rica. Funciona en cualquier dispositivo, con facturación electrónica 4.4 de Hacienda y sin licencias por dispositivo.',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'CRC',
+    availability: 'https://schema.org/InStock',
+  },
+  provider: {
+    '@type': 'Organization',
+    name: 'Hermosa Software',
+    url: 'https://hermosasoftware.io',
+  },
+  featureList: [
+    'Facturación electrónica 4.4 integrada con Hacienda',
+    'Compatible con cualquier dispositivo',
+    'Sin licencias por dispositivo',
+    'Migración de productos vía Excel',
+    'Capacitación incluida',
+    'SINPE móvil',
+    'Importación de facturas XML para inventario',
+    'Sugerencias de stock con IA',
+  ],
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQData.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
 ---
 
-<Layout title="Tabstr">
+<Layout
+  title="Tabstr — POS moderno para restaurantes y comercios en Costa Rica"
+  description="Sistema de punto de venta (POS) que funciona en celular, tablet o PC. Facturación electrónica 4.4 con Hacienda, sin licencias por dispositivo. Migración y capacitación incluidas."
+  canonicalPath="/"
+  jsonLd={[organizationSchema, softwareSchema, faqSchema]}
+>
   <Navbar client:load />
   <Hero client:load />
   <Clients client:load />
   <Features1 client:load />
   <Features2 client:load />
   <FeaturesDiagonal client:load />
-  <!-- <Pricing client:load /> -->
-  {/* <Brands client:load /> */}
-  <!-- <Testimonials client:load /> -->
-  <!-- <Blog client:load /> -->
-  {/* <FAQ client:load /> */}
+  <Blog client:load />
+  <FAQ client:load />
   <Contact client:load />
   <Footer />
   <ScrollUpButton client:load />
