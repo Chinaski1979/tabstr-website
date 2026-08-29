@@ -55,9 +55,44 @@ const articleData = {
   `,
   footer: '~ Tabstr',
 }
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleData.title,
+  description: articleData.subtitle,
+  image: 'https://tabstr.net/Tabstr.png',
+  datePublished: '2026-08-29',
+  dateModified: '2026-08-29',
+  inLanguage: 'es-CR',
+  author: {
+    '@type': 'Organization',
+    name: 'Tabstr',
+    url: 'https://tabstr.net',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Hermosa Software',
+    url: 'https://hermosasoftware.io',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://tabstr.net/tabstr-logo-transparent.png',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://tabstr.net/blog/article/',
+  },
+}
 ---
 
-<Layout title={articleData.title}>
+<Layout
+  title={`${articleData.title} | Tabstr`}
+  description={articleData.subtitle}
+  canonicalPath="/blog/article/"
+  ogImage={blogHero.src}
+  jsonLd={articleSchema}
+>
   <Navbar client:load />
   <Article articleData={articleData} />
   <Footer />

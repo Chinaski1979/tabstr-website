@@ -16,7 +16,7 @@ export const Features2 = () => (
           <div className="mb-8 lg:mb-0 w-full px-2 lg:pl-16 flex flex-col justify-center md:pl-8">
             <img
               src={salesStats.src}
-              alt="Feature image 5"
+              alt="Estadísticas de ventas en tiempo real en Tabstr POS"
               className="rounded-xl  main-border-gray"
             />
           </div>

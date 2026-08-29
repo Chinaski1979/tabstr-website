@@ -1,26 +1,36 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const FAQData = [
+export const FAQData = [
   {
-    question: "Can I upgrade or downgrade my plan at any time?",
+    question: "¿Qué es Tabstr?",
     answer:
-      "Yes, you can easily upgrade or downgrade your plan at any time. Simply navigate to the account settings in your dashboard and choose the desired plan. The changes will be reflected immediately, and any adjustments in pricing will be applied on your next billing cycle. Our support team is more than happy to provide guidance and recommendations.",
+      "Tabstr es un sistema de punto de venta (POS) moderno para restaurantes y comercios en Costa Rica. Corre en celular, tablet o computadora, sin cobrarte por cada dispositivo, e incluye facturación electrónica 4.4 integrada con el Ministerio de Hacienda.",
   },
   {
-    question: "How to claim your 25% discount offer?",
+    question: "¿Funciona con facturación electrónica 4.4 de Hacienda?",
     answer:
-      "To claim your 25% discount, simply sign up for an account and enter the promotional code at checkout. The discount will be applied automatically to your purchase.",
+      "Sí. Tabstr tiene integración nativa con el API de facturación electrónica versión 4.4 del Ministerio de Hacienda. Facturás desde el mismo flujo de venta, sin GTI ni una segunda aplicación aparte.",
   },
   {
-    question: "What's your refund policy?",
+    question: "¿Necesito comprar hardware nuevo para migrar?",
     answer:
-      "We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with our product, simply contact our support team within 30 days of purchase for a full refund.",
+      "No necesariamente. Tabstr funciona en cualquier dispositivo y se integra con el equipo que ya tenés cuando es compatible. Si necesitás impresoras u otros periféricos, te cotizamos opciones claras — sin amarrarte a hardware exclusivo del proveedor.",
   },
   {
-    question: "How to get support for the product?",
+    question: "¿Qué tan difícil es migrar desde otro POS?",
     answer:
-      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+      "La migración está pensada para que empieces operando, no desde cero. Te pasamos un Excel, cargás tus productos, nosotros los importamos y el día que abrís Tabstr el catálogo ya está listo. La capacitación del personal está incluida.",
+  },
+  {
+    question: "¿En qué dispositivos funciona Tabstr?",
+    answer:
+      "En Android, iOS, Windows, macOS y Linux. Un solo sistema en la caja, la cocina o desde donde administres el negocio — sin licencias por pantalla.",
+  },
+  {
+    question: "¿Cómo puedo contactarlos o agendar una demo?",
+    answer:
+      "Escribinos por el formulario de contacto del sitio o por WhatsApp. Te mostramos cómo quedaría tu local con Tabstr y resolvemos dudas de migración, inventario y facturación.",
   },
 ];
 
@@ -35,9 +45,9 @@ export const FAQ = () => (
     >
       <div className="relative z-10 container px-2 sm:px-8 lg:px-4 mx-auto w-11/12 sm:w-full">
         <div className="md:max-w-4xl mx-auto">
-          <p className="mb-7 block-subtitle text-center">Have any questions?</p>
+          <p className="mb-7 block-subtitle text-center">Preguntas frecuentes</p>
           <h2 className="mb-16 block-big-title text-center">
-            Frequently Asked Questions
+            Todo lo que querés saber antes de cambiar de POS
           </h2>
           <div className="mb-11 flex flex-wrap -m-1">
             {FAQData.map((item, index) => (
