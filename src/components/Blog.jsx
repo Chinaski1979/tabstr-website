@@ -1,16 +1,5 @@
 import { motion } from "framer-motion";
-
-import blogHero from "../assets/images/article1.png";
-
-const blogData = [
-  {
-    title: 'Tu POS no es lealtad. Es pereza disfrazada de "así siempre lo hemos hecho".',
-    subtitle:
-      "Los sistemas de siempre se diseñaron en otra época. Seguir con ellos no te hace prudente. Te hace lento. Y migrar no tiene por qué doler.",
-    image: blogHero.src,
-    href: "/blog/article",
-  },
-];
+import { blogData } from "../data/blogData";
 
 export const Blog = () => (
   <section className="w-screen flex justify-center bg-bgDark2 relative ">
@@ -32,29 +21,28 @@ export const Blog = () => (
               Ideas directas sobre POS, migración y operación de tu negocio.
             </p>
           </div>
-          <div className="flex 2xl:w-[1200px] lg:w-[1000px] xl:w-[1150px] flex-wrap -mx-4 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {blogData.map((post, index) => (
-              <div
+              <a
+                href={post.href}
                 key={`${post.title}-${index}`}
-                className="flex w-11/12 mx-auto lg:w-2/3 xl:w-3/5 px-4 mb-8 h-full"
+                className="w-full"
               >
-                <a href={post.href} className="w-full">
-                  <div className="p-6 sm:p-10 bg-bgDark3 rounded-3xl h-full hover:bg-bgDark3Hover transition cursor-pointer">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="rounded-3xl mb-6 w-full"
-                      aria-label={post.title}
-                    />
-                    <h3 className="mb-4 text-2xl font-bold font-heading text-primaryText">
-                      {post.title}
-                    </h3>
-                    <p className="text-secondaryText leading-loose">
-                      {post.subtitle}
-                    </p>
-                  </div>
-                </a>
-              </div>
+                <div className="p-6 sm:p-10 bg-bgDark3 rounded-3xl hover:bg-bgDark3Hover transition cursor-pointer h-full flex flex-col">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="rounded-3xl mb-6 w-full h-48 sm:h-56 object-cover"
+                    aria-label={post.title}
+                  />
+                  <h3 className="mb-4 text-xl sm:text-2xl font-bold font-heading text-primaryText line-clamp-3">
+                    {post.title}
+                  </h3>
+                  <p className="text-secondaryText leading-relaxed line-clamp-3">
+                    {post.subtitle}
+                  </p>
+                </div>
+              </a>
             ))}
           </div>
         </div>
