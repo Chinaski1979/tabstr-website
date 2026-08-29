@@ -7,8 +7,9 @@ const navbarLinks = [
   { label: "Inicio", href: "/#home", ariaLabel: "Inicio" },
   { label: "Características", href: "/#features", ariaLabel: "Características" },
   // { label: "Precio", href: "/#pricing", ariaLabel: "Precio" },
+  { label: "Blog", href: "/blog", ariaLabel: "Blog" },
+  { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
   { label: "Contacto", href: "/#contact", ariaLabel: "Contacto" },
-  // { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
 ];
 
 export const Navbar = () => {

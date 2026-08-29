@@ -32,8 +32,10 @@ Business owners in Costa Rica who want a modern POS without expensive legacy sys
 ## Important pages
 
 - Homepage: https://tabstr.net/
-- Blog: https://tabstr.net/#blog
+- Blog: https://tabstr.net/blog/
+- Blog section (homepage): https://tabstr.net/#blog
 - Article — migrating away from legacy POS: https://tabstr.net/blog/article/
+- Article — why Tabstr was founded ($250 training fee story): https://tabstr.net/blog/tabstr-nacio-cobro-250/
 - Support / installers: https://tabstr.net/soporte/
 - Terms: https://tabstr.net/terminos-y-condiciones/
 - Privacy: https://tabstr.net/politicas-de-privacidad/
