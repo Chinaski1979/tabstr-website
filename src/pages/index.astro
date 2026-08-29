@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import { Hero } from '../components/Hero.jsx'
 import { Navbar } from '../components/Navbar.jsx'
+import { Clients } from '../components/Clients.jsx'
 import { Features1 } from '../components/Features1.jsx'
 import { Features2 } from '../components/Features2.jsx'
 // import { Testimonials } from '../components/Testimonials.jsx'
@@ -20,6 +21,7 @@ import '../styles/Diagonals.css'
 <Layout title="Tabstr">
   <Navbar client:load />
   <Hero client:load />
+  <Clients client:load />
   <Features1 client:load />
   <Features2 client:load />
   <FeaturesDiagonal client:load />

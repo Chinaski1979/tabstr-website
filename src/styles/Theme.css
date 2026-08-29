@@ -74,11 +74,19 @@
 }
 
 .contact-label {
-  @apply flex pl-1 text-sm font-semibold leading-6 text-primaryText mb-2;
+  @apply flex pl-1 text-xs font-semibold leading-5 text-primaryText mb-1.5 sm:text-sm sm:leading-6;
 }
 
 .contact-input {
-  @apply w-full cursor-text rounded-lg border border-solid border-bgDark3Hover bg-bgDark3 px-4 py-3 text-base font-normal outline-none text-primaryText transition-all duration-200;
+  @apply w-full cursor-text rounded-lg border border-solid border-bgDark3Hover bg-bgDark3 px-3 py-2.5 text-sm font-normal outline-none text-primaryText transition-all duration-200 sm:px-4 sm:text-base;
+}
+
+select.contact-input {
+  @apply cursor-pointer;
+}
+
+textarea.contact-input {
+  @apply resize-none min-h-[5.5rem];
 }
 
 .contact-input:focus {
@@ -88,6 +96,64 @@
 
 .contact-input::placeholder {
   @apply text-secondaryText;
+}
+
+/* Clients marquee */
+.clients-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.clients-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  align-items: center;
+  animation: clients-marquee-scroll 32s linear infinite;
+}
+
+.clients-marquee:hover .clients-marquee-track {
+  animation-play-state: paused;
+}
+
+.clients-marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes clients-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    row-gap: 1rem;
+  }
 }
 
 /* Preventing FOUC */
