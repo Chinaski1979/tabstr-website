@@ -9,8 +9,8 @@
 - Company: Hermosa Software (Herso Software Company S.A.)
 - Website: https://tabstr.net
 - Company site: https://hermosasoftware.io
-- Contact: contact@hermosasoftware.io
-- Primary market: Costa Rica (restaurants, cafés, retail, hospitality)
+- Contact: contacto@tabstr.com
+- Primary market: Costa Rica (restaurants, cafés, bars, retail, hospitality)
 
 ## Key facts
 
@@ -24,6 +24,7 @@
 - XML invoice import to update inventory automatically
 - AI-assisted stock suggestions based on sales
 - Real-time sales visibility and remote business management
+- Offline support. If there's no internet the app keeps working
 
 ## Who it is for
 

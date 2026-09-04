@@ -5,10 +5,10 @@ import { getSupabaseClient } from "../lib/supabaseClient.js";
 const CONSENT_VERSION = "2026-07-31";
 
 const CONSENT_TEXT_EMAIL =
-  "Acepto recibir comunicaciones comerciales por correo electrónico de Tabstr / Hermosa Software.";
+  "Acepto recibir comunicaciones comerciales por correo electrónico de Tabstr";
 
 const CONSENT_TEXT_WHATSAPP =
-  "Acepto recibir mensajes de WhatsApp de Tabstr / Hermosa Software al número indicado.";
+  "Acepto recibir mensajes de WhatsApp de Tabstr al número indicado.";
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,7 +103,7 @@ export const Contact = () => {
               setSubmitStatus({
                 type: "error",
                 message:
-                  "Tu mensaje se envió, pero no pudimos registrar el consentimiento. Por favor inténtalo de nuevo o escríbenos a contact@hermosasoftware.io.",
+                  "Tu mensaje se envió, pero no pudimos registrar el consentimiento. Por favor inténtalo de nuevo o escríbenos a contacto@tabstr.net.",
               });
               return;
             }

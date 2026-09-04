@@ -46,6 +46,10 @@ export const Features2 = () => (
                 <CheckArrowIcon />
                 <span>Facturación electrónica con el API versión 4.4 de Hacienda.</span>
               </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Si se va el internet sigue funcionando.</span>
+              </li>
             </ul>
           </div>
         </div>
