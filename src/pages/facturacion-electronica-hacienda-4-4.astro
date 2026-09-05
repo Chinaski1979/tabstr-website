@@ -1,0 +1,56 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "Facturación electrónica Hacienda 4.4 | Tabstr POS Costa Rica";
+const description =
+  "Tabstr emite facturas y tiquetes electrónicos Hacienda 4.4 nativos, sin GTI aparte y desde el mismo POS para restaurantes y comercios en Costa Rica.";
+const canonicalPath = "/facturacion-electronica-hacienda-4-4/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Hacienda 4.4", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Tabstr Hacienda 4.4</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Facturación electrónica Hacienda 4.4 desde el mismo POS
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Tabstr emite facturas y tiquetes electrónicos en la versión 4.4 del Ministerio de Hacienda,
+    con envío nativo, sin GTI aparte y desde el mismo POS.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    En muchos puntos de venta de Costa Rica la venta vive en un sistema y la factura en otro.
+    Esa costura se rompe en hora pico. Tabstr POS trata Hacienda 4.4 como parte de la caja,
+    no como un plugin que hay que “exportar y subir”.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Qué significa “nativo”</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>El cajero factura en el mismo flujo en el que cobra.</li>
+    <li>No dependés de GTI ni de una segunda aplicación para cumplir con Hacienda.</li>
+    <li>Los comprobantes 4.4 salen del Tabstr POS, no de un parche de terceros.</li>
+    <li>Si el Ministerio actualiza el API, el cambio se absorbe en el producto.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Para restaurantes y comercios</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Da igual si emitís tiquete electrónico en una soda o factura electrónica a un cliente
+    corporativo: el punto de venta tiene que hablar 4.4 sin fricción. Eso es Tabstr Hacienda 4.4
+    para restaurantes, bares, cafés y tiendas. Si venís de un POS que te mandó a otra app,
+    <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">la migración está diseñada para no parar el local</a>.
+  </p>
+
+  <CtaBanner
+    title="¿Tu POS actual factura en otra app?"
+    body="Te mostramos cómo queda Hacienda 4.4 dentro de Tabstr POS, sin GTI aparte."
+  />
+</MarketingPage>

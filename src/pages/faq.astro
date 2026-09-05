@@ -1,0 +1,32 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { FAQ_ITEMS } from "../data/faq";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+
+const title = "FAQ Tabstr POS Costa Rica | Preguntas frecuentes";
+const description =
+  "Preguntas frecuentes de Tabstr POS: Hacienda 4.4, SINPE, mes gratis, licencia por dispositivo, migración y hardware para restaurantes y comercios en Costa Rica.";
+const canonicalPath = "/faq/";
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Preguntas frecuentes", href: canonicalPath },
+];
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  jsonLd={faqPageSchema(FAQ_ITEMS)}
+>
+  <p class="block-subtitle mb-4">FAQ Tabstr POS</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Preguntas frecuentes sobre Tabstr POS en Costa Rica
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-10">{ENTITY_SENTENCE}</p>
+  <FaqAccordion questionLevel="h2" />
+  <CtaBanner />
+</MarketingPage>

@@ -1,0 +1,53 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "SINPE móvil en el POS | Tabstr registra el comprobante";
+const description =
+  "Tabstr POS registra pagos SINPE móvil en la misma venta: captura el comprobante para restaurantes y comercios en Costa Rica, junto a Hacienda 4.4.";
+const canonicalPath = "/sinpe-movil-pos/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "SINPE móvil", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">SINPE móvil y Tabstr POS</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    SINPE móvil en el POS: el comprobante queda en la venta
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Tabstr POS captura y registra el comprobante de un pago por SINPE móvil en el mismo
+    flujo de caja. No es una foto suelta en el chat del personal.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    En Costa Rica SINPE ya es forma de pago cotidiana en restaurantes, sodas y comercios.
+    Si el punto de venta no lo registra, el cierre de caja se arma a mano y el dueño pierde
+    la pista. Tabstr trata SINPE como parte del POS, al lado de
+    <a href="/facturacion-electronica-hacienda-4-4/" class="text-secondaryColor hover:underline">Hacienda 4.4</a>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Por qué importa en operación</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>La cuenta queda cerrada con el método de pago real, no con un “transferencia” genérico.</li>
+    <li>El comprobante vive en el sistema, útil si hay un reclamo o un arqueo.</li>
+    <li>El personal no depende de un grupo de WhatsApp para demostrar que cobró.</li>
+  </ul>
+
+  <p class="text-secondaryText leading-relaxed mb-8">
+    SINPE no reemplaza datáfonos ni efectivo: convive. Un POS Costa Rica que ignora SINPE
+    está diseñado para otro país. Tabstr punto de venta está diseñado para este.
+  </p>
+
+  <CtaBanner
+    title="¿Tu caja anota SINPE a mano?"
+    body="Te mostramos cómo queda el comprobante dentro de Tabstr POS."
+  />
+</MarketingPage>

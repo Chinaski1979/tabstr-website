@@ -1,0 +1,54 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "POS para restaurantes Costa Rica | Tabstr punto de venta";
+const description =
+  "Tabstr POS para restaurantes en Costa Rica: mesas, cocina, SINPE, Hacienda 4.4 y control del dueño desde el celular, sin licencia por dispositivo.";
+const canonicalPath = "/pos-para-restaurantes/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "POS para restaurantes", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Tabstr restaurantes</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    POS para restaurantes en Costa Rica: Tabstr en mesa, cocina y celular
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    Un restaurante no es una tienda con sillas. Hay mesas abiertas, comandas a cocina,
+    propinas, SINPE en la cuenta y un dueño que quiere ver si el turno de la noche está
+    descontando de más. Tabstr POS para restaurantes corre en la tablet de la barra y en
+    el teléfono cuando ya saliste del local.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Lo que el local necesita en caja</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Cuentas y mesas en un POS que no se siente de los 90.</li>
+    <li>Facturación electrónica Hacienda 4.4 sin mandar al cajero a otra pantalla.</li>
+    <li>Comprobantes de SINPE móvil atados a la venta.</li>
+    <li>Inventario que se actualiza al importar facturas XML de proveedores.</li>
+    <li>Sugerencias de stock con IA para no quedarte sin producto un sábado.</li>
+  </ul>
+
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Tabstr nació en un bar. El producto existe porque un POS “de restaurantes” cobraba
+    licencia por dispositivo, otra licencia para ver reportes y $250 de capacitación para
+    usar el sistema desde la casa.
+    <a href="/blog/tabstr-nacio-cobro-250/" class="text-secondaryColor hover:underline">Esa historia está acá</a>.
+    Si tu cocina, barra y oficina usan pantallas distintas, no deberías pagar tres veces.
+  </p>
+
+  <CtaBanner
+    title="¿Querés ver Tabstr en un restaurante como el tuyo?"
+    body="Agendá una demo. Te armamos el flujo de mesas, Hacienda 4.4 y SINPE."
+  />
+</MarketingPage>

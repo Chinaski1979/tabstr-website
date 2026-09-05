@@ -81,9 +81,9 @@ export const Brief = () => {
   };
 
   return (
-    <section className="isolate px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative">
+    <section className="isolate overflow-hidden px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative">
       <div
-        className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10"
+        className="absolute inset-x-0 top-0 transform-gpu overflow-hidden blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       >
         <div className="contact-gradient-element"></div>

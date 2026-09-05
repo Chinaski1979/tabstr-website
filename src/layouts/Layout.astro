@@ -6,6 +6,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/inter/800.css";
 import "@fontsource/inter/900.css";
 import WhatsAppBubble from "../components/WhatsAppBubble.astro";
+import { HOME_DESCRIPTION, SITE_NAME, SITE_URL } from "../data/seo";
 
 export interface Props {
   title: string;
@@ -16,19 +17,16 @@ export interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const DEFAULT_DESCRIPTION =
-  "Tabstr es un POS moderno para restaurantes y comercios en Costa Rica. Funciona en cualquier dispositivo, con facturación electrónica 4.4 de Hacienda, sin licencias por dispositivo y migración incluida.";
-
 const {
   title,
-  description = DEFAULT_DESCRIPTION,
+  description = HOME_DESCRIPTION,
   ogImage = "/Tabstr.png",
   canonicalPath,
   noindex = false,
   jsonLd,
 } = Astro.props;
 
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://tabstr.net";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? SITE_URL;
 const pathname = canonicalPath ?? Astro.url.pathname;
 const canonicalUrl = new URL(pathname, `${site}/`).href;
 const ogImageUrl = ogImage.startsWith("http")
@@ -89,17 +87,19 @@ const structuredData = jsonLd
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CR" />
-    <meta property="og:site_name" content="Tabstr" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={`${SITE_NAME} POS para restaurantes y comercios en Costa Rica`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={`${SITE_NAME} POS Costa Rica`} />
 
     {
       structuredData.map((data) => (

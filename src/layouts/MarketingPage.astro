@@ -1,0 +1,67 @@
+---
+import Layout from "./Layout.astro";
+import { Navbar } from "../components/Navbar.jsx";
+import { Footer } from "../components/Footer.jsx";
+import { ScrollUpButton } from "../components/ScrollUpButton";
+import { Contact } from "../components/Contact.jsx";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import RelatedPages from "../components/RelatedPages.astro";
+import {
+  breadcrumbSchema,
+  webPageSchema,
+  type BreadcrumbItem,
+  type JsonLd,
+} from "../data/seo";
+import "../styles/Theme.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  breadcrumbs: BreadcrumbItem[];
+  jsonLd?: JsonLd | JsonLd[];
+  showContact?: boolean;
+  showRelated?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  breadcrumbs,
+  jsonLd,
+  showContact = true,
+  showRelated = true,
+} = Astro.props;
+
+const extraSchema = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const structuredData = [
+  webPageSchema({ name: title, description, path: canonicalPath }),
+  breadcrumbSchema(breadcrumbs),
+  ...extraSchema,
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={structuredData}
+>
+  <Navbar client:load />
+  <div class="w-full bg-bgDark2 pt-32 pb-8 min-h-[50vh]">
+    <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl">
+      <Breadcrumbs items={breadcrumbs} />
+      <slot />
+    </div>
+    <slot name="after" />
+  </div>
+  {showContact && <Contact client:load />}
+  {showRelated && (
+    <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl mb-4">
+      <RelatedPages excludeHref={canonicalPath} />
+    </div>
+  )}
+  <Footer />
+  <ScrollUpButton client:load />
+</Layout>

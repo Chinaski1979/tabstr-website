@@ -5,10 +5,10 @@ import { getSupabaseClient } from "../lib/supabaseClient.js";
 const CONSENT_VERSION = "2026-07-31";
 
 const CONSENT_TEXT_EMAIL =
-  "Acepto recibir comunicaciones comerciales por correo electrónico de Tabstr / Hermosa Software.";
+  "Acepto recibir comunicaciones comerciales por correo electrónico de Tabstr";
 
 const CONSENT_TEXT_WHATSAPP =
-  "Acepto recibir mensajes de WhatsApp de Tabstr / Hermosa Software al número indicado.";
+  "Acepto recibir mensajes de WhatsApp de Tabstr al número indicado.";
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,7 +103,7 @@ export const Contact = () => {
               setSubmitStatus({
                 type: "error",
                 message:
-                  "Tu mensaje se envió, pero no pudimos registrar el consentimiento. Por favor inténtalo de nuevo o escríbenos a contact@hermosasoftware.io.",
+                  "Tu mensaje se envió, pero no pudimos registrar el consentimiento. Por favor inténtalo de nuevo o escríbenos a contacto@tabstr.net.",
               });
               return;
             }
@@ -144,10 +144,10 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="isolate px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative"
+      className="isolate overflow-hidden px-6 py-14 pb-10 sm:py-16 sm:pb-16 lg:px-8 bg-bgDark2 relative"
     >
       <div
-        className="absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-10rem] -z-10"
+        className="absolute inset-x-0 top-0 transform-gpu overflow-hidden blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       >
         <div className="contact-gradient-element"></div>

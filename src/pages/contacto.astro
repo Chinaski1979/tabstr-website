@@ -1,0 +1,33 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "Contacto Tabstr POS Costa Rica | Demo y migración";
+const description =
+  "Contactá a Tabstr POS: demo, migración y facturación electrónica Hacienda 4.4 para restaurantes y comercios en Costa Rica. Bahía Ballena, Puntarenas.";
+const canonicalPath = "/contacto/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  showContact={true}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Contacto", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Contacto</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Contacto Tabstr POS Costa Rica
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Escribinos para una demo o para armar la migración de tu punto de venta.
+  </p>
+  <ul class="text-secondaryText leading-relaxed space-y-2 mb-4">
+    <li><strong class="text-primaryText">Email:</strong> <a class="text-secondaryColor hover:underline" href="mailto:contacto@tabstr.net">contacto@tabstr.net</a></li>
+    <li><strong class="text-primaryText">Producto:</strong> Tabstr POS — punto de venta con Hacienda 4.4</li>
+  </ul>
+</MarketingPage>

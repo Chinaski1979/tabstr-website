@@ -34,15 +34,17 @@ export const FeaturesDiagonal = () => {
             </h2>
             <p className="mb-16 text-secondaryText leading-loose">
               Tabstr usa IA para analizar las ventas de tu negocio y sugerir la cantidad de productos que debes tener en stock.
-              Compara tus ventas con las de semanas anteriors, el mismo mes del año anterior y toma fechas especiales como Navidad, Semana Santa, etc.
+              Compara tus ventas con las de semanas anteriores, el mismo mes del año anterior y toma fechas especiales como Navidad, Semana Santa, etc.
               Todo para que tu negocio sea más eficiente y tus clientes más satisfechos.
+              Además tiene integrado un chat de soporte que te ayuda a resolver tus dudas y problemas.
             </p>
           </div>
           <div className="w-4/5 lg:w-1/2 lg:pl-16 flex justify-center mx-auto pt-16 lg:pt-0">
             <img
               src={aiAssistance.src}
-              alt="Asistente de inteligencia artificial de Tabstr sugiriendo stock"
+              alt="Asistente de inteligencia artificial de Tabstr POS sugiriendo stock para un restaurante en Costa Rica"
               className="rounded-xl  main-border-gray"
+              loading="lazy"
             />
           </div>
         </div>

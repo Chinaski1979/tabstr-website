@@ -18,28 +18,28 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Un POS moderno y rápido para tu negocio
-          </h3>
+          <p className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
+            Tabstr POS para restaurantes y comercios en Costa Rica
+          </p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
         >
-          <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
-            <h1 className="inline md:hidden">Funciona en cualquier dispositivo</h1>
-            <h1 className="hidden md:inline">El punto de venta que funciona en cualquier dispositivo</h1>
-          </div>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
+            <span className="md:hidden">Funciona en cualquier dispositivo</span>
+            <span className="hidden md:inline">El punto de venta que funciona en cualquier dispositivo</span>
+          </h1>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h2 className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Olvídate de los sistemas de punto de venta caros y anticuados. Usa tu celular, tablet o computadora y empieza tener el control.
-          </h2>
+          <p className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-8 sm:px-24 md:px-16 leading-relaxed">
+            Tabstr POS es un sistema de punto de venta (POS) para restaurantes y comercios en Costa Rica. Corre en celular, tablet o computadora, no cobra licencia por dispositivo e incluye facturación electrónica Hacienda 4.4.
+          </p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -49,14 +49,14 @@ export const Hero = () => {
           <div className="flex flex-col gap-2 sm:flex-row mt-14 mb-24 sm:mb-40 justify-center">
             <button
               className="contained-button w-64 sm:w-52 h-12 mr-0 sm:mr-4 lg:mr-6 mb-2 sm:mb-0"
-              onClick={() => window.location.href = "/#contact"}
+              onClick={() => window.location.href = "/contacto/"}
               aria-label="Get started"
             >
               Contactar
             </button>
             <button
               className="w-64 sm:w-52 h-12 rounded-xl font-bold text-primaryText border border-solid  flex justify-center items-center cursor-pointer bg-bgDark2 hover:bg-bgDark3 border-primaryColor transition"
-              onClick={() => window.location.href = "/#contact"}
+              onClick={() => window.location.href = "/contacto/"}
               aria-label="Live demo"
             >
               Agendar Demo
@@ -71,7 +71,10 @@ export const Hero = () => {
           <div className="relative w-screen flex justify-center ">
             <img
               src={dashboard.src}
-              alt="Pantalla de Tabstr mostrando gestión de mesas y cuentas del POS"
+              alt="POS Tabstr en tablet en restaurante Costa Rica, con mesas y cuentas abiertas"
+              width={dashboard.width}
+              height={dashboard.height}
+              fetchPriority="high"
               className="w-4/5 2xl:w-[1200px] mx-auto absolute z-10 rounded-xl main-border-gray hero-dashboard-border-gradient lg:top-6 xl:top-0"
             />
           </div>
