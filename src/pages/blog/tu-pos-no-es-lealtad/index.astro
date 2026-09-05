@@ -6,13 +6,16 @@ import { Footer } from '../../../components/Footer.jsx'
 import blogHero from '../../../assets/images/article1.png'
 import '../../../styles/Theme.css'
 import { ScrollUpButton } from '../../../components/ScrollUpButton'
+import { articleSchema, breadcrumbSchema, FOUNDER, SITE_NAME } from '../../../data/seo'
 
+const path = '/blog/tu-pos-no-es-lealtad/'
 const articleData = {
   title: 'Tu POS no es lealtad. Es pereza disfrazada de "así siempre lo hemos hecho".',
   subtitle:
     'Los sistemas de siempre se diseñaron en otra época. Seguir con ellos no te hace prudente. Te hace lento. Y migrar no tiene por qué doler.',
   date: '29 de agosto, 2026',
   image: blogHero.src,
+  author: `${FOUNDER.name}, ${FOUNDER.jobTitle} de ${SITE_NAME} (Hermosa Software)`,
   content: `
     <p>Hay un tipo de empresario que ya sabe que su punto de venta es viejo, lento, feo y caro… y aun así no se mueve.</p>
     <p>No porque el sistema sea bueno si no porque el cambio da pereza.</p>
@@ -26,7 +29,7 @@ const articleData = {
     <p>Eso era cierto cuando el proveedor necesitaba que fuera cierto.</p>
     <p>En Tabstr la migración está diseñada al revés: primero dejamos el sistema listo, después vos empezás a vender.</p>
     <p>Te pasamos un Excel. Ponés ahí la información de tus productos. Nosotros la cargamos en la base de datos. El día que abrís Tabstr por primera vez, el catálogo ya está. El sistema ya está configurado. No empezás de cero. Empezás operando.</p>
-    <p>Eso no es "onboarding lindo". Es quitarle la excusa al cambio.</p>
+    <p>Eso no es "onboarding lindo". Es quitarle la excusa al cambio. El paso a paso está en <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline font-semibold">migrar de POS</a>.</p>
     <br/>
     <div class="text-white text-2xl mb-4">No tenés que tirar lo que ya tenés</div>
     <p>Tabstr corre en cualquier dispositivo. Se integra con el equipo que ya está en el local.</p>
@@ -41,57 +44,44 @@ const articleData = {
     <br/>
     <div class="text-white text-2xl mb-4">Hacienda no es un plugin. Es parte del sistema</div>
     <p>La facturación electrónica 4.4 no debería vivir en una app aparte.</p>
-    <p>Tabstr tiene integración nativa con el Ministerio de Hacienda. Facturás desde el mismo flujo de venta. Sin GTI. Sin "exportar y después subir". Sin un segundo programa que se cae cuando más lo necesitás.</p>
-    <p>Si tu POS actual te obliga a unir dos herramientas para hacer lo que un sistema moderno debería hacer solo, no tenés un ecosistema. Tenés un parche.</p>
+    <p>Tabstr emite facturas y tiquetes electrónicos en la versión 4.4 del Ministerio de Hacienda, con envío nativo, sin GTI aparte y desde el mismo POS. Sin "exportar y después subir". Sin un segundo programa que se cae cuando más lo necesitás.</p>
+    <p>Lo mismo vale para cómo cobra el local. Tabstr registra SINPE móvil y también pagos con Bitcoin en el mismo punto de venta. No es un experimento al lado de la caja: es un método más, adentro del sistema.</p>
+    <p>Más detalle en <a href="/facturacion-electronica-hacienda-4-4/" class="text-secondaryColor hover:underline font-semibold">facturación electrónica Hacienda 4.4</a>.</p>
     <br/>
     <div class="text-white text-2xl mb-4">El cambio fácil no es un eslogan. Es un proceso</div>
     <p>Si estás interesado pero tenés dudas —cuánto tarda, qué pasa con el inventario, qué equipo sirve, cómo se capacita el turno de la tarde— escribinos.</p>
-    <p>Tenemos una estrategia concreta para que el cambio no se sienta como un proyecto de tres meses. Productos cargados de antemano. Equipo que ya tenés o una cotización clara. Capacitación incluida. Facturación electrónica adentro, no al lado.</p>
+    <p>Tenemos una estrategia concreta para que el cambio no se sienta como un proyecto de tres meses. Productos cargados de antemano. Equipo que ya tenés o una cotización clara. Capacitación incluida. Facturación electrónica adentro, no al lado. Y el primer mes es gratis: operás el local, no pagás para “averiguar” si el POS sirve.</p>
     <p>El POS tradicional apostó a que no te ibas a mover.</p>
     <p>Nosotros apostamos a que sí, si alguien por fin te quita la fricción.</p>
     <p class="text-primaryText text-xl font-semibold">Atreverse no es pagar por software nuevo. Es dejar de pagarle a un sistema que ya no está del lado de tu negocio.</p>
     <br/>
-    <p>¿Listo para ver cómo se ve tu local con todo cargado desde el día uno? <a href="/#contact" class="text-secondaryColor hover:underline font-semibold">Contactanos</a>. Hacemos la migración fácil. Vos dejás de justificar el POS que ya no da más.</p>
+    <p>¿Listo para ver cómo se ve tu local con todo cargado desde el día uno? <a href="/contacto/" class="text-secondaryColor hover:underline font-semibold">Contactanos</a>. Hacemos la migración fácil. Vos dejás de justificar el POS que ya no da más.</p>
   `,
-  footer: '~ Tabstr',
+  footer: `~ ${FOUNDER.name}, ${SITE_NAME}`,
 }
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: articleData.title,
-  description: articleData.subtitle,
-  image: 'https://tabstr.net/Tabstr.png',
-  datePublished: '2026-08-29',
-  dateModified: '2026-08-29',
-  inLanguage: 'es-CR',
-  author: {
-    '@type': 'Organization',
-    name: 'Tabstr',
-    url: 'https://tabstr.net',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Hermosa Software',
-    url: 'https://hermosasoftware.io',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://tabstr.net/tabstr-logo-transparent.png',
-    },
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': 'https://tabstr.net/blog/article/',
-  },
-}
+const jsonLd = [
+  articleSchema({
+    headline: articleData.title,
+    description: articleData.subtitle,
+    path,
+    image: blogHero.src,
+    datePublished: '2026-08-29',
+  }),
+  breadcrumbSchema([
+    { name: 'Inicio', href: '/' },
+    { name: 'Blog', href: '/blog/' },
+    { name: 'Tu POS no es lealtad', href: path },
+  ]),
+]
 ---
 
 <Layout
-  title={`${articleData.title} | Tabstr`}
-  description={articleData.subtitle}
-  canonicalPath="/blog/article/"
+  title="Migrar de POS en Costa Rica | Tabstr no es lealtad"
+  description="Quedarte con un POS viejo no es prudencia: es inercia. Tabstr POS migra el catálogo por Excel, con Hacienda 4.4 nativa y capacitación incluida."
+  canonicalPath={path}
   ogImage={blogHero.src}
-  jsonLd={articleSchema}
+  jsonLd={jsonLd}
 >
   <Navbar client:load />
   <Article articleData={articleData} />

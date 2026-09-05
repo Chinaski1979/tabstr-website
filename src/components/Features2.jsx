@@ -16,8 +16,9 @@ export const Features2 = () => (
           <div className="mb-8 lg:mb-0 w-full px-2 lg:pl-16 flex flex-col justify-center md:pl-8">
             <img
               src={salesStats.src}
-              alt="Estadísticas de ventas en tiempo real en Tabstr POS"
+              alt="Estadísticas de ventas en tiempo real del POS Tabstr en un restaurante de Costa Rica"
               className="rounded-xl  main-border-gray"
+              loading="lazy"
             />
           </div>
         </div>
@@ -36,15 +37,23 @@ export const Features2 = () => (
             <ul className="mb-6 text-primaryText">
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Importa facturas XML y de forma automática actualiza tu inventario</span>
+                <span>Importa facturas XML y de forma automática actualiza tu inventario.</span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Soporte para Sinpe móvil. Captura y registra comprobante de los pagos</span>
+                <span>Soporte para Sinpe móvil. Captura y registra comprobante de los pagos.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Soporta pagos con Bitcoin</span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
                 <span>Facturación electrónica con el API versión 4.4 de Hacienda.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Si se va el internet sigue funcionando.</span>
               </li>
             </ul>
           </div>

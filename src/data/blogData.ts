@@ -15,7 +15,7 @@ export const blogData: BlogPost[] = [
     subtitle:
       "Un POS famoso. Licencia por dispositivo. Otra licencia para ver mis reportes. Capacitación obligatoria. Y un software que, encima, solo quería vivir en el sistema operativo que ellos decidieron.",
     image: article2Image.src,
-    href: "/blog/tabstr-nacio-cobro-250",
+    href: "/blog/tabstr-nacio-cobro-250/",
     date: "29 de agosto, 2026",
   },
   {
@@ -23,7 +23,7 @@ export const blogData: BlogPost[] = [
     subtitle:
       "Los sistemas de siempre se diseñaron en otra época. Seguir con ellos no te hace prudente. Te hace lento. Y migrar no tiene por qué doler.",
     image: article1Image.src,
-    href: "/blog/article",
+    href: "/blog/tu-pos-no-es-lealtad/",
     date: "29 de agosto, 2026",
   },
 ];

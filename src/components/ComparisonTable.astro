@@ -1,0 +1,53 @@
+---
+import { COMPARISON_COLUMNS, COMPARISON_ROWS } from "../data/comparison";
+
+interface Props {
+  heading?: string;
+}
+
+const {
+  heading = "Tabstr POS frente a un POS con licencia por dispositivo y a un POS en la nube típico",
+} = Astro.props;
+---
+
+<section class="mt-12" aria-labelledby="comparison-heading">
+  <h2 id="comparison-heading" class="text-2xl sm:text-3xl font-bold text-primaryText mb-6">
+    {heading}
+  </h2>
+  <div class="overflow-x-auto rounded-2xl border border-solid border-mainBorder">
+    <table class="w-full min-w-[44rem] text-left text-sm sm:text-base">
+      <thead class="bg-bgDark3">
+        <tr>
+          <th scope="col" class="px-4 py-3 text-secondaryText font-semibold">Criterio</th>
+          {
+            COMPARISON_COLUMNS.map((column) => (
+              <th
+                scope="col"
+                class:list={[
+                  "px-4 py-3 font-semibold",
+                  column.id === "tabstr" ? "text-secondaryColor" : "text-primaryText",
+                ]}
+              >
+                {column.label}
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          COMPARISON_ROWS.map((row) => (
+            <tr class="border-t border-mainBorder bg-bgDark2">
+              <th scope="row" class="px-4 py-4 text-primaryText font-semibold align-top">
+                {row.feature}
+              </th>
+              <td class="px-4 py-4 text-primaryText align-top">{row.tabstr}</td>
+              <td class="px-4 py-4 text-secondaryText align-top">{row.licensed}</td>
+              <td class="px-4 py-4 text-secondaryText align-top">{row.cloud}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

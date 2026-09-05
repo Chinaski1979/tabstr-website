@@ -7,6 +7,9 @@ import blogHero from '../../../assets/images/article2.png'
 import '../../../styles/Theme.css'
 import { ScrollUpButton } from '../../../components/ScrollUpButton'
 
+import { articleSchema, breadcrumbSchema, FOUNDER, SITE_NAME } from '../../../data/seo'
+
+const path = '/blog/tabstr-nacio-cobro-250/'
 const articleData = {
   title: 'Tabstr nació el día que me cobraron $250 por una capacitación para aprender a usar el POS desde mi computadora personal.',
   subtitle:
@@ -61,52 +64,40 @@ const articleData = {
     <p>No multiplicamos el precio cada vez que agregás un dispositivo.</p>
     <p>No te obligamos a comprar una computadora con el sistema operativo correcto para poder ser dueño de tu negocio.</p>
     <p>Quitamos fricción para que tengas control sin pedir permiso.</p>
+    <p>Y en caja, Tabstr cobra como paga la gente hoy: efectivo, tarjeta, SINPE móvil y también Bitcoin, en el mismo flujo de venta. Sin un app aparte para “el método raro”.</p>
     <br/>
     <p>Si tu POS actual te cobra por cada pantalla, solo corre donde ellos quieren, te cobra por mirar tus ventas desde afuera, te cobra por capacitar a tu gente o te encadena a su hardware, no tenés un socio. Tenés un peaje.</p>
     <p class="text-primaryText text-xl font-semibold">Tabstr existe porque ese peaje me lo pusieron a mí. Y porque después descubrí que no era el único.</p>
     <p>Si te suena familiar, no es coincidencia. Es el mismo sistema de siempre, con distinta etiqueta.</p>
     <br/>
-    <p><a href="/#contact" class="text-secondaryColor hover:underline font-semibold">Hablá con nosotros</a>. El cambio no tiene que empezar con otra licencia ni con otra máquina.</p>
+    <p><a href="/contacto/" class="text-secondaryColor hover:underline font-semibold">Hablá con nosotros</a>. El cambio no tiene que empezar con otra licencia ni con otra máquina.</p>
   `,
-  footer: '~ Tabstr',
+  author: `${FOUNDER.name}, ${FOUNDER.jobTitle} de ${SITE_NAME} (Hermosa Software)`,
+  footer: `~ ${FOUNDER.name}, ${SITE_NAME} CEO`,
 }
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: articleData.title,
-  description: articleData.subtitle,
-  image: 'https://tabstr.net/Tabstr.png',
-  datePublished: '2026-08-29',
-  dateModified: '2026-08-29',
-  inLanguage: 'es-CR',
-  author: {
-    '@type': 'Organization',
-    name: 'Tabstr',
-    url: 'https://tabstr.net',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Hermosa Software',
-    url: 'https://hermosasoftware.io',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://tabstr.net/tabstr-logo-transparent.png',
-    },
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': 'https://tabstr.net/blog/tabstr-nacio-cobro-250/',
-  },
-}
+const jsonLd = [
+  articleSchema({
+    headline: articleData.title,
+    description: articleData.subtitle,
+    path,
+    image: blogHero.src,
+    datePublished: '2026-08-29',
+  }),
+  breadcrumbSchema([
+    { name: 'Inicio', href: '/' },
+    { name: 'Blog', href: '/blog/' },
+    { name: 'Por qué nació Tabstr POS', href: path },
+  ]),
+]
 ---
 
 <Layout
-  title={`${articleData.title} | Tabstr`}
-  description={articleData.subtitle}
-  canonicalPath="/blog/tabstr-nacio-cobro-250/"
+  title="Por qué nació Tabstr POS | El cobro de $250"
+  description="Jorge Cascante, fundador de Tabstr POS, cuenta por qué un cobro de $250 por capacitación y las licencias por dispositivo originaron un POS para Costa Rica."
+  canonicalPath={path}
   ogImage={blogHero.src}
-  jsonLd={articleSchema}
+  jsonLd={jsonLd}
 >
   <Navbar client:load />
   <Article articleData={articleData} />

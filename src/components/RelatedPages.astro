@@ -1,0 +1,30 @@
+---
+import { RELATED_PAGES } from "../data/seo";
+
+interface Props {
+  excludeHref?: string;
+  limit?: number;
+}
+
+const { excludeHref, limit = 6 } = Astro.props;
+const pages = RELATED_PAGES.filter((page) => page.href !== excludeHref).slice(0, limit);
+---
+
+<nav class="mt-16" aria-label="Páginas relacionadas de Tabstr POS">
+  <h2 class="text-2xl font-bold text-primaryText mb-6">Seguí explorando Tabstr</h2>
+  <ul class="grid gap-4 sm:grid-cols-2">
+    {
+      pages.map((page) => (
+        <li>
+          <a
+            href={page.href}
+            class="block h-full rounded-2xl bg-bgDark3 border border-solid border-mainBorder p-5 hover:bg-bgDark3Hover transition"
+          >
+            <p class="font-semibold text-primaryText mb-1">{page.title}</p>
+            <p class="text-sm text-secondaryText leading-relaxed">{page.description}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

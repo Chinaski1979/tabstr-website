@@ -1,0 +1,44 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { Features1 } from "../components/Features1.jsx";
+import { Features2 } from "../components/Features2.jsx";
+import { FeaturesDiagonal } from "../components/FeaturesDiagonal.jsx";
+import { ENTITY_SENTENCE } from "../data/seo";
+import "../styles/Diagonals.css";
+
+const title = "Características Tabstr POS | Hacienda 4.4 y cualquier dispositivo";
+const description =
+  "Características de Tabstr POS: facturación electrónica Hacienda 4.4, SINPE móvil, IA de stock, sin licencia por dispositivo y catálogo listo el día uno.";
+const canonicalPath = "/caracteristicas/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Características", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Características</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Qué incluye Tabstr POS para restaurantes y comercios en Costa Rica
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Un POS moderno no es una lista infinita de módulos. Es caja, inventario, facturación
+    electrónica Hacienda 4.4 y control del dueño en el mismo sistema. Abajo está lo que
+    Tabstr resuelve todos los días, sin cobrarte por cada pantalla.
+  </p>
+
+  <div slot="after" class="w-full">
+    <Features1 client:load />
+    <Features2 client:load />
+    <FeaturesDiagonal client:load />
+    <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl pb-8">
+      <CtaBanner />
+    </div>
+  </div>
+</MarketingPage>

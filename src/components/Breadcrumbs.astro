@@ -1,0 +1,28 @@
+---
+import type { BreadcrumbItem } from "../data/seo";
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Miga de pan" class="mb-8 text-sm text-secondaryText">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {
+      items.map((item, index) => (
+        <li class="flex items-center gap-2">
+          {index > 0 && <span aria-hidden="true" class="text-bgDark3Hover">/</span>}
+          {index === items.length - 1 ? (
+            <span class="text-primaryText">{item.name}</span>
+          ) : (
+            <a href={item.href} class="hover:text-secondaryColor transition">
+              {item.name}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

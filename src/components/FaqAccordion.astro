@@ -1,0 +1,51 @@
+---
+import { FAQ_ITEMS } from "../data/faq";
+import type { FaqItem } from "../data/faq";
+
+interface Props {
+  items?: FaqItem[];
+  questionLevel?: "h2" | "h3";
+}
+
+const { items = FAQ_ITEMS, questionLevel = "h3" } = Astro.props;
+const QuestionTag = questionLevel;
+---
+
+<div class="flex flex-col gap-4">
+  {
+    items.map((item, index) => (
+      <details
+        class="rounded-3xl bg-bgDark3 main-border-gray-darker px-3 sm:px-8 pt-2 sm:pt-4 pb-4 group"
+        open={index === 0}
+      >
+        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 py-3">
+          <QuestionTag class="content-title pr-4">{item.question}</QuestionTag>
+          <svg
+            width="28"
+            height="30"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="shrink-0 transition-transform duration-300 group-open:rotate-180"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.16732 12.5L10.0007 6.66667L15.834 12.5"
+              stroke="#EA580C"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+        <p class="text-secondaryText pt-2 pb-3 leading-relaxed">{item.answer}</p>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

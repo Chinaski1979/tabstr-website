@@ -1,0 +1,21 @@
+---
+import FaqAccordion from "./FaqAccordion.astro";
+---
+
+<section class="relative -mt-8 sm:mt-0 pt-12 sm:pt-16 pb-16 bg-blueGray-50 overflow-hidden">
+  <div class="absolute -top-10" id="FAQ"></div>
+  <div class="relative z-10 container px-2 sm:px-8 lg:px-4 mx-auto w-11/12 sm:w-full">
+    <div class="md:max-w-4xl mx-auto">
+      <p class="mb-7 block-subtitle text-center">Preguntas frecuentes</p>
+      <h2 class="mb-6 block-big-title text-center">
+        Todo lo que querés saber antes de cambiar de POS
+      </h2>
+      <p class="mb-12 text-secondaryText text-center leading-relaxed">
+        Tabstr POS es el punto de venta de Tabstr para restaurantes y comercios en Costa Rica.
+        Las respuestas están en esta página; el detalle completo vive en
+        <a href="/faq/" class="text-secondaryColor hover:underline">preguntas frecuentes</a>.
+      </p>
+      <FaqAccordion questionLevel="h3" />
+    </div>
+  </div>
+</section>

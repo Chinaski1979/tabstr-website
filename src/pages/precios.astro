@@ -1,0 +1,66 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE, FREE_MONTH_SENTENCE } from "../data/seo";
+
+const title = "Precios Tabstr POS Costa Rica | Sin licencia por dispositivo";
+const description =
+  "Planes de Tabstr POS: un mes gratis, suscripción sin licencia por dispositivo, Hacienda 4.4, migración y capacitación incluidas. Cotizá según tu operación.";"
+const canonicalPath = "/precios/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Precios", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Precios y planes</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Precios de Tabstr POS: pagás el sistema, no cada pantalla
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Tabstr funciona con suscripción. El precio no se multiplica cada vez que agregás una tablet
+    en cocina o el celular del dueño. Eso es el contrario del POS con licencia por dispositivo
+    que todavía domina Costa Rica.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Un mes gratis para probar en el local</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    {FREE_MONTH_SENTENCE}
+    Así ves si el personal lo usa, si Hacienda 4.4 sale de la misma caja y si el cambio
+    vale la pena, sin pagar el primer mes para “averiguar”.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Qué está incluido</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Punto de venta en celular, tablet o computadora, sin licencia por dispositivo.</li>
+    <li>Facturación electrónica Hacienda 4.4 nativa, sin GTI aparte.</li>
+    <li>Migración del catálogo por Excel antes del go-live.</li>
+    <li>Capacitación del personal incluida, no como un curso extra de cientos de dólares.</li>
+    <li>SINPE móvil, importación de XML para inventario y sugerencias de stock con IA.</li>
+    <li>El primer mes sin cobro, para operar el negocio y no solo ver una demo.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Cómo cotizamos</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    El plan depende de tu operación — restaurante con mesas, bar, café, tienda o varios locales —
+    no de cuántas pantallas enciendas. No publicamos un precio genérico que no calce con un
+    local de una caja y con uno de tres turnos. Te armamos una cotización clara.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Si tu POS actual te cobra por cada dispositivo, por ver reportes desde la casa y por
+    capacitar al equipo, compará esa factura mensual con un Tabstr POS Costa Rica sin ese peaje.
+    <a href="/vs-otros-pos/" class="text-secondaryColor hover:underline">Mirá la comparación</a>.
+  </p>
+
+  <CtaBanner
+    title="Pedí una cotización de Tabstr POS"
+    body="Contanos cuántos locales y dispositivos tenés. Te devolvemos un plan sin licencia por pantalla y arrancás con un mes gratis."
+    label="Hablar de precios"
+  />
+</MarketingPage>

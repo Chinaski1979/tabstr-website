@@ -1,0 +1,58 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "Migrar de POS en Costa Rica | Cambio a Tabstr sin parar el local";
+const description =
+  "Migrá de POS a Tabstr: catálogo por Excel, capacitación incluida, hardware que ya tenés y facturación Hacienda 4.4 desde el día uno en Costa Rica.";
+const canonicalPath = "/migrar-de-pos/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Migrar de POS", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Cambio de punto de venta</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Migrar de POS a Tabstr: el local abre con el catálogo listo
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Cambiar de punto de venta no tiene que ser una semana a oscuras. En Tabstr primero
+    cargamos tus productos, después vos empezás a vender.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Cómo es el proceso</h2>
+  <ol class="list-decimal pl-6 text-secondaryText leading-relaxed space-y-3 mb-8">
+    <li>Te pasamos un Excel. Ahí va el catálogo: precios, categorías, lo que ya vendés.</li>
+    <li>Nosotros lo importamos al Tabstr POS. El día del cambio el menú o la tienda ya están.</li>
+    <li>Capacitamos al personal. Eso va incluido, no es un extra de cientos de dólares.</li>
+    <li>Revisamos hardware. Si tu impresora y tus tablets sirven, se quedan.</li>
+  </ol>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">De qué te estás yendo</h2>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    La mayoría de las migraciones que vemos vienen de un POS con licencia por dispositivo,
+    facturación en GTI o en otra app, y un proveedor que te dijo que cambiar duele.
+    Ese dolor era el modelo de negocio.
+    <a href="/blog/tu-pos-no-es-lealtad/" class="text-secondaryColor hover:underline">Escribimos sobre esa inercia acá</a>.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Si tu duda es Hacienda 4.4, SINPE o si el equipo actual sirve, eso se resuelve en la
+    demo, no después de firmar. Además, los negocios pueden usar Tabstr un mes gratis
+    para operar el local de verdad. Tabstr POS Costa Rica está pensado para que el cambio
+    sea una fecha, no un proyecto de tres meses.
+  </p>
+
+  <CtaBanner
+    title="Empezá la migración sin apagar la caja"
+    body="Contanos de qué POS venís. Te decimos cómo queda el catálogo el día uno y arrancás con un mes gratis."
+    label="Quiero migrar"
+  />
+</MarketingPage>

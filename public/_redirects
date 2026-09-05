@@ -1,0 +1,7 @@
+# Canonical host is https://tabstr.net (apex). 301 www → apex in your DNS/CDN too.
+https://www.tabstr.net/*  https://tabstr.net/:splat  301
+
+/preguntas-frecuentes     /faq/  301
+/preguntas-frecuentes/    /faq/  301
+/blog/article             /blog/tu-pos-no-es-lealtad/  301
+/blog/article/            /blog/tu-pos-no-es-lealtad/  301
