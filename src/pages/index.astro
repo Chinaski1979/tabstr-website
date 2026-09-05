@@ -1,97 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import { Hero } from '../components/Hero.jsx'
-import { Navbar } from '../components/Navbar.jsx'
-import { Clients } from '../components/Clients.jsx'
-import { Features1 } from '../components/Features1.jsx'
-import { Features2 } from '../components/Features2.jsx'
-import { FeaturesDiagonal } from '../components/FeaturesDiagonal.jsx'
-import { Blog } from '../components/Blog'
-import { FAQ, FAQData } from '../components/FAQ.jsx'
-import { Contact } from '../components/Contact.jsx'
-import { Footer } from '../components/Footer.jsx'
-import { ScrollUpButton } from '../components/ScrollUpButton'
-import '../styles/Theme.css'
-import '../styles/Diagonals.css'
-
-const site = 'https://tabstr.net'
-
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Tabstr',
-  legalName: 'Herso Software Company S.A.',
-  url: site,
-  logo: `${site}/tabstr-logo-transparent.png`,
-  email: 'contact@hermosasoftware.io',
-  parentOrganization: {
-    '@type': 'Organization',
-    name: 'Hermosa Software',
-    url: 'https://hermosasoftware.io',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Bahía Ballena',
-    addressRegion: 'Puntarenas',
-    addressCountry: 'CR',
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Costa Rica',
-  },
-}
-
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Tabstr',
-  applicationCategory: 'BusinessApplication',
-  applicationSubCategory: 'Point of Sale',
-  operatingSystem: 'Android, iOS, Windows, macOS, Linux',
-  url: site,
-  description:
-    'POS moderno para restaurantes y comercios en Costa Rica. Funciona en cualquier dispositivo, con facturación electrónica 4.4 de Hacienda y sin licencias por dispositivo.',
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'CRC',
-    availability: 'https://schema.org/InStock',
-  },
-  provider: {
-    '@type': 'Organization',
-    name: 'Hermosa Software',
-    url: 'https://hermosasoftware.io',
-  },
-  featureList: [
-    'Facturación electrónica 4.4 integrada con Hacienda',
-    'Compatible con cualquier dispositivo',
-    'Sin licencias por dispositivo',
-    'Migración de productos vía Excel',
-    'Capacitación incluida',
-    'SINPE móvil',
-    'Importación de facturas XML para inventario',
-    'Sugerencias de stock con IA',
-  ],
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQData.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "../components/Hero.jsx";
+import { Navbar } from "../components/Navbar.jsx";
+import { Clients } from "../components/Clients.jsx";
+import { Features1 } from "../components/Features1.jsx";
+import { Features2 } from "../components/Features2.jsx";
+import { FeaturesDiagonal } from "../components/FeaturesDiagonal.jsx";
+import { Blog } from "../components/Blog";
+import { Contact } from "../components/Contact.jsx";
+import { Footer } from "../components/Footer.jsx";
+import { ScrollUpButton } from "../components/ScrollUpButton";
+import FaqSection from "../components/FaqSection.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import AudienceFit from "../components/AudienceFit.astro";
+import RelatedPages from "../components/RelatedPages.astro";
+import {
+  ENTITY_SENTENCE,
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  faqPageSchema,
+  organizationSchema,
+  softwareSchema,
+} from "../data/seo";
+import { FAQ_ITEMS } from "../data/faq";
+import "../styles/Theme.css";
+import "../styles/Diagonals.css";
 ---
 
 <Layout
-  title="Tabstr — POS moderno para restaurantes y comercios en Costa Rica"
-  description="Sistema de punto de venta (POS) que funciona en celular, tablet o PC. Facturación electrónica 4.4 con Hacienda, sin licencias por dispositivo. Migración y capacitación incluidas."
+  title={HOME_TITLE}
+  description={HOME_DESCRIPTION}
   canonicalPath="/"
-  jsonLd={[organizationSchema, softwareSchema, faqSchema]}
+  jsonLd={[
+    organizationSchema(),
+    softwareSchema(),
+    faqPageSchema(FAQ_ITEMS),
+  ]}
 >
   <Navbar client:load />
   <Hero client:load />
@@ -99,8 +43,16 @@ const faqSchema = {
   <Features1 client:load />
   <Features2 client:load />
   <FeaturesDiagonal client:load />
+  <section class="w-full bg-bgDark2 py-8">
+    <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl">
+      <p class="text-secondaryText leading-relaxed text-lg mb-8">{ENTITY_SENTENCE}</p>
+      <ComparisonTable />
+      <AudienceFit />
+      <RelatedPages />
+    </div>
+  </section>
   <Blog client:load />
-  <FAQ client:load />
+  <FaqSection />
   <Contact client:load />
   <Footer />
   <ScrollUpButton client:load />

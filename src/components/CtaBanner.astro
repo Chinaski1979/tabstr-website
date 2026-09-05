@@ -1,0 +1,21 @@
+---
+interface Props {
+  title?: string;
+  body?: string;
+  href?: string;
+  label?: string;
+}
+
+const {
+  title = "¿Listo para ver Tabstr POS en tu local?",
+  body = "Agendá una demo o arrancá con un mes gratis. Te mostramos facturación Hacienda 4.4, migración y cómo queda el punto de venta en tu operación.",
+  href = "/contacto/",
+  label = "Contactar a Tabstr",
+} = Astro.props;
+---
+
+<aside class="mt-16 rounded-3xl bg-bgDark3 border border-solid border-mainBorder p-8 sm:p-10 text-center">
+  <h2 class="text-2xl sm:text-3xl font-bold text-primaryText mb-4">{title}</h2>
+  <p class="text-secondaryText max-w-2xl mx-auto mb-8 leading-relaxed">{body}</p>
+  <a href={href} class="contained-button h-12 px-8 inline-flex">{label}</a>
+</aside>

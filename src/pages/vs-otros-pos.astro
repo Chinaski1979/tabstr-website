@@ -1,0 +1,54 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import AudienceFit from "../components/AudienceFit.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "Tabstr vs otros POS | Licencia por dispositivo y Hacienda 4.4";
+const description =
+  "Compará Tabstr POS con un POS de licencia por dispositivo y un POS en la nube típico: Hacienda 4.4, SINPE, Bitcoin, IA de stock y amarre de hardware en Costa Rica.";
+const canonicalPath = "/vs-otros-pos/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Tabstr vs otros POS", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Comparación</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Tabstr POS vs un POS con licencia por dispositivo vs un POS en la nube típico
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    No comparamos logos. Comparamos el modelo: ¿te cobran cada pantalla? ¿Hacienda 4.4
+    vive en el POS o en GTI? ¿El hardware es tuyo o del proveedor? ¿La caja registra
+    SINPE y Bitcoin, o eso queda en otra app? Esa es la diferencia que siente un
+    restaurante o un comercio en Costa Rica.
+  </p>
+
+  <ComparisonTable heading="Tabla de comparación de Tabstr punto de venta" />
+
+  <p class="text-secondaryText leading-relaxed mt-8 mb-6">
+    Alegra, Qupos, TicoPOS, POSFactura y otros cubren partes del mercado. Si tu prioridad
+    es un POS Costa Rica sin peaje por dispositivo, con facturación electrónica 4.4 nativa,
+    pagos con SINPE y Bitcoin en la misma caja, y migración sin apagar el local, Tabstr
+    está en esa conversación.
+    El detalle de cada eje está en
+    <a href="/caracteristicas/" class="text-secondaryColor hover:underline">características</a>,
+    <a href="/precios/" class="text-secondaryColor hover:underline">precios</a>
+    y
+    <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">migrar de POS</a>.
+  </p>
+
+  <AudienceFit />
+  <CtaBanner
+    title="¿Querés contrastar tu POS actual con Tabstr?"
+    body="Decinos qué sistema usás hoy. Te devolvemos una comparación honesta para tu operación."
+  />
+</MarketingPage>

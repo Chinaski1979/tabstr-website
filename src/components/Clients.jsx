@@ -27,7 +27,7 @@ const ClientLogo = ({ name, logo }) => (
     <div className="w-[4.5rem] h-[4.5rem] sm:w-20 sm:h-20 lg:w-[5.5rem] lg:h-[5.5rem] rounded-full overflow-hidden border border-bgDark3 bg-bgDark3">
       <img
         src={logo.src}
-        alt={name}
+        alt={`${name} — cliente de Tabstr POS en Costa Rica`}
         className="w-full h-full object-cover object-center"
         loading="lazy"
         width={88}
@@ -57,9 +57,7 @@ export const Clients = () => {
               <div className="flex flex-col">
                 <h2 className="mb-2 text-3xl sm:text-4xl 2xl:text-5xl font-bold tracking-normal text-primaryText">
                   Clientes que confían
-                </h2>
-                <h2 className="text-3xl sm:text-4xl 2xl:text-5xl font-bold tracking-normal text-secondaryColor">
-                  en Tabstr
+                  <span className="block text-secondaryColor">en Tabstr</span>
                 </h2>
               </div>
             </div>

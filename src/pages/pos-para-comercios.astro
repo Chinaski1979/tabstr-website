@@ -1,0 +1,49 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "POS para comercios Costa Rica | Tabstr para tiendas, cafés y bares";
+const description =
+  "Tabstr POS para comercios en Costa Rica: caja, inventario, SINPE y facturación Hacienda 4.4 en celular, tablet o PC, sin licencia por dispositivo.";
+const canonicalPath = "/pos-para-comercios/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "POS para comercios", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Tabstr para comercios</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    POS para comercios, cafés y bares en Costa Rica
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    Si vendés al detalle —tienda, café, panadería, bar o un mix— el punto de venta tiene
+    que ser rápido en caja y claro en inventario. Tabstr POS para comercios no te encierra
+    en una sola computadora Windows ni te cobra cada vez que ponés otra pantalla.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Caja e inventario en el mismo hilo</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Venta en el dispositivo que ya usa tu personal.</li>
+    <li>Importación de facturas XML para actualizar existencias.</li>
+    <li>IA que sugiere pedidos según ventas y fechas especiales.</li>
+    <li>Hacienda 4.4 y SINPE móvil dentro del flujo, no al lado.</li>
+  </ul>
+
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Para mesas y cocina, el detalle está en
+    <a href="/pos-para-restaurantes/" class="text-secondaryColor hover:underline">POS para restaurantes</a>.
+    El producto es el mismo Tabstr punto de venta; cambia el énfasis de la operación.
+    Si estás evaluando cambiar de sistema,
+    <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">la migración no empieza en cero</a>.
+  </p>
+
+  <CtaBanner />
+</MarketingPage>

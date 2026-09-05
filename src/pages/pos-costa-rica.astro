@@ -1,0 +1,53 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import AudienceFit from "../components/AudienceFit.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ENTITY_SENTENCE } from "../data/seo";
+
+const title = "POS Costa Rica | Tabstr punto de venta con Hacienda 4.4";
+const description =
+  "Tabstr es un sistema POS Costa Rica para restaurantes y comercios: facturación Hacienda 4.4, SINPE móvil y sin licencia por dispositivo.";
+const canonicalPath = "/pos-costa-rica/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "POS Costa Rica", href: canonicalPath },
+  ]}
+>
+  <p class="block-subtitle mb-4">Sistema POS Costa Rica</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Tabstr POS: el punto de venta hecho para Costa Rica
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+  <p class="text-secondaryText leading-relaxed mb-6">
+    Un sistema POS Costa Rica tiene que hablar el idioma del local: tiquetes y facturas
+    electrónicos de Hacienda, SINPE móvil en caja, y dueños que quieren mirar el negocio
+    desde el teléfono. Tabstr no es un POS internacional al que le pegaron un parche fiscal.
+    Nació para restaurantes y comercios ticos.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Qué pide un POS en Costa Rica</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Facturación electrónica versión 4.4 del Ministerio de Hacienda, en el mismo flujo de venta.</li>
+    <li>Registro de pagos SINPE, no un comprobante perdido en WhatsApp.</li>
+    <li>Operar si se cae el internet del local.</li>
+    <li>Correr en el hardware que ya está en caja, no en el que el proveedor quiere rentarte.</li>
+  </ul>
+
+  <p class="text-secondaryText leading-relaxed mb-6">
+    Competidores conocidos cubren parte de eso con módulos, GTI o licencias por caja.
+    Tabstr POS junta Hacienda 4.4, dispositivos ilimitados y migración por Excel en un
+    solo producto. Más detalle en
+    <a href="/facturacion-electronica-hacienda-4-4/" class="text-secondaryColor hover:underline">facturación electrónica Hacienda 4.4</a>
+    y en
+    <a href="/vs-otros-pos/" class="text-secondaryColor hover:underline">Tabstr vs otros POS</a>.
+  </p>
+
+  <AudienceFit />
+  <CtaBanner />
+</MarketingPage>

@@ -1,0 +1,25 @@
+---
+import { AUDIENCE_FIT } from "../data/comparison";
+
+interface Props {
+  heading?: string;
+}
+
+const { heading = "Para quién es Tabstr POS — y para quién no" } = Astro.props;
+---
+
+<section class="mt-12 grid gap-6 lg:grid-cols-2" aria-labelledby="audience-heading">
+  <h2 id="audience-heading" class="sr-only">{heading}</h2>
+  <div class="rounded-3xl bg-bgDark3 border border-solid border-mainBorder p-8">
+    <h3 class="text-xl font-bold text-primaryText mb-4">Tabstr POS es para vos si</h3>
+    <ul class="space-y-3 text-secondaryText leading-relaxed list-disc pl-5">
+      {AUDIENCE_FIT.for.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="rounded-3xl bg-bgDark3 border border-solid border-mainBorder p-8">
+    <h3 class="text-xl font-bold text-primaryText mb-4">No es para vos si</h3>
+    <ul class="space-y-3 text-secondaryText leading-relaxed list-disc pl-5">
+      {AUDIENCE_FIT.notFor.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>
