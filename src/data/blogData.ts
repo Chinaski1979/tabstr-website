@@ -11,7 +11,7 @@ export interface BlogPost {
 
 export const blogData: BlogPost[] = [
   {
-    title: "Tabstr nació el día que me cobraron $250 por usar mi propio bar desde la casa.",
+    title: "Tabstr nació el día que me cobraron $250 por usar accesar a los datos de mi negocio desde la casa.",
     subtitle:
       "Un POS famoso. Licencia por dispositivo. Otra licencia para ver mis reportes. Capacitación obligatoria. Y un software que, encima, solo quería vivir en el sistema operativo que ellos decidieron.",
     image: article2Image.src,
