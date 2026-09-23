@@ -47,7 +47,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "¿Tabstr es solo para restaurantes?",
     answer:
-      "No. Tabstr POS sirve para restaurantes, bares, cafés y comercios en Costa Rica. El hilo común es caja, inventario, facturación electrónica Hacienda 4.4 y control del dueño. Si tu operación es una tienda, una soda o un local con mesas, el mismo sistema cubre el punto de venta.",
+      "No. Tabstr POS sirve para restaurantes, bares, cafés y comercios en Costa Rica. El hilo común es caja, inventario, facturación electrónica Hacienda 4.4 y control del dueño. Si tu operación es una tienda, una soda o un local con mesas, el mismo sistema cubre el punto de venta. Los restaurantes, además, tienen reservas. El control de asistencia del equipo está en el mismo POS.",
+  },
+  {
+    question: "¿Tabstr incluye reservas para restaurantes?",
+    answer:
+      "Sí. En Tabstr POS podés crear la reserva desde el sistema y cada restaurante tiene su propio link de reservas para compartir en redes. El cliente se reserva solo y las nuevas aparecen en la pestaña de reservas, sin perseguir mensajes de WhatsApp.",
+  },
+  {
+    question: "¿Cómo marca el personal la entrada y la salida?",
+    answer:
+      "Con reconocimiento facial. El empleado marca entrada y salida con el rostro, sin un PIN que se presta ni una tarjeta que se pierde. Después generás un reporte: quién llegó tarde, quién se fue más temprano y el total de horas, para que pagar el turno sea más claro.",
   },
   {
     question: "¿Puedo probar Tabstr un mes sin pagar?",

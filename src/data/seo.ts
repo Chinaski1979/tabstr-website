@@ -120,6 +120,8 @@ export function softwareSchema(): JsonLd {
       "Pagos con Bitcoin",
       "Importación de facturas XML para inventario",
       "Sugerencias de stock con IA",
+      "Reservas con link propio para que el cliente reserve solo",
+      "Control de asistencia con reconocimiento facial",
     ],
     areaServed: {
       "@type": "Country",
@@ -241,12 +243,12 @@ export const RELATED_PAGES: ReadonlyArray<{
   {
     href: "/pos-para-restaurantes/",
     title: "POS para restaurantes",
-    description: "Mesas, cocina, SINPE y control de dueño en el mismo sistema.",
+    description: "Mesas, cocina, reservas, SINPE y control de dueño en el mismo sistema.",
   },
   {
     href: "/pos-para-comercios/",
     title: "POS para comercios",
-    description: "Caja, inventario y facturación para tiendas, cafés y bares.",
+    description: "Caja, inventario, asistencia y facturación para tiendas, cafés y bares.",
   },
   {
     href: "/migrar-de-pos/",
@@ -261,7 +263,7 @@ export const RELATED_PAGES: ReadonlyArray<{
   {
     href: "/vs-otros-pos/",
     title: "Tabstr vs otros POS",
-    description: "Licencias por dispositivo, Hacienda 4.4, IA y amarre de hardware.",
+    description: "Licencias por dispositivo, Hacienda 4.4, reservas, asistencia y hardware.",
   },
   {
     href: "/precios/",
@@ -271,7 +273,7 @@ export const RELATED_PAGES: ReadonlyArray<{
   {
     href: "/caracteristicas/",
     title: "Características",
-    description: "Lo que Tabstr POS hace en caja, inventario y facturación.",
+    description: "Caja, inventario, reservas, asistencia y facturación en el mismo POS.",
   },
   {
     href: "/faq/",

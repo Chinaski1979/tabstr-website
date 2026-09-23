@@ -48,6 +48,18 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     cloud: "Poco frecuente o como add-on",
   },
   {
+    feature: "Reservas",
+    tabstr: "Reservas internas y link propio para que el cliente reserve solo",
+    licensed: "A menudo otra app, un cuaderno o WhatsApp",
+    cloud: "Add-on frecuente o módulo aparte",
+  },
+  {
+    feature: "Control de asistencia",
+    tabstr: "Marca entrada y salida con el rostro; reporte de tardías, salidas tempranas y horas",
+    licensed: "Reloj aparte, Excel o no existe",
+    cloud: "Rara vez nativo; suele ser otro sistema",
+  },
+  {
     feature: "Hardware",
     tabstr: "Usá el equipo que ya tenés si es compatible",
     licensed: "Amarre frecuente al hardware del proveedor",
@@ -70,6 +82,8 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
 export const AUDIENCE_FIT = {
   for: [
     "Restaurantes, bares, cafés y comercios en Costa Rica que necesitan un POS con Hacienda 4.4.",
+    "Restaurantes que quieren reservas en el mismo sistema — y un link para que el cliente reserve solo.",
+    "Negocios que quieren que el personal marque entrada y salida con el rostro, y un reporte de horas.",
     "Dueños que quieren ver ventas y cambiar precios desde el celular, sin una licencia extra.",
     "Negocios cansados de pagar por cada pantalla o de amarrarse al hardware del proveedor.",
     "Quienes quieren migrar con el catálogo listo el día uno y capacitación incluida.",

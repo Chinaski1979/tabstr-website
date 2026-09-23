@@ -9,7 +9,7 @@ import "../styles/Diagonals.css";
 
 const title = "Características Tabstr POS | Hacienda 4.4 y cualquier dispositivo";
 const description =
-  "Características de Tabstr POS: facturación electrónica Hacienda 4.4, SINPE móvil, IA de stock, sin licencia por dispositivo y catálogo listo el día uno.";
+  "Características de Tabstr POS: Hacienda 4.4, SINPE, reservas, control de asistencia, IA de stock y sin licencia por dispositivo.";
 const canonicalPath = "/caracteristicas/";
 ---
 
@@ -29,8 +29,9 @@ const canonicalPath = "/caracteristicas/";
   <p class="text-lg text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
   <p class="text-secondaryText leading-relaxed mb-4">
     Un POS moderno no es una lista infinita de módulos. Es caja, inventario, facturación
-    electrónica Hacienda 4.4 y control del dueño en el mismo sistema. Abajo está lo que
-    Tabstr resuelve todos los días, sin cobrarte por cada pantalla.
+    electrónica Hacienda 4.4, reservas, control de asistencia y control del dueño en el
+    mismo sistema. Abajo está lo que Tabstr resuelve todos los días, sin cobrarte por
+    cada pantalla.
   </p>
 
   <div slot="after" class="w-full">
@@ -38,6 +39,19 @@ const canonicalPath = "/caracteristicas/";
     <Features2 client:load />
     <FeaturesDiagonal client:load />
     <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl pb-8">
+      <h2 class="text-2xl font-bold text-primaryText mt-4 mb-4">Reservas del restaurante</h2>
+      <p class="text-secondaryText leading-relaxed mb-4">
+        Podés crear la reserva adentro de Tabstr y, además, cada restaurante tiene su
+        propio link de reservas para compartir en Instagram, Facebook o WhatsApp. El
+        cliente se reserva solo. Las nuevas aparecen en la pestaña de reservas.
+      </p>
+      <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Control de asistencia</h2>
+      <p class="text-secondaryText leading-relaxed mb-8">
+        El personal marca entrada y salida con reconocimiento facial. El reporte muestra
+        quién llegó tarde, quién se fue más temprano y el total de horas, para facilitar
+        el pago del equipo. El detalle de mesas y reservas está en
+        <a href="/pos-para-restaurantes/" class="text-secondaryColor hover:underline">POS para restaurantes</a>.
+      </p>
       <CtaBanner />
     </div>
   </div>

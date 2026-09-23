@@ -31,8 +31,8 @@ export const Features2 = () => (
             </h2>
             <p className="mb-12 text-secondaryText leading-loose">
               Cada detalle de este POS existe por una razón: Resolver los problemas reales que tienen los negocios todos los días.
-              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar mensajes internos al equipo o 
-              guardar comprobantes de pagos por SINPE móvil.<br/>
+              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar mensajes internos al equipo,
+              guardar comprobantes de pagos por SINPE móvil, recibir reservas o marcar la asistencia del personal.<br/>
             </p>
             <ul className="mb-6 text-primaryText">
               <li className="mb-4 flex">
@@ -54,6 +54,14 @@ export const Features2 = () => (
               <li className="mb-4 flex">
                 <CheckArrowIcon />
                 <span>Si se va el internet sigue funcionando.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Reservas: créalas en Tabstr o compartí el link del local para que el cliente reserve solo.</span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>Control de asistencia: el personal marca entrada y salida con el rostro, y el reporte muestra tardías, salidas tempranas y horas.</span>
               </li>
             </ul>
           </div>
