@@ -1,11 +1,10 @@
 ---
 import MarketingPage from "../layouts/MarketingPage.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import { Features1 } from "../components/Features1.jsx";
-import { Features2 } from "../components/Features2.jsx";
-import { FeaturesDiagonal } from "../components/FeaturesDiagonal.jsx";
+import DeviceShowcase from "../components/DeviceShowcase.astro";
+import BentoFeatures from "../components/BentoFeatures.astro";
+import AiSection from "../components/AiSection.astro";
 import { ENTITY_SENTENCE } from "../data/seo";
-import "../styles/Diagonals.css";
 
 const title = "Características Tabstr POS | Hacienda 4.4 y cualquier dispositivo";
 const description =
@@ -35,9 +34,9 @@ const canonicalPath = "/caracteristicas/";
   </p>
 
   <div slot="after" class="w-full">
-    <Features1 client:load />
-    <Features2 client:load />
-    <FeaturesDiagonal client:load />
+    <DeviceShowcase gradientFrom="from-bgDark2" />
+    <BentoFeatures />
+    <AiSection />
     <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl pb-8">
       <h2 class="text-2xl font-bold text-primaryText mt-4 mb-4">Reservas del restaurante</h2>
       <p class="text-secondaryText leading-relaxed mb-4">

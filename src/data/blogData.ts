@@ -7,6 +7,8 @@ export interface BlogPost {
   image: string;
   href: string;
   date: string;
+  category: string;
+  readingMinutes: number;
 }
 
 export const blogData: BlogPost[] = [
@@ -17,6 +19,8 @@ export const blogData: BlogPost[] = [
     image: article2Image.src,
     href: "/blog/tabstr-nacio-cobro-250/",
     date: "29 de agosto, 2026",
+    category: "Historia",
+    readingMinutes: 4,
   },
   {
     title: 'Tu POS no es lealtad. Es pereza disfrazada de "así siempre lo hemos hecho".',
@@ -25,5 +29,7 @@ export const blogData: BlogPost[] = [
     image: article1Image.src,
     href: "/blog/tu-pos-no-es-lealtad/",
     date: "29 de agosto, 2026",
+    category: "Migración",
+    readingMinutes: 4,
   },
 ];

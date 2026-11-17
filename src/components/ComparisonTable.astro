@@ -1,5 +1,10 @@
 ---
-import { COMPARISON_COLUMNS, COMPARISON_ROWS } from "../data/comparison";
+import {
+  COMPARISON_COLUMNS,
+  COMPARISON_ROWS,
+  type ComparisonColumnId,
+  type ComparisonStatus,
+} from "../data/comparison";
 
 interface Props {
   heading?: string;
@@ -8,42 +13,108 @@ interface Props {
 const {
   heading = "Tabstr POS frente a un POS con licencia por dispositivo y a un POS en la nube típico",
 } = Astro.props;
+
+const STATUS_LABEL: Record<ComparisonStatus, string> = {
+  ok: "Sí",
+  partial: "Parcial",
+  no: "No",
+};
+
+const STATUS_CLASSES: Record<ComparisonStatus, string> = {
+  ok: "bg-emerald-500/15 text-emerald-400",
+  partial: "bg-secondaryColor/15 text-secondaryColor",
+  no: "bg-red-500/10 text-red-400/80",
+};
+
+const STATUS_PATHS: Record<ComparisonStatus, string> = {
+  ok: "M16.704 5.29a1 1 0 01.006 1.414l-7.5 7.57a1 1 0 01-1.42 0l-3.5-3.53a1 1 0 111.42-1.408l2.79 2.814 6.79-6.854a1 1 0 011.414-.006z",
+  partial: "M4 10a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z",
+  no: "M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z",
+};
+
+const otherColumns: ComparisonColumnId[] = ["licensed", "cloud"];
+const lastIndex = COMPARISON_ROWS.length - 1;
 ---
 
-<section class="mt-12" aria-labelledby="comparison-heading">
-  <h2 id="comparison-heading" class="text-2xl sm:text-3xl font-bold text-primaryText mb-6">
+<section class="mt-12" aria-labelledby="comparison-heading" data-reveal>
+  <h2 id="comparison-heading" class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-primaryText mb-8">
     {heading}
   </h2>
-  <div class="overflow-x-auto rounded-2xl border border-solid border-mainBorder">
-    <table class="w-full min-w-[44rem] text-left text-sm sm:text-base">
-      <thead class="bg-bgDark3">
+  <div class="relative overflow-x-auto rounded-3xl border border-solid border-mainBorderDarker bg-bgDark1/40 px-2 sm:px-4 pb-4 pt-6">
+    <table class="w-full min-w-[46rem] border-separate border-spacing-0 text-left text-sm sm:text-base">
+      <thead>
         <tr>
-          <th scope="col" class="px-4 py-3 text-secondaryText font-semibold">Criterio</th>
+          <th scope="col" class="px-4 py-4 align-bottom text-secondaryText font-semibold">Criterio</th>
           {
-            COMPARISON_COLUMNS.map((column) => (
-              <th
-                scope="col"
-                class:list={[
-                  "px-4 py-3 font-semibold",
-                  column.id === "tabstr" ? "text-secondaryColor" : "text-primaryText",
-                ]}
-              >
-                {column.label}
-              </th>
-            ))
+            COMPARISON_COLUMNS.map((column) =>
+              column.id === "tabstr" ? (
+                <th
+                  scope="col"
+                  class="relative w-[32%] rounded-t-2xl border-x border-t border-solid border-secondaryColor/40 bg-brand-gradient-soft px-4 pt-6 pb-4 align-bottom shadow-glow-sm"
+                >
+                  <span class="absolute -top-3 left-4 rounded-full bg-brand-gradient px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-primaryText">
+                    Recomendado
+                  </span>
+                  <span class="font-display text-lg font-bold text-gradient-brand">{column.label}</span>
+                </th>
+              ) : (
+                <th scope="col" class="px-4 py-4 align-bottom text-primaryText font-semibold">
+                  {column.label}
+                </th>
+              ),
+            )
           }
         </tr>
       </thead>
       <tbody>
         {
-          COMPARISON_ROWS.map((row) => (
-            <tr class="border-t border-mainBorder bg-bgDark2">
-              <th scope="row" class="px-4 py-4 text-primaryText font-semibold align-top">
+          COMPARISON_ROWS.map((row, index) => (
+            <tr class="group">
+              <th
+                scope="row"
+                class="border-t border-solid border-mainBorderDarker px-4 py-4 text-primaryText font-semibold align-top"
+              >
                 {row.feature}
               </th>
-              <td class="px-4 py-4 text-primaryText align-top">{row.tabstr}</td>
-              <td class="px-4 py-4 text-secondaryText align-top">{row.licensed}</td>
-              <td class="px-4 py-4 text-secondaryText align-top">{row.cloud}</td>
+              <td
+                class:list={[
+                  "border-x border-t border-solid border-x-secondaryColor/40 border-t-mainBorderDarker bg-secondaryColor/[0.05] px-4 py-4 text-primaryText align-top",
+                  index === lastIndex && "rounded-b-2xl border-b border-b-secondaryColor/40",
+                ]}
+              >
+                <div class="flex gap-3">
+                  <span
+                    class:list={[
+                      "mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full",
+                      STATUS_CLASSES[row.status.tabstr],
+                    ]}
+                  >
+                    <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d={STATUS_PATHS[row.status.tabstr]} />
+                    </svg>
+                    <span class="sr-only">{STATUS_LABEL[row.status.tabstr]}:</span>
+                  </span>
+                  <span>{row.tabstr}</span>
+                </div>
+              </td>
+              {otherColumns.map((columnId) => (
+                <td class="border-t border-solid border-mainBorderDarker px-4 py-4 text-secondaryText align-top">
+                  <div class="flex gap-3">
+                    <span
+                      class:list={[
+                        "mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full",
+                        STATUS_CLASSES[row.status[columnId]],
+                      ]}
+                    >
+                      <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d={STATUS_PATHS[row.status[columnId]]} />
+                      </svg>
+                      <span class="sr-only">{STATUS_LABEL[row.status[columnId]]}:</span>
+                    </span>
+                    <span>{row[columnId]}</span>
+                  </div>
+                </td>
+              ))}
             </tr>
           ))
         }

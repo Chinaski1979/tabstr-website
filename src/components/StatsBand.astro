@@ -1,0 +1,33 @@
+---
+import { STATS } from "../data/stats";
+
+const format = (value: number, decimals = 0): string =>
+  decimals > 0 ? value.toFixed(decimals) : value.toLocaleString("es-CR");
+---
+
+{
+  STATS.length > 0 && (
+    <section class="relative w-full bg-bgDark2 py-12 sm:py-16" aria-label="Tabstr en números">
+      <div class="mx-auto w-11/12 max-w-6xl">
+        <div class="section-divider mb-12 sm:mb-16" />
+        <dl class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          {STATS.map((stat, index) => (
+            <div class="flex flex-col text-center lg:text-left" data-reveal style={`--reveal-delay: ${index * 80}ms`}>
+              <dt class="mt-2 text-sm text-secondaryText leading-relaxed">{stat.label}</dt>
+              <dd
+                class="order-first font-display text-4xl sm:text-5xl font-bold tracking-tight text-gradient-brand tabular-nums"
+                data-count-to={stat.value}
+                data-count-prefix={stat.prefix}
+                data-count-suffix={stat.suffix}
+                data-count-decimals={stat.decimals}
+              >
+                {`${stat.prefix ?? ""}${format(stat.value, stat.decimals)}${stat.suffix ?? ""}`}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <div class="section-divider mt-12 sm:mt-16" />
+      </div>
+    </section>
+  )
+}
