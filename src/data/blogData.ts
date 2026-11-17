@@ -1,5 +1,5 @@
-import article1Image from "../assets/images/article1.png";
-import article2Image from "../assets/images/article2.png";
+import article1Image from "../assets/images/article1.webp";
+import article2Image from "../assets/images/article2.webp";
 
 export interface BlogPost {
   title: string;

@@ -61,9 +61,27 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     feature: "Hardware",
-    tabstr: "Usá el equipo que ya tenés si es compatible",
+    tabstr: "Usá el equipo que ya tenés si es compatible, incluido iPad",
     licensed: "Amarre frecuente al hardware del proveedor",
     cloud: "Variable; a veces impresoras “aprobadas”",
+  },
+  {
+    feature: "Impresoras",
+    tabstr: "TCP, USB y Bluetooth en iPad, Android, Windows, macOS y Linux",
+    licensed: "A menudo solo el modelo que el proveedor renta",
+    cloud: "Lista corta de impresoras “aprobadas”",
+  },
+  {
+    feature: "Pedidos en línea",
+    tabstr: "API: el sitio o la app manda la orden al POS; el encargado acepta y pone el tiempo",
+    licensed: "Otra app, un teléfono o no existe",
+    cloud: "Conector de marketplace, a veces aparte de la caja",
+  },
+  {
+    feature: "Mensajes al equipo",
+    tabstr: "El aviso del admin aparece en el encabezado del POS",
+    licensed: "WhatsApp, pizarra o un módulo que nadie abre",
+    cloud: "Chat aparte o no forma parte del POS",
   },
   {
     feature: "Migración y capacitación",

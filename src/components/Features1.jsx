@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import forAllDevices from "../assets/images/for-all-devices.png";
+import forAllDevices from "../assets/images/for-all-devices.webp";
 import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 export const Features1 = () => {
@@ -22,9 +22,9 @@ export const Features1 = () => {
                 Eso quedó en los 90s
               </h2>
               <p className="mb-10 text-secondaryText leading-loose">
-                No importa si es Android, iOS, Windows, Linux, Mac. 
+                No importa si es iPad, iPhone, Android, Windows, Linux o Mac.
                 Tabstr es compatible con cualquier dispositivo y sistema operativo.
-                Un POS que corre en cualquier pantalla. Fácil, rápido y sin cobros ridículos.<br/>
+                Un POS que corre en cualquier pantalla, sin licencia por cada una. Fácil, rápido y sin cobros ridículos.<br/>
                 Diseñado para ser fácil, estético y accesible. Todo lo que los demás nunca fueron.
               </p>
               <ul className="mb-6 text-primaryText">
@@ -44,7 +44,7 @@ export const Features1 = () => {
             </div>
           </div>
           <div className="w-3/4 mx-auto lg:w-1/2 flex flex-wrap lg:-mx-4 sm:pr-8 lg:pt-10 justify-center lg:pl-4 xl:px-8">
-            <img src={forAllDevices.src} alt="Tabstr POS en celular, tablet y computadora en un comercio de Costa Rica" className="rounded-xl  main-border-gray mx-auto sm:mx-unset" loading="lazy" />
+            <img src={forAllDevices.src} alt="Tabstr POS en iPad, celular y computadora en un comercio de Costa Rica" className="rounded-xl  main-border-gray mx-auto sm:mx-unset" loading="lazy" width={forAllDevices.width} height={forAllDevices.height} />
           </div>
         </div>
       </motion.div>

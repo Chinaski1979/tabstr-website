@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import salesStats from "../assets/images/sales-stats.png";
+import salesStats from "../assets/images/sales-stats.webp";
 import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 export const Features2 = () => (
@@ -19,6 +19,8 @@ export const Features2 = () => (
               alt="Estadísticas de ventas en tiempo real del POS Tabstr en un restaurante de Costa Rica"
               className="rounded-xl  main-border-gray"
               loading="lazy"
+              width={salesStats.width}
+              height={salesStats.height}
             />
           </div>
         </div>
@@ -31,8 +33,8 @@ export const Features2 = () => (
             </h2>
             <p className="mb-12 text-secondaryText leading-loose">
               Cada detalle de este POS existe por una razón: Resolver los problemas reales que tienen los negocios todos los días.
-              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar mensajes internos al equipo,
-              guardar comprobantes de pagos por SINPE móvil, recibir reservas o marcar la asistencia del personal.<br/>
+              Desde importar tus facturas XML para actualizar el inventario, hasta mostrar un aviso en el encabezado del POS,
+              guardar comprobantes de pagos por SINPE móvil, recibir reservas, pedidos del sitio web o marcar la asistencia del personal.<br/>
             </p>
             <ul className="mb-6 text-primaryText">
               <li className="mb-4 flex">
@@ -57,11 +59,49 @@ export const Features2 = () => (
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Reservas: créalas en Tabstr o compartí el link del local para que el cliente reserve solo.</span>
+                <span>
+                  Aviso del admin en el encabezado del POS, para que el turno lo vea.
+                </span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Control de asistencia: el personal marca entrada y salida con el rostro, y el reporte muestra tardías, salidas tempranas y horas.</span>
+                <span>
+                  Impresoras por TCP, USB y Bluetooth, también en iPad.{" "}
+                  <a href="/impresoras-pos-ipad/" className="text-secondaryColor hover:underline">
+                    Ver hardware
+                  </a>
+                  .
+                </span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>
+                  Pedidos del sitio o de otra app entran al POS por API.{" "}
+                  <a href="/pedidos-en-linea-pos/" className="text-secondaryColor hover:underline">
+                    Cómo funciona
+                  </a>
+                  .
+                </span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>
+                  Reservas: créalas en Tabstr o compartí el link del local.{" "}
+                  <a href="/reservas-restaurantes/" className="text-secondaryColor hover:underline">
+                    Reservas
+                  </a>
+                  .
+                </span>
+              </li>
+              <li className="mb-4 flex">
+                <CheckArrowIcon />
+                <span>
+                  Control de asistencia con el rostro y reporte de horas.{" "}
+                  <a href="/control-asistencia-pos/" className="text-secondaryColor hover:underline">
+                    Asistencia
+                  </a>
+                  .
+                </span>
               </li>
             </ul>
           </div>

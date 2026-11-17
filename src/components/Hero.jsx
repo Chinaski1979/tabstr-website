@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { InvitationModal } from "./InvitationModal";
-import dashboard from "../assets/images/tabs-management.png";
+import dashboard from "../assets/images/tabs-management.webp";
 
 export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -48,7 +48,7 @@ export const Footer = () => {
               <div className="w-full md:w-1/2 mb-16 md:mb-0">
                 <h3 className="mb-6 text-2xl font-bold text-primaryText">Tabstr POS</h3>
                 <ul>
-                  {RELATED_PAGES.slice(0, 8).map((item) => (
+                  {RELATED_PAGES.map((item) => (
                     <li key={item.href} className="mb-3">
                       <a
                         className="text-gray-400 hover:text-gray-300"

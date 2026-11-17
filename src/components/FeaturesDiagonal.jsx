@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import aiAssistance from "../assets/images/ai-assistance.png";
+import aiAssistance from "../assets/images/ai-assistance.webp";
 
 export const FeaturesDiagonal = () => {
 
@@ -45,6 +45,8 @@ export const FeaturesDiagonal = () => {
               alt="Asistente de inteligencia artificial de Tabstr POS sugiriendo stock para un restaurante en Costa Rica"
               className="rounded-xl  main-border-gray"
               loading="lazy"
+              width={aiAssistance.width}
+              height={aiAssistance.height}
             />
           </div>
         </div>

@@ -1,0 +1,61 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { HARDWARE_FAQ } from "../data/faq";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+
+const title = "POS en iPad e impresoras | Tabstr TCP, USB y Bluetooth";
+const description =
+  "Tabstr POS corre en iPad y en celular, tablet o PC. Imprime por TCP, USB y Bluetooth en iPad, Android, Windows, macOS y Linux.";
+const canonicalPath = "/impresoras-pos-ipad/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Características", href: "/caracteristicas/" },
+    { name: "iPad e impresoras", href: canonicalPath },
+  ]}
+  jsonLd={faqPageSchema(HARDWARE_FAQ)}
+>
+  <p class="block-subtitle mb-4">iPad y hardware</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Tabstr POS en iPad, con impresora por TCP, USB o Bluetooth
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Tabstr corre en iPad, iPhone, Android, Windows, macOS y Linux, sin licencia por
+    dispositivo. La impresora se conecta por red (TCP), USB o Bluetooth, en esos
+    sistemas. No hace falta la computadora Windows que el proveedor decidió rentarte.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Tres formas de imprimir</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>TCP: la impresora está en la red del local.</li>
+    <li>USB: cable directo al equipo donde corre Tabstr.</li>
+    <li>Bluetooth: sin cable, en iPad, Android o computadora.</li>
+  </ul>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Si ya tenés una térmica compatible, se usa. Los drivers del fabricante están en
+    <a href="/soporte/" class="text-secondaryColor hover:underline">soporte</a>.
+    Si venís de un POS que solo imprime con “su” máquina, el cambio está en
+    <a href="/migrar-de-pos/" class="text-secondaryColor hover:underline">migrar de POS</a>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">El iPad es un dispositivo más</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    La barra en iPad, la cocina en otra tablet y el dueño en el teléfono ven el mismo
+    Tabstr POS Costa Rica. Agregar una pantalla no multiplica la licencia.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre iPad e impresoras</h2>
+  <FaqAccordion items={HARDWARE_FAQ} questionLevel="h3" />
+  <CtaBanner
+    title="¿Tu impresora solo “funciona” con el POS de siempre?"
+    body="Contanos el modelo y si es red, USB o Bluetooth. Te decimos si entra en Tabstr."
+  />
+</MarketingPage>
