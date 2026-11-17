@@ -1,0 +1,176 @@
+---
+import { FEATURES, type FeatureIcon, type FeatureSize } from "../data/features";
+
+interface Props {
+  showHeader?: boolean;
+}
+
+const { showHeader = true } = Astro.props;
+
+const ICON_PATHS: Record<FeatureIcon, string> = {
+  receipt:
+    "M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185zM9.75 9h.008v.008H9.75V9zm4.5 4.5h.008v.008h-.008V13.5z",
+  offline:
+    "M3 3l8.735 8.735m0 0a.374.374 0 11.53.53m-.53-.53l.53.53m0 0L21 21M14.652 9.348a3.75 3.75 0 010 5.304m2.121-7.425a6.75 6.75 0 010 9.546m2.121-11.667c3.808 3.807 3.808 9.98 0 13.788m-9.546-4.242a3.733 3.733 0 01-1.06-2.122m-1.061 4.243a6.75 6.75 0 01-1.625-6.929m-.496 9.05c-3.068-3.067-3.664-7.67-1.79-11.334M12 12h.008v.008H12V12z",
+  phone:
+    "M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3",
+  xml: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z",
+  printer:
+    "M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z",
+  globe:
+    "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418",
+  calendar:
+    "M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5",
+  face: "M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75z",
+  bitcoin:
+    "M9 7.5h4.5a2.25 2.25 0 010 4.5H9m0-4.5v9m0-4.5h5.25a2.25 2.25 0 010 4.5H9m1.5-11.25V6m3-1.5V6m-3 12v1.5m3-1.5v1.5",
+  megaphone:
+    "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46",
+};
+
+const SIZE_CLASSES: Record<FeatureSize, string> = {
+  sm: "",
+  lg: "sm:col-span-2",
+  xl: "sm:col-span-2 lg:row-span-2",
+};
+---
+
+<section class="relative w-full bg-bgDark2 py-20 sm:py-28" aria-labelledby={showHeader ? "features-heading" : undefined}>
+  <div class="mx-auto w-11/12 max-w-6xl">
+    {
+      showHeader && (
+        <div class="max-w-3xl mx-auto text-center mb-14" data-reveal>
+          <span class="block-subtitle">Tecnología moderna, no fósiles digitales</span>
+          <h2 id="features-heading" class="mt-5 mb-6 block-big-title lg:text-5xl">
+            Funciones que <span class="text-gradient-brand">resuelven</span>, no que estorban.
+          </h2>
+          <p class="text-secondaryText leading-relaxed">
+            Cada detalle de este POS existe por una razón: resolver los problemas reales que tienen los negocios
+            todos los días.
+          </p>
+        </div>
+      )
+    }
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense gap-4 lg:gap-5">
+      {
+        FEATURES.map((feature, index) => {
+          const Tag = feature.href ? "a" : "div";
+          return (
+            <Tag
+              href={feature.href}
+              class:list={[
+                "spotlight-card group flex flex-col p-6 sm:p-7",
+                SIZE_CLASSES[feature.size],
+                feature.size !== "sm" && "bg-gradient-to-br from-bgDark3/80 to-bgDark1/60",
+              ]}
+              data-reveal
+              style={`--reveal-delay: ${Math.min(index, 6) * 60}ms`}
+            >
+              <div class="relative z-10 flex items-start justify-between gap-4">
+                <span class="icon-chip">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={ICON_PATHS[feature.icon]} />
+                  </svg>
+                </span>
+                {feature.href && (
+                  <span
+                    class="text-secondaryText transition duration-300 group-hover:text-secondaryColor group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                )}
+              </div>
+
+              <h3
+                class:list={[
+                  "relative z-10 mt-5 font-display font-bold tracking-tight text-primaryText",
+                  feature.size === "xl" ? "text-2xl sm:text-3xl" : feature.size === "lg" ? "text-xl sm:text-2xl" : "text-lg",
+                ]}
+              >
+                {feature.title}
+              </h3>
+              <p class="relative z-10 mt-2 text-secondaryText leading-relaxed text-sm sm:text-base">
+                {feature.description}
+              </p>
+
+              {feature.visual === "invoice" && (
+                <div class="relative z-10 mt-auto pt-8" aria-hidden="true">
+                  <div class="rounded-2xl border border-solid border-white/10 bg-bgDark1/80 p-4 sm:p-5 text-xs sm:text-sm shadow-glow-sm">
+                    <div class="flex items-center justify-between">
+                      <span class="font-semibold text-primaryText">Factura electrónica</span>
+                      <span class="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-[0.7rem] font-semibold text-emerald-400">
+                        Aceptada
+                      </span>
+                    </div>
+                    <p class="mt-1 font-mono text-[0.68rem] text-secondaryText/80 truncate">
+                      Clave 50601112600310123456700100001010000000123
+                    </p>
+                    <div class="mt-4 space-y-2 border-t border-solid border-white/5 pt-3 text-secondaryText">
+                      <div class="flex justify-between">
+                        <span>2 × Casado de pollo</span>
+                        <span>₡9.800</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>2 × Fresco natural</span>
+                        <span>₡3.000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>IVA 13%</span>
+                        <span>₡1.664</span>
+                      </div>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between border-t border-solid border-white/5 pt-3">
+                      <span class="text-secondaryText">Total</span>
+                      <span class="font-display text-lg font-bold text-gradient-brand">₡14.464</span>
+                    </div>
+                    <div class="mt-3 flex items-center gap-2 text-[0.7rem] text-secondaryText">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                      Enviada a Hacienda · API v4.4
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {feature.visual === "sinpe" && (
+                <div class="relative z-10 mt-6 flex flex-wrap items-center gap-3" aria-hidden="true">
+                  <div class="flex items-center gap-3 rounded-2xl border border-solid border-white/10 bg-bgDark1/80 px-4 py-3">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/15 text-xs font-bold text-sky-300">
+                      SM
+                    </span>
+                    <div class="text-xs sm:text-sm">
+                      <p class="font-semibold text-primaryText">SINPE Móvil · ₡12.500</p>
+                      <p class="text-secondaryText">Mesa 4 · 8:42 p. m.</p>
+                    </div>
+                  </div>
+                  <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400">
+                    ✓ Comprobante adjunto
+                  </span>
+                </div>
+              )}
+
+              {feature.visual === "offline" && (
+                <div class="relative z-10 mt-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm" aria-hidden="true">
+                  <span class="flex items-center gap-2 rounded-full border border-solid border-secondaryColor/30 bg-secondaryColor/10 px-3 py-1 text-secondaryColor">
+                    <span class="h-1.5 w-1.5 rounded-full bg-secondaryColor"></span>
+                    Sin conexión
+                  </span>
+                  <span class="text-secondaryText">→</span>
+                  <span class="rounded-full border border-solid border-white/10 bg-bgDark1/80 px-3 py-1 text-secondaryText">
+                    3 ventas en cola
+                  </span>
+                  <span class="text-secondaryText">→</span>
+                  <span class="flex items-center gap-2 rounded-full border border-solid border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-emerald-400">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    Sincronizado
+                  </span>
+                </div>
+              )}
+            </Tag>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

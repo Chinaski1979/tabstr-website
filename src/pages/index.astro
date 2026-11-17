@@ -1,12 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Hero } from "../components/Hero.jsx";
-import { Navbar } from "../components/Navbar.jsx";
-import { Clients } from "../components/Clients.jsx";
-import { Features1 } from "../components/Features1.jsx";
-import { Features2 } from "../components/Features2.jsx";
-import { FeaturesDiagonal } from "../components/FeaturesDiagonal.jsx";
-import { Blog } from "../components/Blog";
+import Hero from "../components/Hero.astro";
+import { Navbar } from "../components/Navbar.tsx";
+import Clients from "../components/Clients.astro";
+import DeviceShowcase from "../components/DeviceShowcase.astro";
+import BentoFeatures from "../components/BentoFeatures.astro";
+import AiSection from "../components/AiSection.astro";
+import StatsBand from "../components/StatsBand.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Blog from "../components/Blog.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 import { Contact } from "../components/Contact.jsx";
 import { Footer } from "../components/Footer.jsx";
 import { ScrollUpButton } from "../components/ScrollUpButton";
@@ -23,8 +26,6 @@ import {
   softwareSchema,
 } from "../data/seo";
 import { FAQ_ITEMS } from "../data/faq";
-import "../styles/Theme.css";
-import "../styles/Diagonals.css";
 ---
 
 <Layout
@@ -38,11 +39,13 @@ import "../styles/Diagonals.css";
   ]}
 >
   <Navbar client:load />
-  <Hero client:load />
-  <Clients client:load />
-  <Features1 client:load />
-  <Features2 client:load />
-  <FeaturesDiagonal client:load />
+  <Hero />
+  <Clients />
+  <DeviceShowcase />
+  <BentoFeatures />
+  <AiSection />
+  <StatsBand />
+  <Testimonials />
   <section class="w-full bg-bgDark2 py-8">
     <div class="container mx-auto px-4 w-11/12 md:w-10/12 xl:w-4/5 2xl:w-2/3 max-w-5xl">
       <p class="text-secondaryText leading-relaxed text-lg mb-8">{ENTITY_SENTENCE}</p>
@@ -51,8 +54,17 @@ import "../styles/Diagonals.css";
       <RelatedPages />
     </div>
   </section>
-  <Blog client:load />
+  <Blog />
   <FaqSection />
+  <section class="w-full bg-bgDark2 pb-8">
+    <div class="mx-auto w-11/12 max-w-6xl">
+      <CtaBanner
+        title="Probalo un mes gratis en tu local"
+        body="Operá de verdad durante 30 días: caja, Hacienda 4.4 y tu equipo usando Tabstr en los dispositivos que ya tenés. Si encaja, seguís. Si no, no te amarramos."
+        label="Empezar mi mes gratis"
+      />
+    </div>
+  </section>
   <Contact client:load />
   <Footer />
   <ScrollUpButton client:load />

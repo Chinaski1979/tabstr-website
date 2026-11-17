@@ -1,0 +1,60 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { PEDIDOS_FAQ } from "../data/faq";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+
+const title = "Pedidos en línea al POS | API de Tabstr Costa Rica";
+const description =
+  "Tabstr POS recibe pedidos del sitio web o de una app de pedidos por API. El encargado acepta o rechaza y pone el tiempo de preparación.";
+const canonicalPath = "/pedidos-en-linea-pos/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Características", href: "/caracteristicas/" },
+    { name: "Pedidos en línea", href: canonicalPath },
+  ]}
+  jsonLd={faqPageSchema(PEDIDOS_FAQ)}
+>
+  <p class="block-subtitle mb-4">API de pedidos</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Pedidos del sitio web o de otra app, directo en el POS
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Tabstr expone un API para que una app de pedidos o el sitio del restaurante
+    mande la orden al punto de venta. El pedido aparece en Tabstr POS. El encargado
+    lo acepta o lo rechaza y puede indicar cuánto tarda en estar listo.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Dos casos que vemos seguido</h2>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Una app de pedidos externa: la orden no se reescribe a mano en la caja.</li>
+    <li>El sitio web del restaurante: el cliente pide en la página y el POS la recibe.</li>
+  </ul>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    No entra sola a cocina. Alguien en el local decide si se acepta y el tiempo.
+    Hacienda 4.4 sigue en el mismo Tabstr, no en un segundo programa.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Qué ve el local</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    La orden queda en el POS, junto a las cuentas del salón. El aviso urgente del
+    turno, si hace falta, se publica en el encabezado. Las credenciales del API se
+    piden por contacto: esta página explica el uso, no es un portal de desarrolladores.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre pedidos en línea</h2>
+  <FaqAccordion items={PEDIDOS_FAQ} questionLevel="h3" />
+  <CtaBanner
+    title="¿Los pedidos del sitio se anotan a mano?"
+    body="Contanos qué app o qué web usás. Te decimos cómo cae la orden en Tabstr POS."
+    label="Pedir el API"
+  />
+</MarketingPage>

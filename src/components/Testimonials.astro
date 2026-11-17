@@ -1,0 +1,64 @@
+---
+import { TESTIMONIALS } from "../data/testimonials";
+
+const initials = (name: string): string =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+---
+
+{
+  TESTIMONIALS.length > 0 && (
+    <section class="relative w-full bg-bgDark2 py-20 sm:py-24" aria-labelledby="testimonials-heading">
+      <div class="mx-auto w-11/12 max-w-6xl">
+        <div class="max-w-2xl mx-auto text-center mb-14" data-reveal>
+          <span class="block-subtitle">Testimonios</span>
+          <h2 id="testimonials-heading" class="mt-5 block-big-title">
+            Lo que dicen los negocios que <span class="text-gradient-brand">ya cambiaron</span>
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {TESTIMONIALS.map((testimonial, index) => (
+            <figure
+              class="spotlight-card flex flex-col p-7"
+              data-reveal
+              style={`--reveal-delay: ${Math.min(index, 5) * 80}ms`}
+            >
+              <svg class="relative z-10 w-8 h-8 text-secondaryColor/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+              </svg>
+              <blockquote class="relative z-10 mt-5 flex-1 text-primaryText leading-relaxed">
+                “{testimonial.quote}”
+              </blockquote>
+              <figcaption class="relative z-10 mt-6 flex items-center gap-3">
+                {testimonial.photo ? (
+                  <img
+                    src={testimonial.photo.src}
+                    alt=""
+                    width={44}
+                    height={44}
+                    loading="lazy"
+                    class="h-11 w-11 rounded-full object-cover border border-solid border-mainBorder"
+                  />
+                ) : (
+                  <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-gradient text-sm font-bold text-primaryText">
+                    {initials(testimonial.name)}
+                  </span>
+                )}
+                <div>
+                  <p class="font-semibold text-primaryText">{testimonial.name}</p>
+                  <p class="text-sm text-secondaryText">
+                    {testimonial.role} · {testimonial.business}
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

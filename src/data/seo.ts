@@ -24,6 +24,11 @@ export const HOME_DESCRIPTION =
 export const FREE_MONTH_SENTENCE =
   "Los negocios pueden usar Tabstr un mes gratis para operar de verdad: caja, Hacienda 4.4 y el local en marcha, no una demo de diez minutos.";
 
+export const SOCIAL_PROFILES = [
+  "https://www.facebook.com/profile.php?id=61592499518532",
+  "https://www.instagram.com/tabstrpos/",
+] as const;
+
 export const COMPANY = {
   legalName: "Herso Software Company S.A.",
   parentName: "Hermosa Software",
@@ -81,6 +86,7 @@ export function organizationSchema(): JsonLd {
       "@type": "Country",
       name: "Costa Rica",
     },
+    sameAs: [...SOCIAL_PROFILES],
     founder: {
       "@type": "Person",
       name: FOUNDER.name,
@@ -97,7 +103,7 @@ export function softwareSchema(): JsonLd {
     alternateName: [...BRAND_ALTERNATE_NAMES],
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Point of Sale",
-    operatingSystem: "Android, iOS, Windows, macOS, Linux",
+    operatingSystem: "Android, iOS, iPadOS, Windows, macOS, Linux",
     url: SITE_URL,
     description: ENTITY_DESCRIPTION,
     offers: {
@@ -122,6 +128,10 @@ export function softwareSchema(): JsonLd {
       "Sugerencias de stock con IA",
       "Reservas con link propio para que el cliente reserve solo",
       "Control de asistencia con reconocimiento facial",
+      "Compatible con iPad",
+      "Impresoras por TCP, USB y Bluetooth",
+      "API para pedidos del sitio web y de apps de pedidos",
+      "Mensajes internos en el encabezado del POS",
     ],
     areaServed: {
       "@type": "Country",
@@ -244,6 +254,26 @@ export const RELATED_PAGES: ReadonlyArray<{
     href: "/pos-para-restaurantes/",
     title: "POS para restaurantes",
     description: "Mesas, cocina, reservas, SINPE y control de dueño en el mismo sistema.",
+  },
+  {
+    href: "/reservas-restaurantes/",
+    title: "Reservas para restaurantes",
+    description: "Link propio para Instagram y reservas que caen en el POS.",
+  },
+  {
+    href: "/control-asistencia-pos/",
+    title: "Control de asistencia",
+    description: "Entrada y salida con reconocimiento facial y reporte de horas.",
+  },
+  {
+    href: "/pedidos-en-linea-pos/",
+    title: "Pedidos en línea",
+    description: "El sitio o la app manda la orden al POS; el encargado acepta.",
+  },
+  {
+    href: "/impresoras-pos-ipad/",
+    title: "iPad e impresoras",
+    description: "Tabstr en iPad. Impresoras por TCP, USB y Bluetooth.",
   },
   {
     href: "/pos-para-comercios/",
