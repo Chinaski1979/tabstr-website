@@ -1,0 +1,62 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { RESERVAS_FAQ } from "../data/faq";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+
+const title = "Reservas para restaurantes Costa Rica | Tabstr POS";
+const description =
+  "Tabstr POS incluye reservas y un link propio del restaurante para Instagram, Facebook o WhatsApp. El cliente reserva solo y cae en el POS.";
+const canonicalPath = "/reservas-restaurantes/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "POS para restaurantes", href: "/pos-para-restaurantes/" },
+    { name: "Reservas", href: canonicalPath },
+  ]}
+  jsonLd={faqPageSchema(RESERVAS_FAQ)}
+>
+  <p class="block-subtitle mb-4">Reservas Tabstr POS</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Reservas para restaurantes en Costa Rica, con link propio
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    Tabstr POS incluye reservas en el mismo sistema y un link de reservas de cada
+    restaurante para Instagram, Facebook o WhatsApp. El cliente reserva solo. La
+    reserva aparece en la pestaña de reservas, no en un chat que nadie revisa.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">El link es del restaurante</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    No es un directorio genérico de Tabstr. Cada local tiene su propio enlace. Lo
+    pegás en la bio de Instagram, en Facebook o en el mensaje automático de WhatsApp.
+    Quien quiere mesa entra, reserva y listo.
+  </p>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>El restaurante también puede crear la reserva desde el POS.</li>
+    <li>Las nuevas quedan en la pestaña de reservas, listas para el turno.</li>
+    <li>Deja de perseguir “¿hay mesa?” entre stories, notas y el grupo del personal.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">En el mismo POS, no en otra app</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Mesas, caja, Hacienda 4.4 y reservas viven juntos.
+    <a href="/pos-para-restaurantes/" class="text-secondaryColor hover:underline">El POS para restaurantes</a>
+    ya cubre cocina y SINPE. Las reservas son una pieza de ese mismo Tabstr, no un
+    sistema que hay que conciliar a las 7 p.m.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre reservas</h2>
+  <FaqAccordion items={RESERVAS_FAQ} questionLevel="h3" />
+  <CtaBanner
+    title="¿Querés el link de reservas de tu local?"
+    body="Te mostramos cómo queda en Instagram y cómo cae la reserva en Tabstr POS."
+  />
+</MarketingPage>

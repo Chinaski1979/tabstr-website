@@ -1,0 +1,68 @@
+---
+import type { ImageMetadata } from "astro";
+import auraRest from "../assets/clients/aura-rest-logo.jpg";
+import bakeryGelato from "../assets/clients/bakery-gelato.jpg";
+import ballenaVibes from "../assets/clients/ballena-vibes-logo.jpg";
+import caravana from "../assets/clients/caravana-logo.jpg";
+import contramarea from "../assets/clients/contramarea-logo.jpg";
+import fisti from "../assets/clients/fisti-logo.jpg";
+import potz from "../assets/clients/potz-logo.jpg";
+import sibu from "../assets/clients/sibu-logo.jpg";
+import voraPizza from "../assets/clients/vora-pizza.jpg";
+
+type Client = { name: string; logo: ImageMetadata };
+
+const clients: Client[] = [
+  { name: "Aura Rest", logo: auraRest },
+  { name: "Bakery Gelato", logo: bakeryGelato },
+  { name: "Ballena Vibes", logo: ballenaVibes },
+  { name: "Caravana", logo: caravana },
+  { name: "Contramarea", logo: contramarea },
+  { name: "Fisti", logo: fisti },
+  { name: "Potz", logo: potz },
+  { name: "Sibu", logo: sibu },
+  { name: "Vora Pizza", logo: voraPizza },
+];
+
+const loop = [...clients, ...clients];
+---
+
+<section class="relative bg-bgDark1 w-full py-12 sm:py-16" aria-label="Clientes que confían en Tabstr">
+  <div class="mx-auto w-11/12 max-w-6xl" data-reveal>
+    <div class="flex lg:flex-row flex-col items-center gap-10 lg:gap-6 lg:text-left text-center">
+      <div class="w-full lg:w-[38%]">
+        <p class="block-subtitle mb-3">Ya operan con Tabstr</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-primaryText">
+          Clientes que confían
+          <span class="block text-gradient-brand">en Tabstr</span>
+        </h2>
+      </div>
+
+      <div class="w-full lg:w-[62%]">
+        <div class="clients-marquee py-3" aria-hidden="true">
+          <div class="clients-marquee-track">
+            {
+              loop.map(({ name, logo }) => (
+                <div class="clients-marquee-item shrink-0">
+                  <div class="group w-[4.5rem] h-[4.5rem] sm:w-20 sm:h-20 lg:w-[5.5rem] lg:h-[5.5rem] rounded-full overflow-hidden border border-solid border-mainBorderDarker bg-bgDark3 transition duration-300 hover:border-secondaryColor/60 hover:shadow-glow-sm hover:scale-105">
+                    <img
+                      src={logo.src}
+                      alt={`${name} — cliente de Tabstr POS en Costa Rica`}
+                      class="w-full h-full object-cover object-center grayscale opacity-70 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                      loading="lazy"
+                      width={88}
+                      height={88}
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <ul class="sr-only">
+          {clients.map(({ name }) => <li>{name}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

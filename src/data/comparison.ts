@@ -1,10 +1,13 @@
 export type ComparisonColumnId = "tabstr" | "licensed" | "cloud";
 
+export type ComparisonStatus = "ok" | "partial" | "no";
+
 export type ComparisonRow = {
   feature: string;
   tabstr: string;
   licensed: string;
   cloud: string;
+  status: Record<ComparisonColumnId, ComparisonStatus>;
 };
 
 export const COMPARISON_COLUMNS: ReadonlyArray<{
@@ -22,60 +25,91 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     tabstr: "Ilimitados: celular, tablet o PC, sin licencia por pantalla",
     licensed: "Una licencia (y un cobro) por cada caja o tablet",
     cloud: "A veces ilimitados; a menudo un extra por sede o usuario",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
     feature: "Hacienda 4.4",
     tabstr: "Nativa en el mismo POS, sin GTI ni app aparte",
     licensed: "Módulo aparte o parche de un tercero",
     cloud: "Variable: a veces nativa, a veces un conector extra",
+    status: { tabstr: "ok", licensed: "partial", cloud: "partial" },
   },
   {
     feature: "SINPE móvil",
     tabstr: "Captura y registra el comprobante en la venta",
     licensed: "Rara vez nativo; suele quedar fuera del sistema",
     cloud: "Depende del proveedor y del país",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
     feature: "Pagos con Bitcoin",
     tabstr: "Nativo en el mismo POS, junto a efectivo, tarjeta y SINPE",
     licensed: "Casi nunca; si existe, es un parche o otra app",
     cloud: "Poco frecuente en POS de Costa Rica",
+    status: { tabstr: "ok", licensed: "no", cloud: "no" },
   },
   {
     feature: "IA para stock",
     tabstr: "Sugerencias según ventas, temporadas y fechas especiales",
     licensed: "No forma parte del producto",
     cloud: "Poco frecuente o como add-on",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
     feature: "Reservas",
     tabstr: "Reservas internas y link propio para que el cliente reserve solo",
     licensed: "A menudo otra app, un cuaderno o WhatsApp",
     cloud: "Add-on frecuente o módulo aparte",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
     feature: "Control de asistencia",
     tabstr: "Marca entrada y salida con el rostro; reporte de tardías, salidas tempranas y horas",
     licensed: "Reloj aparte, Excel o no existe",
     cloud: "Rara vez nativo; suele ser otro sistema",
+    status: { tabstr: "ok", licensed: "no", cloud: "no" },
   },
   {
     feature: "Hardware",
-    tabstr: "Usá el equipo que ya tenés si es compatible",
+    tabstr: "Usá el equipo que ya tenés si es compatible, incluido iPad",
     licensed: "Amarre frecuente al hardware del proveedor",
     cloud: "Variable; a veces impresoras “aprobadas”",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
+  },
+  {
+    feature: "Impresoras",
+    tabstr: "TCP, USB y Bluetooth en iPad, Android, Windows, macOS y Linux",
+    licensed: "A menudo solo el modelo que el proveedor renta",
+    cloud: "Lista corta de impresoras “aprobadas”",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
+  },
+  {
+    feature: "Pedidos en línea",
+    tabstr: "API: el sitio o la app manda la orden al POS; el encargado acepta y pone el tiempo",
+    licensed: "Otra app, un teléfono o no existe",
+    cloud: "Conector de marketplace, a veces aparte de la caja",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
+  },
+  {
+    feature: "Mensajes al equipo",
+    tabstr: "El aviso del admin aparece en el encabezado del POS",
+    licensed: "WhatsApp, pizarra o un módulo que nadie abre",
+    cloud: "Chat aparte o no forma parte del POS",
+    status: { tabstr: "ok", licensed: "no", cloud: "no" },
   },
   {
     feature: "Migración y capacitación",
     tabstr: "Catálogo por Excel y capacitación incluida",
     licensed: "Lenta, cara y a menudo cobrada aparte",
     cloud: "Onboarding extra o curso pago",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
   {
     feature: "Primer mes",
     tabstr: "Un mes gratis para operar el local, no solo una demo",
     licensed: "Cobro desde el día uno, a menudo más capacitación",
     cloud: "Prueba corta o tarjeta obligatoria desde el inicio",
+    status: { tabstr: "ok", licensed: "no", cloud: "partial" },
   },
 ];
 

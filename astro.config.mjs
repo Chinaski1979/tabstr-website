@@ -22,7 +22,7 @@ export default defineConfig({
         !page.includes("/preguntas-frecuentes"),
       changefreq: "weekly",
       serialize(item) {
-        item.lastmod = new Date();
+        delete item.lastmod;
         if (item.url === `${site}/` || item.url === `${site}`) {
           item.priority = 1;
         }

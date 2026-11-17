@@ -60,6 +60,41 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Con reconocimiento facial. El empleado marca entrada y salida con el rostro, sin un PIN que se presta ni una tarjeta que se pierde. Después generás un reporte: quién llegó tarde, quién se fue más temprano y el total de horas, para que pagar el turno sea más claro.",
   },
   {
+    question: "¿Tabstr funciona en iPad?",
+    answer:
+      "Sí. Tabstr POS corre en iPad, iPhone, Android, Windows, macOS y Linux. El iPad de la barra, la tablet de cocina y la computadora de la casa entran al mismo sistema, sin licencia por dispositivo. No hace falta un equipo “aprobado” por el proveedor.",
+  },
+  {
+    question: "¿Qué conexiones de impresora soporta Tabstr?",
+    answer:
+      "Tabstr imprime por TCP (red), USB y Bluetooth, en iPad, Android, Windows, macOS y Linux. Si tu impresora térmica ya habla uno de esos tres caminos, se puede usar. Los drivers del fabricante están en la página de soporte.",
+  },
+  {
+    question: "¿Puedo conectar pedidos de mi sitio web o de otra app al POS?",
+    answer:
+      "Sí. Tabstr expone un API para que apps de pedidos y el sitio web del restaurante manden la orden directo al POS. El pedido aparece en caja, no en un chat aparte. El encargado decide si lo acepta y cuánto tarda en estar listo.",
+  },
+  {
+    question: "¿El encargado puede aceptar o rechazar un pedido en línea?",
+    answer:
+      "Sí. Cuando llega un pedido del sitio o de una app externa, la persona a cargo en Tabstr POS lo acepta o lo rechaza y puede indicar el tiempo de preparación. La orden no entra sola a cocina sin esa decisión.",
+  },
+  {
+    question: "¿Cómo se enteran los empleados de un aviso importante?",
+    answer:
+      "El administrador crea el mensaje adentro de Tabstr y aparece en el encabezado del POS. El turno lo ve al usar el sistema, sin depender de un grupo de WhatsApp que nadie abre en hora pico.",
+  },
+  {
+    question: "¿El reconocimiento facial reemplaza un PIN?",
+    answer:
+      "Sí. En el control de asistencia de Tabstr POS el empleado marca entrada y salida con el rostro. No hay un PIN que se presta ni una tarjeta que se pierde. El reporte muestra tardías, salidas tempranas y horas.",
+  },
+  {
+    question: "¿El link de reservas es del restaurante o de Tabstr?",
+    answer:
+      "Es del restaurante. Cada local en Tabstr POS tiene su propio link de reservas para Instagram, Facebook o WhatsApp. El cliente reserva solo y la reserva aparece en la pestaña de reservas de ese restaurante.",
+  },
+  {
     question: "¿Puedo probar Tabstr un mes sin pagar?",
     answer:
       "Sí. Los negocios pueden usar Tabstr un mes gratis para operar de verdad: caja, Hacienda 4.4 y el local en marcha, no una demo de diez minutos. Si encaja, seguís con la suscripción. Si no, no te amarramos a un contrato para “probar”.",
@@ -70,3 +105,36 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Escribinos por el formulario de contacto del sitio o por WhatsApp. Te mostramos cómo quedaría tu local con Tabstr POS y resolvemos dudas de migración, inventario y facturación electrónica Hacienda 4.4. También podés empezar con un mes gratis. No hace falta comprar hardware ni pagar una capacitación para ver si el sistema encaja.",
   },
 ];
+
+export const RESERVAS_FAQ = FAQ_ITEMS.filter((item) =>
+  [
+    "¿Tabstr incluye reservas para restaurantes?",
+    "¿El link de reservas es del restaurante o de Tabstr?",
+    "¿Tabstr es solo para restaurantes?",
+  ].includes(item.question),
+);
+
+export const ASISTENCIA_FAQ = FAQ_ITEMS.filter((item) =>
+  [
+    "¿Cómo marca el personal la entrada y la salida?",
+    "¿El reconocimiento facial reemplaza un PIN?",
+    "¿Tabstr es solo para restaurantes?",
+  ].includes(item.question),
+);
+
+export const PEDIDOS_FAQ = FAQ_ITEMS.filter((item) =>
+  [
+    "¿Puedo conectar pedidos de mi sitio web o de otra app al POS?",
+    "¿El encargado puede aceptar o rechazar un pedido en línea?",
+    "¿Cómo se enteran los empleados de un aviso importante?",
+  ].includes(item.question),
+);
+
+export const HARDWARE_FAQ = FAQ_ITEMS.filter((item) =>
+  [
+    "¿Tabstr funciona en iPad?",
+    "¿Qué conexiones de impresora soporta Tabstr?",
+    "¿En qué dispositivos funciona Tabstr?",
+    "¿Necesito comprar hardware nuevo para migrar?",
+  ].includes(item.question),
+);

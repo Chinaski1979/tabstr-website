@@ -1,0 +1,23 @@
+---
+import BlogCard from "./BlogCard.astro";
+import { blogData } from "../data/blogData";
+---
+
+<section class="relative w-full bg-bgDark2 py-20 sm:py-24">
+  <div class="absolute -top-16" id="blog"></div>
+  <div class="mx-auto w-11/12 max-w-6xl">
+    <div class="mb-12 flex flex-col items-center gap-6 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left" data-reveal>
+      <div class="max-w-2xl">
+        <span class="block-subtitle">Blog</span>
+        <h2 class="mt-5 mb-4 block-big-title lg:text-5xl">Últimas publicaciones</h2>
+        <p class="text-secondaryText">Ideas directas sobre POS, migración y operación de tu negocio.</p>
+      </div>
+      <a href="/blog/" class="ghost-button h-11 px-5 text-sm">
+        Ver todo el blog <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      {blogData.map((post, index) => <BlogCard post={post} revealDelay={index * 100} />)}
+    </div>
+  </div>
+</section>
