@@ -1,0 +1,120 @@
+---
+import tabsManagement from "../assets/images/tabs-management.webp";
+import salesStats from "../assets/images/sales-stats.webp";
+
+interface Props {
+  gradientFrom?: string;
+}
+
+const { gradientFrom = "from-bgDark1" } = Astro.props;
+
+const highlights: string[] = [
+  "Visualiza tus ventas en tiempo real",
+  "Administra tu negocio desde cualquier lugar",
+  "Sin licencias, sin cargos ocultos, sin complicaciones",
+];
+
+const platforms: string[] = ["iPad", "iPhone", "Android", "Windows", "macOS", "Linux"];
+---
+
+<section
+  id="features"
+  class:list={[
+    "relative overflow-hidden w-full bg-gradient-to-b to-bgDark2 pt-16 sm:pt-24 pb-24 sm:pb-32",
+    gradientFrom,
+  ]}
+>
+  <div class="mx-auto w-11/12 max-w-6xl flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+    <div class="w-full lg:w-[42%]" data-reveal>
+      <span class="block-subtitle">¿Licencias por dispositivo?</span>
+      <h2 class="mt-5 mb-6 block-big-title lg:text-5xl">
+        Eso quedó en los <span class="text-gradient-brand">90s</span>
+      </h2>
+      <p class="mb-8 text-secondaryText leading-loose">
+        No importa si es iPad, iPhone, Android, Windows, Linux o Mac. Tabstr es compatible con cualquier
+        dispositivo y sistema operativo. Un POS que corre en cualquier pantalla, sin licencia por cada una.
+        Fácil, rápido y sin cobros ridículos. Diseñado para ser fácil, estético y accesible. Todo lo que los
+        demás nunca fueron.
+      </p>
+      <ul class="mb-8 space-y-4 text-primaryText">
+        {
+          highlights.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-gradient-soft border border-solid border-secondaryColor/30">
+                <svg class="w-3.5 h-3.5 text-secondaryColor" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 5.29a1 1 0 01.006 1.414l-7.5 7.57a1 1 0 01-1.42 0l-3.5-3.53a1 1 0 111.42-1.408l2.79 2.814 6.79-6.854a1 1 0 011.414-.006z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="flex flex-wrap gap-2" aria-label="Plataformas compatibles">
+        {
+          platforms.map((platform) => (
+            <li class="rounded-full border border-solid border-mainBorderDarker bg-white/[0.03] px-3 py-1 text-xs font-medium text-secondaryText">
+              {platform}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="relative w-full lg:w-[58%]" data-reveal style="--reveal-delay: 120ms">
+      <div class="brand-glow w-[80%] h-[70%] left-[10%] top-[10%] opacity-60" aria-hidden="true"></div>
+
+      <div
+        class="relative aspect-[16/11] w-full"
+        role="img"
+        aria-label="Tabstr POS en computadora, tablet y celular en un comercio de Costa Rica"
+      >
+        <div class="absolute right-0 top-0 w-[86%]">
+          <div class="rounded-t-xl border-[6px] border-b-[10px] border-solid border-[#141517] bg-black ring-1 ring-white/10 shadow-glow-lg overflow-hidden">
+            <img
+              src={tabsManagement.src}
+              alt=""
+              width={tabsManagement.width}
+              height={tabsManagement.height}
+              loading="lazy"
+              class="block w-full h-auto"
+            />
+          </div>
+          <div class="h-2.5 w-[112%] -ml-[6%] rounded-b-xl bg-gradient-to-b from-[#3a3b40] to-[#1d1e21] border-t border-solid border-white/10">
+          </div>
+        </div>
+
+        <div class="absolute left-0 bottom-[2%] w-[34%]" data-parallax="0.05">
+          <div class="rounded-[1.1rem] border-[6px] border-solid border-[#141517] bg-black ring-1 ring-white/15 shadow-2xl overflow-hidden">
+            <img
+              src={salesStats.src}
+              alt=""
+              width={salesStats.width}
+              height={salesStats.height}
+              loading="lazy"
+              class="block w-full aspect-[3/4] object-cover object-top"
+            />
+          </div>
+        </div>
+
+        <div class="absolute right-[8%] -bottom-[4%] w-[16%]" data-parallax="0.1">
+          <div class="relative rounded-[1.3rem] border-[5px] border-solid border-[#141517] bg-black ring-1 ring-white/15 shadow-2xl overflow-hidden">
+            <span class="absolute left-1/2 top-1 z-10 h-1.5 w-1/3 -translate-x-1/2 rounded-full bg-[#141517]"></span>
+            <img
+              src={salesStats.src}
+              alt=""
+              width={salesStats.width}
+              height={salesStats.height}
+              loading="lazy"
+              class="block w-full aspect-[9/19] object-cover object-left-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import MarketingPage from "../layouts/MarketingPage.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ASISTENCIA_FAQ } from "../data/faq";
+import { ENTITY_SENTENCE, faqPageSchema } from "../data/seo";
+
+const title = "Control de asistencia con rostro | Tabstr POS Costa Rica";
+const description =
+  "Tabstr POS marca entrada y salida con reconocimiento facial. El reporte muestra tardías, salidas tempranas y horas, sin PIN ni tarjeta.";
+const canonicalPath = "/control-asistencia-pos/";
+---
+
+<MarketingPage
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={[
+    { name: "Inicio", href: "/" },
+    { name: "Características", href: "/caracteristicas/" },
+    { name: "Control de asistencia", href: canonicalPath },
+  ]}
+  jsonLd={faqPageSchema(ASISTENCIA_FAQ)}
+>
+  <p class="block-subtitle mb-4">Asistencia en el POS</p>
+  <h1 class="text-4xl sm:text-5xl font-bold text-primaryText mb-6">
+    Control de asistencia con reconocimiento facial en el POS
+  </h1>
+  <p class="text-lg text-secondaryText leading-relaxed mb-6">
+    En Tabstr POS el personal marca entrada y salida con el rostro. No hay un PIN
+    que se presta ni una tarjeta que se pierde. El reporte dice quién llegó tarde,
+    quién se fue más temprano y el total de horas.
+  </p>
+  <p class="text-secondaryText leading-relaxed mb-6">{ENTITY_SENTENCE}</p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Para el turno, no para un ERP de nómina</h2>
+  <p class="text-secondaryText leading-relaxed mb-4">
+    Esto no reemplaza contabilidad ni planilla. Sirve para saber quién estuvo en el
+    local y cuánto tiempo, en el mismo sistema donde se vende.
+  </p>
+  <ul class="list-disc pl-6 text-secondaryText leading-relaxed space-y-2 mb-8">
+    <li>Entrada y salida con la cara, en el POS.</li>
+    <li>Reporte de tardías, salidas tempranas y horas.</li>
+    <li>Menos “me marqué con el código de otro” al cierre del turno.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">El rostro se usa para asistencia</h2>
+  <p class="text-secondaryText leading-relaxed mb-8">
+    Los datos del rostro sirven para marcar y para el reporte de horas, no para
+    publicidad. Cómo se tratan está en las
+    <a href="/politicas-de-privacidad/" class="text-secondaryColor hover:underline">políticas de privacidad</a>.
+    El negocio informa a su equipo. El detalle de mesas y reservas sigue en
+    <a href="/pos-para-restaurantes/" class="text-secondaryColor hover:underline">POS para restaurantes</a>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-primaryText mt-10 mb-4">Preguntas sobre asistencia</h2>
+  <FaqAccordion items={ASISTENCIA_FAQ} questionLevel="h3" />
+  <CtaBanner
+    title="¿El turno se marca en un cuaderno?"
+    body="Te mostramos la marca con el rostro y el reporte de horas en Tabstr POS."
+  />
+</MarketingPage>

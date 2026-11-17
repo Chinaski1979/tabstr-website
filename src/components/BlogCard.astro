@@ -1,0 +1,45 @@
+---
+import type { BlogPost } from "../data/blogData";
+
+interface Props {
+  post: BlogPost;
+  headingLevel?: "h2" | "h3";
+  revealDelay?: number;
+}
+
+const { post, headingLevel = "h3", revealDelay = 0 } = Astro.props;
+const Heading = headingLevel;
+---
+
+<a
+  href={post.href}
+  class="spotlight-card group flex h-full flex-col p-3 sm:p-4"
+  data-reveal
+  style={`--reveal-delay: ${revealDelay}ms`}
+>
+  <div class="relative z-10 overflow-hidden rounded-2xl">
+    <img
+      src={post.image}
+      alt={post.title}
+      class="h-52 sm:h-60 w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-bgDark1/90 via-bgDark1/20 to-transparent"></div>
+    <div class="absolute bottom-3 left-3 flex flex-wrap items-center gap-2 text-xs font-semibold">
+      <span class="rounded-full bg-brand-gradient px-2.5 py-1 text-primaryText">{post.category}</span>
+      <span class="rounded-full border border-solid border-white/15 bg-bgDark1/70 px-2.5 py-1 text-primaryText backdrop-blur">
+        {post.readingMinutes} min de lectura
+      </span>
+    </div>
+  </div>
+  <div class="relative z-10 flex flex-1 flex-col px-3 pb-4 pt-5 sm:px-5">
+    <time class="mb-3 block text-sm text-secondaryColor">{post.date}</time>
+    <Heading class="mb-3 font-display text-xl sm:text-2xl font-bold tracking-tight text-primaryText transition group-hover:text-secondaryColor line-clamp-3">
+      {post.title}
+    </Heading>
+    <p class="text-secondaryText leading-relaxed line-clamp-3">{post.subtitle}</p>
+    <span class="mt-auto pt-5 text-sm font-semibold text-primaryText/80 transition group-hover:text-secondaryColor">
+      Leer artículo <span class="inline-block transition group-hover:translate-x-1" aria-hidden="true">→</span>
+    </span>
+  </div>
+</a>

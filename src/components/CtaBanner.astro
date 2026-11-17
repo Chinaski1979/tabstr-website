@@ -1,9 +1,12 @@
 ---
+import { whatsappUrl } from "../lib/whatsapp";
+
 interface Props {
   title?: string;
   body?: string;
   href?: string;
   label?: string;
+  showWhatsapp?: boolean;
 }
 
 const {
@@ -11,11 +14,31 @@ const {
   body = "Agendá una demo o arrancá con un mes gratis. Te mostramos facturación Hacienda 4.4, migración y cómo queda el punto de venta en tu operación.",
   href = "/contacto/",
   label = "Contactar a Tabstr",
+  showWhatsapp = true,
 } = Astro.props;
 ---
 
-<aside class="mt-16 rounded-3xl bg-bgDark3 border border-solid border-mainBorder p-8 sm:p-10 text-center">
-  <h2 class="text-2xl sm:text-3xl font-bold text-primaryText mb-4">{title}</h2>
-  <p class="text-secondaryText max-w-2xl mx-auto mb-8 leading-relaxed">{body}</p>
-  <a href={href} class="contained-button h-12 px-8 inline-flex">{label}</a>
+<aside
+  class="glow-border relative mt-16 overflow-hidden rounded-3xl bg-bgDark1 px-6 py-14 sm:px-12 sm:py-16 text-center shadow-glow-lg"
+  data-reveal
+>
+  <div class="absolute inset-0 bg-brand-gradient-soft" aria-hidden="true"></div>
+  <div class="brand-glow w-[30rem] h-[18rem] sm:w-[44rem] sm:h-[22rem] left-1/2 -ml-[15rem] sm:-ml-[22rem] -top-28" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-grid-fade opacity-60" aria-hidden="true"></div>
+  <div class="relative z-10">
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-primaryText mb-5 max-w-3xl mx-auto">
+      {title}
+    </h2>
+    <p class="text-secondaryText max-w-2xl mx-auto mb-9 leading-relaxed">{body}</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href={href} class="contained-button h-12 px-8">{label}</a>
+      {
+        showWhatsapp && (
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" class="ghost-button h-12 px-8">
+            Escribinos por WhatsApp
+          </a>
+        )
+      }
+    </div>
+  </div>
 </aside>

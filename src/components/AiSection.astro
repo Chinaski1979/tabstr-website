@@ -1,0 +1,56 @@
+---
+import aiAssistance from "../assets/images/ai-assistance.webp";
+
+const signals: string[] = ["Semanas anteriores", "Mismo mes del año pasado", "Navidad y Semana Santa"];
+---
+
+<section class="relative overflow-hidden w-full bg-gradient-to-b from-bgDark2 via-bgDark1 to-bgDark2 py-20 sm:py-28">
+  <div class="brand-glow w-[40rem] h-[30rem] -right-40 top-1/4 opacity-50" aria-hidden="true"></div>
+
+  <div class="relative mx-auto w-11/12 max-w-6xl flex flex-col lg:flex-row items-center gap-14 lg:gap-16">
+    <div class="w-full lg:w-1/2" data-reveal>
+      <span class="inline-flex items-center gap-2 rounded-full border border-solid border-secondaryColor/30 bg-white/[0.04] px-3 py-1">
+        <span class="rounded-full bg-brand-gradient px-2 py-0.5 text-[0.7rem] font-bold text-primaryText">IA</span>
+        <span class="block-subtitle">Con Inteligencia Artificial</span>
+      </span>
+      <h2 class="mt-6 mb-6 block-big-title lg:text-5xl">
+        Te ayuda con los <span class="text-gradient-brand">pedidos de los proveedores</span>
+      </h2>
+      <p class="mb-8 text-secondaryText leading-loose">
+        Tabstr usa IA para analizar las ventas de tu negocio y sugerir la cantidad de productos que debes tener en
+        stock. Compara tus ventas con las de semanas anteriores, el mismo mes del año anterior y toma fechas
+        especiales como Navidad, Semana Santa, etc. Todo para que tu negocio sea más eficiente y tus clientes más
+        satisfechos. Además tiene integrado un chat de soporte que te ayuda a resolver tus dudas y problemas.
+      </p>
+      <ul class="flex flex-wrap gap-2" aria-label="Datos que analiza la IA">
+        {
+          signals.map((signal) => (
+            <li class="rounded-full border border-solid border-mainBorderDarker bg-white/[0.03] px-3 py-1 text-xs font-medium text-secondaryText">
+              {signal}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="relative w-full lg:w-1/2" data-reveal style="--reveal-delay: 120ms">
+      <div class="glow-border relative rounded-3xl bg-white/[0.04] p-2 shadow-glow-lg">
+        <img
+          src={aiAssistance.src}
+          alt="Asistente de inteligencia artificial de Tabstr POS sugiriendo stock para un restaurante en Costa Rica"
+          class="w-full h-auto rounded-2xl"
+          loading="lazy"
+          width={aiAssistance.width}
+          height={aiAssistance.height}
+        />
+      </div>
+      <div
+        class="absolute -bottom-6 left-4 sm:-left-6 max-w-[16rem] rounded-2xl border border-solid border-white/10 bg-bgDark1/90 backdrop-blur-xl px-4 py-3 shadow-2xl"
+        aria-hidden="true"
+      >
+        <p class="text-[0.7rem] font-semibold uppercase tracking-wider text-secondaryColor">Sugerencia de stock</p>
+        <p class="mt-1 text-sm text-primaryText">Pedí <span class="font-bold">+18%</span> de cerveza para Semana Santa</p>
+      </div>
+    </div>
+  </div>
+</section>

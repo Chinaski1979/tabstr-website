@@ -12,8 +12,13 @@ const legalLinks = [
 
 export const Footer = () => {
   return (
-    <footer aria-label="Pie de sitio de Tabstr POS">
-      <div className="pt-10 lg:pt-10 lg:pb-10 bg-bgDark1 radius-for-skewed">
+    <footer aria-label="Pie de sitio de Tabstr POS" className="relative overflow-hidden bg-bgDark1">
+      <div className="section-divider" />
+      <div
+        className="brand-glow w-[40rem] h-[20rem] left-1/2 -ml-[20rem] -top-40 opacity-30"
+        aria-hidden="true"
+      />
+      <div className="relative pt-16 lg:pt-20">
         <div className="container mx-auto px-4 w-4/5 md:w-11/12 lg:w-10/12 xl:w-4/5 2xl:w-2/3">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-16 lg:mb-0">
@@ -25,33 +30,34 @@ export const Footer = () => {
               <p className="mb-6 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
                 {ENTITY_SENTENCE}
               </p>
-              <p className="mb-1 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
-                Un producto de{" "}
-                <a
-                  href="https://hermosasoftware.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-300"
-                >
-                  Hermosa Software
-                  
-                </a>
-                <p>Hecho con orgullo y estilo en en el hub tecnológico de CR: Bahía Ballena, Osa.</p>
+              <div className="mb-1 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
+                <p>
+                  Un producto de{" "}
+                  <a
+                    href="https://hermosasoftware.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-secondaryColor transition"
+                  >
+                    Hermosa Software
+                  </a>
+                </p>
+                <p>Hecho con orgullo y estilo en el hub tecnológico de CR: Bahía Ballena, Osa.</p>
                 <br />
                 <p>Herso Software Company S.A</p>
-                <a href="mailto:contacto@tabstr.net" className="text-gray-400 hover:text-gray-300">
+                <a href="mailto:contacto@tabstr.net" className="text-gray-400 hover:text-secondaryColor transition">
                   contacto@tabstr.net
                 </a>
-              </p>
+              </div>
             </div>
             <div className="w-full lg:w-2/3 lg:pl-16 flex flex-wrap justify-start">
               <div className="w-full md:w-1/2 mb-16 md:mb-0">
                 <h3 className="mb-6 text-2xl font-bold text-primaryText">Tabstr POS</h3>
                 <ul>
-                  {RELATED_PAGES.slice(0, 8).map((item) => (
+                  {RELATED_PAGES.map((item) => (
                     <li key={item.href} className="mb-3">
                       <a
-                        className="text-gray-400 hover:text-gray-300"
+                        className="text-gray-400 hover:text-secondaryColor transition"
                         href={item.href}
                       >
                         {item.title}
@@ -68,7 +74,7 @@ export const Footer = () => {
                   {legalLinks.map((item) => (
                     <li key={item.href} className="mb-4">
                       <a
-                        className="text-gray-400 hover:text-gray-300"
+                        className="text-gray-400 hover:text-secondaryColor transition"
                         href={item.href}
                         aria-label={item.label}
                       >
@@ -77,12 +83,12 @@ export const Footer = () => {
                     </li>
                   ))}
                   <li className="mb-4">
-                    <a className="text-gray-400 hover:text-gray-300" href="/contacto/">
+                    <a className="text-gray-400 hover:text-secondaryColor transition" href="/contacto/">
                       Contacto
                     </a>
                   </li>
                   <li className="mb-4">
-                    <a className="text-gray-400 hover:text-gray-300" href="/blog/">
+                    <a className="text-gray-400 hover:text-secondaryColor transition" href="/blog/">
                       Blog
                     </a>
                   </li>
@@ -130,6 +136,12 @@ export const Footer = () => {
             </div>
           </div>
         </div>
+        <p
+          aria-hidden="true"
+          className="pointer-events-none select-none text-center font-display font-bold leading-none tracking-tighter text-[26vw] lg:text-[18rem] bg-gradient-to-b from-white/[0.08] to-transparent bg-clip-text text-transparent mt-6 -mb-[0.18em]"
+        >
+          tabstr.
+        </p>
       </div>
     </footer>
   );

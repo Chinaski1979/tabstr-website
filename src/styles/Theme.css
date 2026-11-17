@@ -1,10 +1,10 @@
 /* Typography */
 
 .block-title {
-  @apply text-primaryText text-3xl font-bold tracking-normal;
+  @apply text-primaryText text-3xl font-display font-bold tracking-tight;
 }
 .block-big-title {
-  @apply text-primaryText text-4xl xl:text-5xl font-bold tracking-normal;
+  @apply text-primaryText text-4xl xl:text-5xl font-display font-bold tracking-tight;
 }
 .block-subtitle {
   @apply text-xs text-secondaryColor  tracking-wider font-bold uppercase;
@@ -31,10 +31,160 @@
 /* Buttons */
 
 .contained-button {
-  @apply rounded-lg font-bold bg-primaryColor text-primaryText flex justify-center items-center hover:bg-[#c2410c] cursor-pointer transition;
+  @apply rounded-xl font-bold bg-brand-gradient text-primaryText flex justify-center items-center cursor-pointer transition duration-300 shadow-glow-sm hover:shadow-glow-lg hover:brightness-110;
 }
 .outlined-button {
   @apply text-primaryText main-border-gray rounded-xl bg-bgDark2 hover:bg-bgDark3  border-gray-700 text-sm;
+}
+.ghost-button {
+  @apply rounded-xl font-bold text-primaryText flex justify-center items-center gap-2 cursor-pointer border border-solid border-mainBorder bg-white/[0.03] backdrop-blur transition duration-300 hover:bg-white/[0.08] hover:border-secondaryColor/50;
+}
+
+/* Brand effects */
+
+.text-gradient-brand {
+  @apply bg-brand-gradient bg-clip-text text-transparent;
+}
+
+/* Needs a positioned element (relative/absolute/fixed) to anchor the border */
+.glow-border {
+  isolation: isolate;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(229, 172, 71, 0.7),
+    rgba(177, 64, 33, 0.35) 40%,
+    rgba(255, 255, 255, 0.06) 70%,
+    rgba(229, 172, 71, 0.4)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-grid-fade {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+}
+
+.brand-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(177, 64, 33, 0.55) 0%, rgba(229, 172, 71, 0.25) 45%, transparent 70%);
+}
+
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 172, 71, 0.35), rgba(177, 64, 33, 0.35), transparent);
+}
+
+.spotlight-card {
+  --x: 50%;
+  --y: 50%;
+  @apply relative overflow-hidden rounded-3xl border border-solid border-mainBorderDarker bg-bgDark3/60;
+  transition:
+    translate 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--x) var(--y),
+    rgba(229, 172, 71, 0.13),
+    rgba(177, 64, 33, 0.06) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight-card:hover {
+  @apply border-secondaryColor/30;
+  translate: 0 -2px;
+}
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+.icon-chip {
+  @apply inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-gradient-soft border border-solid border-secondaryColor/25 text-secondaryColor;
+}
+
+/* Scroll reveal: only hides content once JS has marked the document */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    translate 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero dashboard tilt that flattens as it scrolls into view */
+
+.hero-tilt {
+  transform: perspective(1600px) rotateX(var(--tilt, 14deg)) scale(var(--tilt-scale, 0.96));
+  transform-origin: center top;
+  will-change: transform;
+}
+
+@supports (animation-timeline: view()) {
+  .hero-tilt {
+    animation: hero-untilt linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+}
+
+@keyframes hero-untilt {
+  from {
+    transform: perspective(1600px) rotateX(14deg) scale(0.96);
+  }
+  to {
+    transform: perspective(1600px) rotateX(0deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-tilt {
+    animation: none;
+    transform: none;
+  }
+  [data-parallax] {
+    transform: none !important;
+  }
+  .animate-glow-pulse {
+    animation: none;
+  }
 }
 
 .contact-gradient-element {
